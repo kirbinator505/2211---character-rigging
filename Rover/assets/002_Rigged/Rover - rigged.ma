@@ -1,6 +1,6 @@
 //Maya ASCII 2022 scene
 //Name: Rover - rigged.ma
-//Last modified: Fri, Feb 11, 2022 11:31:21 PM
+//Last modified: Tue, Feb 15, 2022 03:54:26 PM
 //Codeset: 1252
 file -rdi 1 -ns "Rover_Geo_Fixed" -rfn "Rover_Geo_FixedRN" -op "v=0;" -typ "mayaAscii"
 		 "D:/Git Repos/2211 - character rigging/Rover//assets/001_geo/Rover_Geo_Fixed.ma";
@@ -16,21 +16,21 @@ fileInfo "product" "Maya 2022";
 fileInfo "version" "2022";
 fileInfo "cutIdentifier" "202106180615-26a94e7f8c";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19044)";
-fileInfo "UUID" "8E3B76D6-4701-D469-8F66-8BB78C2B2333";
+fileInfo "UUID" "3E36A814-4BFD-5A55-D4FA-B3A19686FB6E";
 createNode transform -s -n "persp";
 	rename -uid "C9AE3A1A-4FCC-766E-412C-BD8C56CF242E";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 299.88786680158017 206.84826283397496 -422.21987733159739 ;
-	setAttr ".r" -type "double3" 341.06164696606277 -3097.8000000027441 0 ;
+	setAttr ".t" -type "double3" -2.2143897401602848 136.77967546854177 -404.21826458847084 ;
+	setAttr ".r" -type "double3" 348.86164696650746 -3063.8000000006191 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "45E0E5B8-4B67-ECEF-03F0-1CA118A199FA";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 529.21102912623303;
+	setAttr ".coi" 373.01470956558552;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" 0 48.953742980957017 -44.266948699951172 ;
+	setAttr ".tp" -type "double3" 0 14.4563241379796 -99.164320339932345 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 	setAttr ".ai_translator" -type "string" "perspective";
 createNode transform -s -n "top";
@@ -83,7 +83,9 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".hc" -type "string" "viewSet -s %camera";
 	setAttr ".o" yes;
 	setAttr ".ai_translator" -type "string" "orthographic";
-createNode transform -n "Skeleton";
+createNode transform -n "Rover";
+	rename -uid "504566F5-4A41-60E5-E312-C2B6650F60B0";
+createNode transform -n "Skeleton" -p "Rover";
 	rename -uid "7AA66EE2-4758-0096-026D-07A81A498279";
 	setAttr ".v" no;
 createNode joint -n "root" -p "Skeleton";
@@ -472,11 +474,11 @@ createNode parentConstraint -n "right_back_wheel_turn_parentConstraint1" -p "rig
 	setAttr ".erp" yes;
 	setAttr ".tg[0].tot" -type "double3" 2.8421709430404007e-14 -2.1316282072803006e-14 
 		1.4210854715202004e-14 ;
-	setAttr ".tg[0].tor" -type "double3" 5.649800061504203e-30 -3.1805546814634801e-15 
+	setAttr ".tg[0].tor" -type "double3" 5.6498000615042044e-30 -3.1805546814634801e-15 
 		-8.2694421718051442e-14 ;
 	setAttr ".lr" -type "double3" -3.1805546814635148e-15 3.1805546814635187e-15 7.9513867036587922e-14 ;
 	setAttr ".rst" -type "double3" 28.499999999999993 16.325900000000008 13.246599999999997 ;
-	setAttr ".rsrr" -type "double3" -3.1805546814635148e-15 3.1805546814635187e-15 7.9513867036587922e-14 ;
+	setAttr ".rsrr" -type "double3" -3.1805546814635152e-15 3.1805546814635187e-15 7.9513867036587922e-14 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "right_dual_joint_parentConstraint1" -p "right_dual_joint";
 	rename -uid "CEB90F7A-470D-03F5-01DB-14ABA89226F4";
@@ -576,7 +578,7 @@ createNode orientConstraint -n "lower_arm_wrist_orientConstraint1" -p "lower_arm
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" 0 -90 0 ;
+	setAttr ".lr" -type "double3" 0 -89.999999999999986 0 ;
 	setAttr ".o" -type "double3" 0 90 0 ;
 	setAttr -k on ".w0";
 createNode ikEffector -n "effector1" -p "lower_arm_elbow";
@@ -602,7 +604,7 @@ createNode parentConstraint -n "lower_arm_base_parentConstraint1" -p "lower_arm_
 	setAttr ".tg[0].tot" -type "double3" -1.3552527156068805e-20 7.1054273576010019e-15 
 		-1.4210854715202004e-14 ;
 	setAttr ".tg[0].tor" -type "double3" 0 0 -6.3611093629270335e-15 ;
-	setAttr ".lr" -type "double3" 0 0 6.3611093629270335e-15 ;
+	setAttr ".lr" -type "double3" 0 0 1.9083328088781101e-14 ;
 	setAttr ".rst" -type "double3" -1.8767753897662496e-15 -1.5141754150390838 -30.522235870361321 ;
 	setAttr ".rsrr" -type "double3" 0 0 6.3611093629270335e-15 ;
 	setAttr -k on ".w0";
@@ -719,7 +721,7 @@ createNode parentConstraint -n "dish_base_parentConstraint1" -p "dish_base";
 		1.4210854715202004e-14 ;
 	setAttr ".rst" -type "double3" -38.537918090820263 24.958183288574226 38.783660888671861 ;
 	setAttr -k on ".w0";
-createNode transform -n "Controls";
+createNode transform -n "Controls" -p "Rover";
 	rename -uid "E1263A81-4D11-C8C7-DF81-AA81B34820C4";
 createNode transform -n "Root_transform_group" -p "Controls";
 	rename -uid "50DE7843-43C8-C8AF-967D-9C8545721D07";
@@ -806,7 +808,9 @@ createNode transform -n "Left_front_wheel_turn_control_group" -p "Left_hip_contr
 	setAttr ".t" -type "double3" 44.717535334224941 -22.529296874999936 -1.3372665053414394 ;
 	setAttr ".r" -type "double3" -90 -89.999999999999986 0 ;
 	setAttr ".s" -type "double3" 1 0.99999999999999956 1 ;
-createNode transform -n "Left_front_wheel_turn_control" -p "Left_front_wheel_turn_control_group";
+createNode transform -n "Left_front_wheel_turn_control_offset" -p "Left_front_wheel_turn_control_group";
+	rename -uid "741E2E73-4AB7-153C-7907-5DAE067BFE66";
+createNode transform -n "Left_front_wheel_turn_control" -p "Left_front_wheel_turn_control_offset";
 	rename -uid "60F4F600-43A0-4E0B-C51B-0B8C6CC4F380";
 createNode nurbsCurve -n "Left_front_wheel_turn_controlShape" -p "Left_front_wheel_turn_control";
 	rename -uid "B4C2880F-445E-313F-C989-3390446CA320";
@@ -861,7 +865,9 @@ createNode transform -n "Left_back_wheel_turn_control_group" -p "Left_dual_arm_c
 	setAttr ".t" -type "double3" -28.499996185302699 -16.325901031494244 -13.246597290038967 ;
 	setAttr ".r" -type "double3" -90 -89.999999999999986 0 ;
 	setAttr ".s" -type "double3" 1 0.99999999999999956 0.99999999999999978 ;
-createNode transform -n "Left_back_wheel_turn_control" -p "Left_back_wheel_turn_control_group";
+createNode transform -n "Left_back_wheel_turn_control_offset" -p "Left_back_wheel_turn_control_group";
+	rename -uid "6F022EFD-42E4-E430-CA75-6099CBA661F0";
+createNode transform -n "Left_back_wheel_turn_control" -p "Left_back_wheel_turn_control_offset";
 	rename -uid "249CD034-4333-D07E-9D93-E5BBA1475CCE";
 createNode nurbsCurve -n "Left_back_wheel_turn_controlShape" -p "Left_back_wheel_turn_control";
 	rename -uid "2A3F2038-4609-A53D-5136-298EF899752A";
@@ -918,8 +924,11 @@ createNode transform -n "Right_front_wheel_turn_control_group" -p "Right_hip_con
 	setAttr ".t" -type "double3" -44.7175 22.5293 1.3373000000000026 ;
 	setAttr ".r" -type "double3" -90.000000000000014 -89.999999999999986 0 ;
 	setAttr ".s" -type "double3" 1.0000000000000004 0.99999999999999956 1.0000000000000004 ;
-createNode transform -n "Right_front_wheel_turn_control" -p "Right_front_wheel_turn_control_group";
+createNode transform -n "Right_front_wheel_turn_control_offset" -p "Right_front_wheel_turn_control_group";
+	rename -uid "18D17ACD-4A1A-0838-4549-E2AE94D2A983";
+createNode transform -n "Right_front_wheel_turn_control" -p "Right_front_wheel_turn_control_offset";
 	rename -uid "544CCC69-4ED4-4E13-F20B-BDBCAA1CF6E1";
+	setAttr ".t" -type "double3" -3.5527136788005009e-15 0 1.7763568394002505e-15 ;
 createNode nurbsCurve -n "Right_front_wheel_turn_controlShape" -p "Right_front_wheel_turn_control";
 	rename -uid "D22EC8C6-498C-D92B-7145-CDA20C5592DF";
 	setAttr -k off ".v";
@@ -975,8 +984,11 @@ createNode transform -n "Right_back_wheel_turn_control_group" -p "Right_dual_arm
 	setAttr ".t" -type "double3" 28.499999999999979 -16.325899999999983 13.2466 ;
 	setAttr ".r" -type "double3" -89.999999999999986 -89.999999999999972 0 ;
 	setAttr ".s" -type "double3" 0.99999999999999989 0.99999999999999911 -1 ;
-createNode transform -n "Right_back_wheel_turn_control" -p "Right_back_wheel_turn_control_group";
+createNode transform -n "Right_back_wheel_turn_control_offset" -p "Right_back_wheel_turn_control_group";
+	rename -uid "DC922F1F-4D17-9BD1-5CFF-CD959F813619";
+createNode transform -n "Right_back_wheel_turn_control" -p "Right_back_wheel_turn_control_offset";
 	rename -uid "CE35ADE1-44E8-A982-6DBF-858F523A6EDD";
+	setAttr ".t" -type "double3" 0 7.1054273576010019e-15 0 ;
 createNode nurbsCurve -n "Right_back_wheel_turn_controlShape" -p "Right_back_wheel_turn_control";
 	rename -uid "80918D3A-4646-BE39-2B97-C4AB547437A0";
 	setAttr -k off ".v";
@@ -1113,7 +1125,7 @@ createNode nurbsCurve -n "Head_tilt_controlShape" -p "Head_tilt_control";
 createNode transform -n "lower_arm_turn_control_group" -p "COG_control";
 	rename -uid "A198EF3D-4E0B-807B-0799-F9B34A82E367";
 	setAttr ".t" -type "double3" 30.522235870361328 -1.5141754150390767 -6.7772978052629971e-15 ;
-	setAttr ".r" -type "double3" 90 -89.999928683172001 0 ;
+	setAttr ".r" -type "double3" 90 -89.999928683172016 0 ;
 	setAttr ".s" -type "double3" 0.99999999999999956 1 1 ;
 createNode transform -n "lower_arm_turn_control" -p "lower_arm_turn_control_group";
 	rename -uid "75612740-4136-F78F-9809-FFB8E6BB3057";
@@ -1166,11 +1178,11 @@ createNode nurbsCurve -n "Lower_arm_IK_controlShape" -p "Lower_arm_IK_control";
 		6.4268604349242582e-17 4.9192066822480953 -11.723622536405442
 		-9.2927217869929972 -7.7759663812732169 -9.3572009398846809
 		;
-createNode transform -n "Wheel_spin_control_group" -p "COG_control_group";
+createNode transform -n "Wheel_spin_control_group" -p "COG_control";
 	rename -uid "297859EE-4E6F-3C6E-7196-18B86AB98365";
-	setAttr ".t" -type "double3" 85.419607510342487 -36.01159425801648 -1.8966963002485228e-14 ;
+	setAttr ".t" -type "double3" 85.419607510342473 -36.011594258016487 -1.8966963002485228e-14 ;
 	setAttr ".r" -type "double3" 0 -89.999999999999986 0 ;
-	setAttr ".s" -type "double3" 0.99999999999999956 0.99999999999999978 0.99999999999999978 ;
+	setAttr ".s" -type "double3" 0.99999999999999978 0.99999999999999978 1 ;
 createNode transform -n "Wheel_spin_control" -p "Wheel_spin_control_group";
 	rename -uid "6D7434E5-482B-3511-2428-ADADEB5ED81F";
 createNode nurbsCurve -n "Wheel_spin_controlShape" -p "Wheel_spin_control";
@@ -1194,7 +1206,31 @@ createNode nurbsCurve -n "Wheel_spin_controlShape" -p "Wheel_spin_control";
 		6.7857323231109183e-17 -6.2220265642035791e-16 -10.16134050819484
 		0 7.1851527792901262 -7.1851527792901217
 		;
-createNode ikHandle -n "lower_arm_IK_handle";
+createNode transform -n "Master_Wheel_Turn_Control_group" -p "COG_control";
+	rename -uid "13919934-47C1-08B5-B298-60B573DBE124";
+	setAttr ".t" -type "double3" -13.744712829589838 -50.46791839599608 3.0519393300542833e-15 ;
+	setAttr ".r" -type "double3" 0 -89.999999999999986 0 ;
+	setAttr ".s" -type "double3" 0.99999999999999956 0.99999999999999978 0.99999999999999978 ;
+	setAttr ".rp" -type "double3" -2.8092139876741084e-30 14.456324137979596 -99.164320339932317 ;
+	setAttr ".rpt" -type "double3" 99.164320339932345 0 99.164320339932402 ;
+	setAttr ".sp" -type "double3" -2.8092139876741098e-30 14.4563241379796 -99.164320339932345 ;
+	setAttr ".spt" -type "double3" 1.4012984643248158e-45 -3.5527136788004994e-15 2.8421709430403995e-14 ;
+createNode transform -n "Master_Wheel_Turn_Control" -p "Master_Wheel_Turn_Control_group";
+	rename -uid "281EA60A-474F-46F1-2023-21B22342D181";
+	setAttr ".rp" -type "double3" -2.8092139876741098e-30 14.4563241379796 -99.164320339932345 ;
+	setAttr ".sp" -type "double3" -2.8092139876741098e-30 14.4563241379796 -99.164320339932345 ;
+createNode nurbsCurve -n "Master_Wheel_Turn_ControlShape" -p "Master_Wheel_Turn_Control";
+	rename -uid "D23EA1DA-457A-01E0-B5E0-2A81D8D4E72F";
+	setAttr -k off ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 9;
+	setAttr ".tw" yes;
+	setAttr -s 11 ".cp[0:10]" -type "double3" 2.004162973869414 0 -5.2475481034198879 
+		4.5441460605433773e-16 0 -7.4211536970621381 -2.004162973869414 0 -5.2475481034198879 
+		-4.9853884703551703 0 0 -2.004162973869414 0 5.2475481034201437 -7.4338204139410269e-16 
+		0 7.4211536970617544 2.004162973869414 0 5.2475481034201437 4.9853884703551703 0 
+		0 0 0 0 0 0 0 0 0 0;
+createNode ikHandle -n "lower_arm_IK_handle" -p "Rover";
 	rename -uid "328ED36B-4AF7-AFFB-79E8-08A77482AC4B";
 	setAttr ".v" no;
 	setAttr ".pv" -type "double3" -0.33500463649296569 1.8006557215095187 -0.80337467356344783 ;
@@ -1219,7 +1255,7 @@ createNode parentConstraint -n "lower_arm_IK_handle_parentConstraint1" -p "lower
 	setAttr ".rst" -type "double3" 2.4999995231628853 30.675849914550788 -62.794166564941357 ;
 	setAttr -k on ".w0";
 createNode fosterParent -n "Rover_Geo_FixedRNfosterParent1";
-	rename -uid "2D911593-4DB2-D9CE-8E0B-3FBFC4C0160E";
+	rename -uid "AC860041-426B-28EB-8782-089F89437746";
 createNode mesh -n "Neck_GeoShapeTag" -p "Rover_Geo_FixedRNfosterParent1";
 	rename -uid "C4E42B70-49D3-0F55-2173-4483BF97DC46";
 	setAttr -k off ".v";
@@ -1920,7 +1956,7 @@ createNode parentConstraint -n "Right_Back_Turning_Cube_parentConstraint1" -p "R
 	setAttr ".rsrr" -type "double3" 8.9959671327898869e-15 2.5444437451708134e-14 -7.016709298534876e-15 ;
 	setAttr -k on ".w0";
 createNode fosterParent -n "fosterParent1" -p "Rover_Geo_FixedRNfosterParent1";
-	rename -uid "FFFACFE5-409F-ECA3-AF88-AA88ED4904A6";
+	rename -uid "96538BEC-4A12-1D20-D930-0C9109BCCA98";
 createNode transform -n "Suspension_Arm" -p "fosterParent1";
 	rename -uid "ECBCD099-4CF6-E240-E2D8-0B881AE21CDD";
 createNode transform -n "right_dual_joint_axel" -p "|Rover_Geo_FixedRNfosterParent1|fosterParent1|Suspension_Arm";
@@ -2482,22 +2518,22 @@ createNode parentConstraint -n "Camera_Arm_Boom_Geo_parentConstraint1" -p "Rover
 	setAttr ".rsrr" -type "double3" 0 -1.0221928860218096e-16 0 ;
 	setAttr -k on ".w0";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "D76EF1C6-4CFD-971D-8BDF-E291E08E0645";
+	rename -uid "9E88249B-42B5-B0BA-C4F7-79A89C5488AD";
 	setAttr -s 2 ".lnk";
 	setAttr -s 2 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "93140FA3-40B7-04A1-8F25-B4B16E9E0044";
+	rename -uid "A6EB42F7-4D16-576F-08A4-C29B234FC927";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "340F749C-4690-8C06-F455-3C8764801799";
+	rename -uid "C6EBACA1-4EB9-0DCB-2865-E89BEB66B256";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "29F3E9C2-4C20-FE01-C239-F6842D48B5A4";
+	rename -uid "E9DDFEC9-47A2-5721-13C0-92BBBB57D4D6";
 	setAttr ".cdl" 1;
 	setAttr -s 2 ".dli[1]"  1;
 	setAttr -s 2 ".dli";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "6008D54C-48C6-EDE2-B095-DFB884F1FB19";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "D7B91390-44FD-E82C-B595-71930666E389";
+	rename -uid "FE408A54-46FF-E364-5EFE-26AAC924E5C8";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "A3ECFC9E-407E-B1B7-939E-0892F4A6679F";
 	setAttr ".g" yes;
@@ -2507,17 +2543,17 @@ createNode script -n "uiConfigurationScriptNode";
 		"// Maya Mel UI Configuration File.\n//\n//  This script is machine generated.  Edit at your own risk.\n//\n//\n\nglobal string $gMainPane;\nif (`paneLayout -exists $gMainPane`) {\n\n\tglobal int $gUseScenePanelConfig;\n\tint    $useSceneConfig = $gUseScenePanelConfig;\n\tint    $nodeEditorPanelVisible = stringArrayContains(\"nodeEditorPanel1\", `getPanel -vis`);\n\tint    $nodeEditorWorkspaceControlOpen = (`workspaceControl -exists nodeEditorPanel1Window` && `workspaceControl -q -visible nodeEditorPanel1Window`);\n\tint    $menusOkayInPanels = `optionVar -q allowMenusInPanels`;\n\tint    $nVisPanes = `paneLayout -q -nvp $gMainPane`;\n\tint    $nPanes = 0;\n\tstring $editorName;\n\tstring $panelName;\n\tstring $itemFilterName;\n\tstring $panelConfig;\n\n\t//\n\t//  get current state of the UI\n\t//\n\tsceneUIReplacement -update $gMainPane;\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Top View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|top|topShape\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n"
 		+ "            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n"
-		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 804\n            -height 326\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
+		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
 		+ "\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|side|sideShape\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n"
 		+ "            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n"
-		+ "            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 803\n            -height 326\n"
+		+ "            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n"
 		+ "            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|front|frontShape\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n"
 		+ "            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n"
 		+ "            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n"
-		+ "            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 804\n            -height 326\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|persp|perspShape\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n"
+		+ "            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|persp|perspShape\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n"
 		+ "            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n"
 		+ "            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n"
-		+ "            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1614\n            -height 696\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n"
+		+ "            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1673\n            -height 811\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n"
 		+ "\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 1\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n"
 		+ "            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -isSet 0\n            -isSetMember 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n"
 		+ "            -renderFilterVisible 0\n            -renderFilterIndex 0\n            -selectionOrder \"chronological\" \n            -expandAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 0\n            -showReferenceMembers 0\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n"
@@ -2532,20 +2568,20 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "\n\t\t\t$editorName = clipEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayValues 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -initialized 0\n                -manageSequencer 0 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"sequenceEditorPanel\" (localizedPanelLabel(\"Camera Sequencer\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Camera Sequencer\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = sequenceEditorNameFromPanel($panelName);\n            clipEditor -e \n                -displayValues 0\n                -snapTime \"none\" \n                -snapValue \"none\" \n                -initialized 0\n                -manageSequencer 1 \n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperGraphPanel\" (localizedPanelLabel(\"Hypergraph Hierarchy\")) `;\n"
 		+ "\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypergraph Hierarchy\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"HyperGraphEd\");\n            hyperGraph -e \n                -graphLayoutStyle \"hierarchicalLayout\" \n                -orientation \"horiz\" \n                -mergeConnections 0\n                -zoom 1\n                -animateTransition 0\n                -showRelationships 1\n                -showShapes 0\n                -showDeformers 0\n                -showExpressions 0\n                -showConstraints 0\n                -showConnectionFromSelected 0\n                -showConnectionToSelected 0\n                -showConstraintLabels 0\n                -showUnderworld 0\n                -showInvisible 0\n                -transitionFrames 1\n                -opaqueContainers 0\n                -freeform 0\n                -imagePosition 0 0 \n                -imageScale 1\n                -imageEnabled 0\n                -graphType \"DAG\" \n"
 		+ "                -heatMapDisplay 0\n                -updateSelection 1\n                -updateNodeAdded 1\n                -useDrawOverrideColor 0\n                -limitGraphTraversal -1\n                -range 0 0 \n                -iconSize \"smallIcons\" \n                -showCachedConnections 0\n                $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"hyperShadePanel\" (localizedPanelLabel(\"Hypershade\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Hypershade\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"visorPanel\" (localizedPanelLabel(\"Visor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Visor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n"
-		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"nodeEditorPanel\" (localizedPanelLabel(\"Node Editor\")) `;\n\tif ($nodeEditorPanelVisible || $nodeEditorWorkspaceControlOpen) {\n\t\tif (\"\" == $panelName) {\n\t\t\tif ($useSceneConfig) {\n\t\t\t\t$panelName = `scriptedPanel -unParent  -type \"nodeEditorPanel\" -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -consistentNameSize 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -connectNodeOnCreation 0\n                -connectOnDrop 0\n                -copyConnectionsOnPaste 0\n                -connectionStyle \"bezier\" \n                -defaultPinnedState 0\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n"
-		+ "                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -crosshairOnEdgeDragging 0\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                -editorMode \"default\" \n                -hasWatchpoint 0\n                $editorName;\n\t\t\t}\n\t\t} else {\n\t\t\t$label = `panel -q -label $panelName`;\n\t\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -consistentNameSize 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -connectNodeOnCreation 0\n                -connectOnDrop 0\n"
-		+ "                -copyConnectionsOnPaste 0\n                -connectionStyle \"bezier\" \n                -defaultPinnedState 0\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -crosshairOnEdgeDragging 0\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                -editorMode \"default\" \n                -hasWatchpoint 0\n                $editorName;\n\t\t\tif (!$useSceneConfig) {\n\t\t\t\tpanel -e -l $label $panelName;\n\t\t\t}\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"createNodePanel\" (localizedPanelLabel(\"Create Node\")) `;\n"
-		+ "\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"polyTexturePlacementPanel\" (localizedPanelLabel(\"UV Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"UV Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderWindowPanel\" (localizedPanelLabel(\"Render View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"shapePanel\" (localizedPanelLabel(\"Shape Editor\")) `;\n"
-		+ "\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tshapePanel -edit -l (localizedPanelLabel(\"Shape Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"posePanel\" (localizedPanelLabel(\"Pose Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tposePanel -edit -l (localizedPanelLabel(\"Pose Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynRelEdPanel\" (localizedPanelLabel(\"Dynamic Relationships\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"relationshipPanel\" (localizedPanelLabel(\"Relationship Editor\")) `;\n"
-		+ "\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"referenceEditorPanel\" (localizedPanelLabel(\"Reference Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"componentEditorPanel\" (localizedPanelLabel(\"Component Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynPaintScriptedPanelType\" (localizedPanelLabel(\"Paint Effects\")) `;\n"
-		+ "\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"scriptEditorPanel\" (localizedPanelLabel(\"Script Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"profilerPanel\" (localizedPanelLabel(\"Profiler Tool\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Profiler Tool\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"contentBrowserPanel\" (localizedPanelLabel(\"Content Browser\")) `;\n"
-		+ "\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Content Browser\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"Stereo\" (localizedPanelLabel(\"Stereo\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels  $panelName;\n{ string $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"|persp|perspShape\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n"
-		+ "                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 32768\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n"
-		+ "                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -controllers 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n"
-		+ "                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName; };\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n"
-		+ "\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap true\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1614\\n    -height 696\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1614\\n    -height 696\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"nodeEditorPanel\" (localizedPanelLabel(\"Node Editor\")) `;\n\tif ($nodeEditorPanelVisible || $nodeEditorWorkspaceControlOpen) {\n\t\tif (\"\" == $panelName) {\n\t\t\tif ($useSceneConfig) {\n\t\t\t\t$panelName = `scriptedPanel -unParent  -type \"nodeEditorPanel\" -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels `;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n                -consistentNameSize 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -connectNodeOnCreation 0\n                -connectOnDrop 0\n                -copyConnectionsOnPaste 0\n                -connectionStyle \"bezier\" \n                -connectionMinSegment 0.03\n                -connectionOffset 0.03\n                -connectionRoundness 0.8\n                -connectionTension -100\n                -defaultPinnedState 0\n"
+		+ "                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -crosshairOnEdgeDragging 0\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n                -extendToShapes 1\n                -editorMode \"default\" \n                -hasWatchpoint 0\n                $editorName;\n\t\t\t}\n\t\t} else {\n\t\t\t$label = `panel -q -label $panelName`;\n\t\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Node Editor\")) -mbv $menusOkayInPanels  $panelName;\n\n\t\t\t$editorName = ($panelName+\"NodeEditorEd\");\n            nodeEditor -e \n                -allAttributes 0\n                -allNodes 0\n                -autoSizeNodes 1\n"
+		+ "                -consistentNameSize 1\n                -createNodeCommand \"nodeEdCreateNodeCommand\" \n                -connectNodeOnCreation 0\n                -connectOnDrop 0\n                -copyConnectionsOnPaste 0\n                -connectionStyle \"bezier\" \n                -connectionMinSegment 0.03\n                -connectionOffset 0.03\n                -connectionRoundness 0.8\n                -connectionTension -100\n                -defaultPinnedState 0\n                -additiveGraphingMode 0\n                -settingsChangedCallback \"nodeEdSyncControls\" \n                -traversalDepthLimit -1\n                -keyPressCommand \"nodeEdKeyPressCommand\" \n                -nodeTitleMode \"name\" \n                -gridSnap 0\n                -gridVisibility 1\n                -crosshairOnEdgeDragging 0\n                -popupMenuScript \"nodeEdBuildPanelMenus\" \n                -showNamespace 1\n                -showShapes 1\n                -showSGShapes 0\n                -showTransforms 1\n                -useAssets 1\n                -syncedSelection 1\n"
+		+ "                -extendToShapes 1\n                -editorMode \"default\" \n                -hasWatchpoint 0\n                $editorName;\n\t\t\tif (!$useSceneConfig) {\n\t\t\t\tpanel -e -l $label $panelName;\n\t\t\t}\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"createNodePanel\" (localizedPanelLabel(\"Create Node\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Create Node\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"polyTexturePlacementPanel\" (localizedPanelLabel(\"UV Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"UV Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"renderWindowPanel\" (localizedPanelLabel(\"Render View\")) `;\n"
+		+ "\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Render View\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"shapePanel\" (localizedPanelLabel(\"Shape Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tshapePanel -edit -l (localizedPanelLabel(\"Shape Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"posePanel\" (localizedPanelLabel(\"Pose Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tposePanel -edit -l (localizedPanelLabel(\"Pose Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynRelEdPanel\" (localizedPanelLabel(\"Dynamic Relationships\")) `;\n\tif (\"\" != $panelName) {\n"
+		+ "\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Dynamic Relationships\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"relationshipPanel\" (localizedPanelLabel(\"Relationship Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Relationship Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"referenceEditorPanel\" (localizedPanelLabel(\"Reference Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Reference Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"componentEditorPanel\" (localizedPanelLabel(\"Component Editor\")) `;\n"
+		+ "\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Component Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"dynPaintScriptedPanelType\" (localizedPanelLabel(\"Paint Effects\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Paint Effects\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"scriptEditorPanel\" (localizedPanelLabel(\"Script Editor\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Script Editor\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"profilerPanel\" (localizedPanelLabel(\"Profiler Tool\")) `;\n"
+		+ "\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Profiler Tool\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"contentBrowserPanel\" (localizedPanelLabel(\"Content Browser\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Content Browser\")) -mbv $menusOkayInPanels  $panelName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextScriptedPanel \"Stereo\" (localizedPanelLabel(\"Stereo\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tscriptedPanel -edit -l (localizedPanelLabel(\"Stereo\")) -mbv $menusOkayInPanels  $panelName;\n{ string $editorName = ($panelName+\"Editor\");\n            stereoCameraView -e \n                -camera \"|persp|perspShape\" \n                -useInteractiveMode 0\n                -displayLights \"default\" \n"
+		+ "                -displayAppearance \"wireframe\" \n                -activeOnly 0\n                -ignorePanZoom 0\n                -wireframeOnShaded 0\n                -headsUpDisplay 1\n                -holdOuts 1\n                -selectionHiliteDisplay 1\n                -useDefaultMaterial 0\n                -bufferMode \"double\" \n                -twoSidedLighting 1\n                -backfaceCulling 0\n                -xray 0\n                -jointXray 0\n                -activeComponentsXray 0\n                -displayTextures 0\n                -smoothWireframe 0\n                -lineWidth 1\n                -textureAnisotropic 0\n                -textureHilight 1\n                -textureSampling 2\n                -textureDisplay \"modulate\" \n                -textureMaxSize 32768\n                -fogging 0\n                -fogSource \"fragment\" \n                -fogMode \"linear\" \n                -fogStart 0\n                -fogEnd 100\n                -fogDensity 0.1\n                -fogColor 0.5 0.5 0.5 1 \n                -depthOfFieldPreview 1\n"
+		+ "                -maxConstantTransparency 1\n                -objectFilterShowInHUD 1\n                -isFiltered 0\n                -colorResolution 4 4 \n                -bumpResolution 4 4 \n                -textureCompression 0\n                -transparencyAlgorithm \"frontAndBackCull\" \n                -transpInShadows 0\n                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -controllers 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n"
+		+ "                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n"
+		+ "                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName; };\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap true\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1673\\n    -height 811\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1673\\n    -height 811\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
@@ -2929,1004 +2965,1010 @@ createNode reference -n "Rover_Geo_FixedRN";
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"Rover_Geo_FixedRN"
 		"Rover_Geo_FixedRN" 0
-		"Rover_Geo_FixedRN" 608
+		"Rover_Geo_FixedRN" 609
+		0 "|Rover_Geo_Fixed:RoverGeo" "|Rover" "-s -r "
 		0 "|Rover_Geo_Fixed:Right_Suspension_Bar_GeoShape" "|Rover_Geo_FixedRNfosterParent1|transform4" 
 		"-s -r "
 		0 "|Rover_Geo_Fixed:Right_Suspension_Front_Arm_GeoShape" "|Rover_Geo_FixedRNfosterParent1|transform3" 
 		"-s -r "
 		0 "|Rover_Geo_FixedRNfosterParent1|Camera_Arm_Boom_Geo_parentConstraint1" 
-		"|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo" "-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Camera_Arm_Boom_GeoShapeTag" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo" 
+		"|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo" "-s -r "
+		0 "|Rover_Geo_FixedRNfosterParent1|Camera_Arm_Boom_GeoShapeTag" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Camera_Arm_Boom_GeoShapeDeformed" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Camera_Arm_Boom_GeoShapeDeformed" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo" 
 		"-s -r "
 		0 "|Rover_Geo_FixedRNfosterParent1|Camera_Arm_Shoulder_Geo_parentConstraint1" 
-		"|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo" "-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Camera_Arm_Shoulder_GeoShapeTag" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo" 
+		"|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo" "-s -r "
+		
+		0 "|Rover_Geo_FixedRNfosterParent1|Camera_Arm_Shoulder_GeoShapeTag" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo" 
 		"-s -r "
 		0 "|Rover_Geo_FixedRNfosterParent1|Camera_Arm_Shoulder_GeoShapeDeformed" 
-		"|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo" "-s -r "
+		"|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo" "-s -r "
+		
 		0 "|Rover_Geo_FixedRNfosterParent1|Camera_Arm_Arm_Geo_parentConstraint1" 
-		"|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo" "-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Camera_Arm_Arm_GeoShapeTag" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo" 
+		"|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo" "-s -r "
+		0 "|Rover_Geo_FixedRNfosterParent1|Camera_Arm_Arm_GeoShapeTag" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Camera_Arm_Arm_GeoShapeDeformed" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Camera_Arm_Arm_GeoShapeDeformed" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo" 
 		"-s -r "
 		0 "|Rover_Geo_FixedRNfosterParent1|Camera_Arm_Head_Geo_parentConstraint1" 
-		"|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo" "-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Camera_Arm_Head_GeoShapeTag" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo" 
+		"|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo" "-s -r "
+		0 "|Rover_Geo_FixedRNfosterParent1|Camera_Arm_Head_GeoShapeTag" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Camera_Arm_Head_GeoShapeDeformed" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Camera_Arm_Head_GeoShapeDeformed" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Dish_Elbow_GeoShapeDeformed" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Dish_Elbow_GeoShapeDeformed" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Dish_Elbow_GeoShapeTag" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Dish_Elbow_GeoShapeTag" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Dish_Elbow_Geo_parentConstraint1" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Dish_Elbow_Geo_parentConstraint1" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Right_Wheel_1_Geo_parentConstraint1" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Right_Wheel_1_Geo_parentConstraint1" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Right_Wheel_2_Geo_parentConstraint1" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Right_Wheel_2_Geo_parentConstraint1" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Right_Wheel_3_Geo_parentConstraint1" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Right_Wheel_3_Geo_parentConstraint1" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Left_Wheel_3_Geo_parentConstraint1" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Left_Wheel_3_Geo_parentConstraint1" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Left_Wheel_3_GeoShapeTag" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Left_Wheel_3_GeoShapeTag" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Left_Wheel_3_GeoShapeDeformed" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Left_Wheel_3_GeoShapeDeformed" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Left_Wheel_2_Geo_parentConstraint1" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Left_Wheel_2_Geo_parentConstraint1" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Left_Wheel_2_GeoShapeTag" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Left_Wheel_2_GeoShapeTag" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Left_Wheel_2_GeoShapeDeformed" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Left_Wheel_2_GeoShapeDeformed" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Left_Wheel_1_Geo_parentConstraint1" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Left_Wheel_1_Geo_parentConstraint1" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Left_Wheel_1_GeoShapeTag" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Left_Wheel_1_GeoShapeTag" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Left_Wheel_1_GeoShapeDeformed" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Left_Wheel_1_GeoShapeDeformed" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|transform4" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Bar_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|transform4" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Bar_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|fosterParent1|Suspension_Arm" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Bar_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|fosterParent1|Suspension_Arm" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Bar_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Right_Back_Turning_Cube" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Bar_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Right_Back_Turning_Cube" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Bar_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|transform2" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Bar_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|transform2" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Bar_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Suspension_Arm" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Bar_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Suspension_Arm" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Bar_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Left_Back_Turning_Cube" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Bar_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Left_Back_Turning_Cube" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Bar_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Left_Suspension_Bar_GeoShapeTag" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Bar_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Left_Suspension_Bar_GeoShapeTag" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Bar_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Body_GeoShapeTag" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Body_GeoShapeTag" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Body_GeoShapeDeformed" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Body_GeoShapeDeformed" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Body_Geo_parentConstraint1" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Body_Geo_parentConstraint1" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|transform1" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|transform1" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Left_Front_Suspension_Arm" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Left_Front_Suspension_Arm" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Left_Front_Turning_Cube" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Left_Front_Turning_Cube" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_Geo" 
 		"-s -r "
 		0 "|Rover_Geo_FixedRNfosterParent1|Left_Suspension_Front_Arm_GeoShapeTag" 
-		"|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_Geo" "-s -r "
+		"|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_Geo" "-s -r "
 		
-		0 "|Rover_Geo_FixedRNfosterParent1|transform3" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Front_Arm_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|transform3" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Front_Arm_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Right_Front_Suspension_Arm" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Front_Arm_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Right_Front_Suspension_Arm" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Front_Arm_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Right_Front_Turning_Cube" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Front_Arm_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Right_Front_Turning_Cube" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Front_Arm_Geo" 
 		"-s -r "
 		0 "|Rover_Geo_FixedRNfosterParent1|Left_Suspension_Hip_Geo_parentConstraint1" 
-		"|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo" "-s -r "
+		"|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo" "-s -r "
+		
 		0 "|Rover_Geo_FixedRNfosterParent1|Right_Suspension_Hip_Geo_parentConstraint1" 
-		"|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo" "-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Dish_GeoShapeDeformed" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo" 
+		"|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo" "-s -r "
+		
+		0 "|Rover_Geo_FixedRNfosterParent1|Dish_GeoShapeDeformed" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Dish_GeoShapeTag" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Dish_GeoShapeTag" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Dish_Geo_parentConstraint1" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Dish_Geo_parentConstraint1" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo" 
 		"-s -r "
 		0 "|Rover_Geo_FixedRNfosterParent1|Left_Solar_Panel_Geo1_parentConstraint1" 
-		"|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1" "-s -r "
+		"|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1" "-s -r "
 		0 "|Rover_Geo_FixedRNfosterParent1|Right_Solar_Panel_Geo1_parentConstraint1" 
-		"|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1" "-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Antenna_Geo_parentConstraint1" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo" 
+		"|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1" "-s -r "
+		
+		0 "|Rover_Geo_FixedRNfosterParent1|Antenna_Geo_parentConstraint1" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Head_Geo_parentConstraint1" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Head_Geo_parentConstraint1" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Head_GeoShapeDeformed" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Head_GeoShapeDeformed" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Head_GeoShapeTag" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Head_GeoShapeTag" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo" 
 		"-s -r "
 		0 "|Rover_Geo_FixedRNfosterParent1|Rear_Solar_Panel_Geo1_parentConstraint1" 
-		"|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Rear_Solar_Panel_Geo1" "-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Neck_Geo_parentConstraint1" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo" 
+		"|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Rear_Solar_Panel_Geo1" "-s -r "
+		0 "|Rover_Geo_FixedRNfosterParent1|Neck_Geo_parentConstraint1" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Neck_GeoShapeDeformed" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Neck_GeoShapeDeformed" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo" 
 		"-s -r "
-		0 "|Rover_Geo_FixedRNfosterParent1|Neck_GeoShapeTag" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo" 
+		0 "|Rover_Geo_FixedRNfosterParent1|Neck_GeoShapeTag" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo" 
 		"-s -r "
-		1 |Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo "blendParent1" 
+		1 |Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo "blendParent1" 
 		"blendParent1" " -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
-		1 |Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo "blendParent1" 
+		1 |Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo 
+		"blendParent1" "blendParent1" " -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
+		1 |Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo "blendParent1" 
 		"blendParent1" " -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
-		1 |Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo "blendParent1" 
+		1 |Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo "blendParent1" 
 		"blendParent1" " -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
-		1 |Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo "blendParent1" 
+		1 |Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo "blendParent1" 
 		"blendParent1" " -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
-		1 |Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo "blendParent1" 
+		1 |Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo "blendParent1" 
 		"blendParent1" " -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
-		1 |Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo "blendParent1" 
+		1 |Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo "blendParent1" 
 		"blendParent1" " -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
-		1 |Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo "blendParent1" 
+		1 |Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo "blendParent1" 
 		"blendParent1" " -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
-		1 |Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo "blendParent1" 
+		1 |Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo "blendParent1" 
 		"blendParent1" " -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
-		1 |Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo "blendParent1" 
+		1 |Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo "blendParent1" 
 		"blendParent1" " -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
-		1 |Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo "blendParent1" 
+		1 |Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo "blendParent1" 
 		"blendParent1" " -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
-		1 |Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo "blendParent1" 
+		1 |Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo "blendParent1" 
 		"blendParent1" " -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
-		1 |Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo "blendParent1" "blendParent1" 
-		" -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
-		1 |Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo "blendParent1" 
+		1 |Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo 
+		"blendParent1" "blendParent1" " -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
+		1 |Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo 
+		"blendParent1" "blendParent1" " -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
+		1 |Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo "blendParent1" 
 		"blendParent1" " -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
-		1 |Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo "blendParent1" 
+		1 |Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1 "blendParent1" 
 		"blendParent1" " -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
-		1 |Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo "blendParent1" "blendParent1" 
-		" -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
-		1 |Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1 "blendParent1" 
+		1 |Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1 
+		"blendParent1" "blendParent1" " -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
+		1 |Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo "blendParent1" 
 		"blendParent1" " -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
-		1 |Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1 "blendParent1" 
-		"blendParent1" " -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
-		1 |Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo "blendParent1" "blendParent1" 
-		" -ci 1 -k 1 -dv 1 -smn 0 -smx 1 -at \"double\""
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo" "blendParent1" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo" "blendParent1" 
 		" -k 1 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo|Rover_Geo_Fixed:Camera_Arm_Boom_GeoShape" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo|Rover_Geo_Fixed:Camera_Arm_Boom_GeoShape" 
 		"intermediateObject" " 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo" "blendParent1" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo" 
+		"blendParent1" " -k 1 1"
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo|Rover_Geo_Fixed:Camera_Arm_Shoulder_GeoShape" 
+		"intermediateObject" " 1"
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo" "blendParent1" 
 		" -k 1 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo|Rover_Geo_Fixed:Camera_Arm_Shoulder_GeoShape" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo|Rover_Geo_Fixed:Camera_Arm_Arm_GeoShape" 
 		"intermediateObject" " 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo" "blendParent1" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo" "blendParent1" 
 		" -k 1 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo|Rover_Geo_Fixed:Camera_Arm_Arm_GeoShape" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo|Rover_Geo_Fixed:Camera_Arm_Head_GeoShape" 
 		"intermediateObject" " 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo" "blendParent1" 
-		" -k 1 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo|Rover_Geo_Fixed:Camera_Arm_Head_GeoShape" 
-		"intermediateObject" " 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo|Rover_Geo_Fixed:Camera_Arm_Head_GeoShape" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo|Rover_Geo_Fixed:Camera_Arm_Head_GeoShape" 
 		"uvPivot" " -type \"double2\" 0.42255799795384519 0.50000049496884458"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo" "visibility" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo" "visibility" 
 		" -av 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo" "blendParent1" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo" "blendParent1" 
 		" -k 1 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo|Rover_Geo_Fixed:Dish_Elbow_GeoShape" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo|Rover_Geo_Fixed:Dish_Elbow_GeoShape" 
 		"intermediateObject" " 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo" "blendParent1" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo" "blendParent1" 
 		" -k 1 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo" "blendParent1" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo" "blendParent1" 
 		" -k 1 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo" "blendParent1" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo" "blendParent1" 
 		" -k 1 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo" "blendParent1" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo" "blendParent1" 
 		" -k 1 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo|Rover_Geo_Fixed:Left_Wheel_3_GeoShape" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo|Rover_Geo_Fixed:Left_Wheel_3_GeoShape" 
 		"intermediateObject" " 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo|Rover_Geo_Fixed:Left_Wheel_3_GeoShape" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo|Rover_Geo_Fixed:Left_Wheel_3_GeoShape" 
 		"uvPivot" " -type \"double2\" 0.50089401006698608 0.49925801157951355"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo" "blendParent1" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo" "blendParent1" 
 		" -k 1 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo|Rover_Geo_Fixed:Left_Wheel_2_GeoShape" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo|Rover_Geo_Fixed:Left_Wheel_2_GeoShape" 
 		"intermediateObject" " 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo|Rover_Geo_Fixed:Left_Wheel_2_GeoShape" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo|Rover_Geo_Fixed:Left_Wheel_2_GeoShape" 
 		"uvPivot" " -type \"double2\" 0.50089401006698608 0.49925801157951355"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo" "blendParent1" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo" "blendParent1" 
 		" -k 1 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo|Rover_Geo_Fixed:Left_Wheel_1_GeoShape" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo|Rover_Geo_Fixed:Left_Wheel_1_GeoShape" 
 		"intermediateObject" " 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo|Rover_Geo_Fixed:Left_Wheel_1_GeoShape" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo|Rover_Geo_Fixed:Left_Wheel_1_GeoShape" 
 		"uvPivot" " -type \"double2\" 0.50089401006698608 0.49925801157951355"
 		2 "|Rover_Geo_FixedRNfosterParent1|transform4|Rover_Geo_Fixed:Right_Suspension_Bar_GeoShape" 
 		"intermediateObject" " 1"
 		2 "|Rover_Geo_FixedRNfosterParent1|transform4|Rover_Geo_Fixed:Right_Suspension_Bar_GeoShape" 
 		"uvPivot" " -type \"double2\" 0.49999998832936399 0.20426349664921872"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Bar_Geo|Rover_Geo_Fixed:Left_Suspension_Bar_GeoShape" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Bar_Geo|Rover_Geo_Fixed:Left_Suspension_Bar_GeoShape" 
 		"intermediateObject" " 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Bar_Geo|Rover_Geo_Fixed:Left_Suspension_Bar_GeoShape" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Bar_Geo|Rover_Geo_Fixed:Left_Suspension_Bar_GeoShape" 
 		"uvPivot" " -type \"double2\" 0.49974998831748962 0.50000049496884458"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo" "visibility" " -av 1"
-		
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo" "blendParent1" " -k 1 1"
-		
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo|Rover_Geo_Fixed:Body_GeoShape" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo" "visibility" 
+		" -av 1"
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo" "blendParent1" 
+		" -k 1 1"
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo|Rover_Geo_Fixed:Body_GeoShape" 
 		"intermediateObject" " 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_Geo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_GeoShape" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_Geo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_GeoShape" 
 		"intermediateObject" " 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_Geo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_GeoShape" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_Geo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_GeoShape" 
 		"uvPivot" " -type \"double2\" 0.5 0.20379500091075897"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_Geo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_GeoShape" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_Geo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_GeoShape" 
 		"pnts" " -s 4"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_Geo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_GeoShape" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_Geo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_GeoShape" 
 		"pnts[148]" " -type \"float3\" 0 0 0"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_Geo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_GeoShape" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_Geo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_GeoShape" 
 		"pnts[164]" " -type \"float3\" 0 -2.3841858000000001e-06 0"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_Geo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_GeoShape" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_Geo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_GeoShape" 
 		"pt[166:167]" " -type \"float3\" 0 -2.3841858000000001e-06 0 0 -2.3841858000000001e-06 0"
 		
 		2 "|Rover_Geo_FixedRNfosterParent1|transform3|Rover_Geo_Fixed:Right_Suspension_Front_Arm_GeoShape" 
 		"intermediateObject" " 1"
 		2 "|Rover_Geo_FixedRNfosterParent1|transform3|Rover_Geo_Fixed:Right_Suspension_Front_Arm_GeoShape" 
 		"uvPivot" " -type \"double2\" 0.49999998832936399 0.69716700911521912"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo" "blendParent1" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo" 
+		"blendParent1" " -k 1 1"
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo" 
+		"blendParent1" " -k 1 1"
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo" "blendParent1" 
 		" -k 1 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo" "blendParent1" 
-		" -k 1 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo" "blendParent1" " -k 1 1"
-		
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo|Rover_Geo_Fixed:Dish_GeoShape" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo|Rover_Geo_Fixed:Dish_GeoShape" 
 		"intermediateObject" " 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1" "blendParent1" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1" 
+		"blendParent1" " -k 1 1"
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1" 
+		"blendParent1" " -k 1 1"
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo" "blendParent1" 
 		" -k 1 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1" "blendParent1" 
-		" -k 1 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo" "blendParent1" 
-		" -k 1 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo|Rover_Geo_Fixed:Head_GeoShape" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo|Rover_Geo_Fixed:Head_GeoShape" 
 		"intermediateObject" " 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo|Rover_Geo_Fixed:Head_GeoShape" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo|Rover_Geo_Fixed:Head_GeoShape" 
 		"uvPivot" " -type \"double2\" 0.50000001490116119 0.52352150902152061"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo|Rover_Geo_Fixed:Neck_GeoShape" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo|Rover_Geo_Fixed:Neck_GeoShape" 
 		"intermediateObject" " 1"
-		2 "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo|Rover_Geo_Fixed:Neck_GeoShape" 
+		2 "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo|Rover_Geo_Fixed:Neck_GeoShape" 
 		"uvPivot" " -type \"double2\" 0 0"
-		3 "Rover_Geo_Fixed:Body_Geo_translateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.translateX" 
+		3 "Rover_Geo_Fixed:Right_Wheel_2_Geo_translateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.translateX" 
 		""
-		3 "Rover_Geo_Fixed:Body_Geo_translateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.translateY" 
+		3 "Rover_Geo_Fixed:Right_Wheel_2_Geo_translateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.translateY" 
 		""
-		3 "Rover_Geo_Fixed:Body_Geo_translateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.translateZ" 
+		3 "Rover_Geo_Fixed:Right_Wheel_2_Geo_translateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.translateZ" 
 		""
-		3 "Rover_Geo_Fixed:Body_Geo_rotateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.rotateX" 
+		3 "Rover_Geo_Fixed:Right_Wheel_2_Geo_rotateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.rotateX" 
 		""
-		3 "Rover_Geo_Fixed:Body_Geo_rotateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.rotateY" 
+		3 "Rover_Geo_Fixed:Right_Wheel_2_Geo_rotateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.rotateY" 
 		""
-		3 "Rover_Geo_Fixed:Body_Geo_rotateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.rotateZ" 
+		3 "Rover_Geo_Fixed:Right_Wheel_2_Geo_rotateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.rotateZ" 
 		""
-		3 "Rover_Geo_Fixed:Left_Wheel_3_Geo_translateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.translateX" 
+		3 "Rover_Geo_Fixed:Left_Wheel_2_Geo_translateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.translateX" 
 		""
-		3 "Rover_Geo_Fixed:Left_Wheel_3_Geo_translateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.translateY" 
+		3 "Rover_Geo_Fixed:Left_Wheel_2_Geo_translateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.translateY" 
 		""
-		3 "Rover_Geo_Fixed:Left_Wheel_3_Geo_translateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.translateZ" 
+		3 "Rover_Geo_Fixed:Left_Wheel_2_Geo_translateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.translateZ" 
 		""
-		3 "Rover_Geo_Fixed:Left_Wheel_3_Geo_rotateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.rotateX" 
+		3 "Rover_Geo_Fixed:Left_Wheel_2_Geo_rotateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.rotateX" 
 		""
-		3 "Rover_Geo_Fixed:Left_Wheel_3_Geo_rotateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.rotateY" 
+		3 "Rover_Geo_Fixed:Left_Wheel_2_Geo_rotateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.rotateY" 
 		""
-		3 "Rover_Geo_Fixed:Left_Wheel_3_Geo_rotateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.rotateZ" 
+		3 "Rover_Geo_Fixed:Left_Wheel_2_Geo_rotateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.rotateZ" 
 		""
-		3 "Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo_translateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.translateX" 
+		3 "Rover_Geo_Fixed:Body_Geo_translateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.translateX" 
 		""
-		3 "Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo_translateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.translateY" 
+		3 "Rover_Geo_Fixed:Body_Geo_translateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.translateY" 
 		""
-		3 "Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo_translateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.translateZ" 
+		3 "Rover_Geo_Fixed:Body_Geo_translateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.translateZ" 
 		""
-		3 "Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo_rotateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.rotateX" 
+		3 "Rover_Geo_Fixed:Body_Geo_rotateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.rotateX" 
 		""
-		3 "Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo_rotateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.rotateY" 
+		3 "Rover_Geo_Fixed:Body_Geo_rotateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.rotateY" 
 		""
-		3 "Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo_rotateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.rotateZ" 
+		3 "Rover_Geo_Fixed:Body_Geo_rotateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.rotateZ" 
 		""
-		3 "Rover_Geo_Fixed:Left_Wheel_2_Geo_translateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.translateX" 
+		3 "Rover_Geo_Fixed:Camera_Arm_Boom_Geo_translateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.translateX" 
 		""
-		3 "Rover_Geo_Fixed:Left_Wheel_2_Geo_translateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.translateY" 
+		3 "Rover_Geo_Fixed:Camera_Arm_Boom_Geo_translateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.translateY" 
 		""
-		3 "Rover_Geo_Fixed:Left_Wheel_2_Geo_translateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.translateZ" 
+		3 "Rover_Geo_Fixed:Camera_Arm_Boom_Geo_translateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.translateZ" 
 		""
-		3 "Rover_Geo_Fixed:Left_Wheel_2_Geo_rotateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.rotateX" 
+		3 "Rover_Geo_Fixed:Camera_Arm_Boom_Geo_rotateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.rotateX" 
 		""
-		3 "Rover_Geo_Fixed:Left_Wheel_2_Geo_rotateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.rotateY" 
+		3 "Rover_Geo_Fixed:Camera_Arm_Boom_Geo_rotateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.rotateY" 
 		""
-		3 "Rover_Geo_Fixed:Left_Wheel_2_Geo_rotateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.rotateZ" 
+		3 "Rover_Geo_Fixed:Camera_Arm_Boom_Geo_rotateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.rotateZ" 
 		""
-		3 "Rover_Geo_Fixed:Right_Wheel_3_Geo_translateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.translateX" 
+		3 "Rover_Geo_Fixed:Camera_Arm_Arm_Geo_translateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.translateX" 
 		""
-		3 "Rover_Geo_Fixed:Right_Wheel_3_Geo_translateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.translateY" 
+		3 "Rover_Geo_Fixed:Camera_Arm_Arm_Geo_translateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.translateY" 
 		""
-		3 "Rover_Geo_Fixed:Right_Wheel_3_Geo_translateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.translateZ" 
+		3 "Rover_Geo_Fixed:Camera_Arm_Arm_Geo_translateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.translateZ" 
 		""
-		3 "Rover_Geo_Fixed:Right_Wheel_3_Geo_rotateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.rotateX" 
+		3 "Rover_Geo_Fixed:Camera_Arm_Arm_Geo_rotateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.rotateX" 
 		""
-		3 "Rover_Geo_Fixed:Right_Wheel_3_Geo_rotateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.rotateY" 
+		3 "Rover_Geo_Fixed:Camera_Arm_Arm_Geo_rotateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.rotateY" 
 		""
-		3 "Rover_Geo_Fixed:Right_Wheel_3_Geo_rotateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.rotateZ" 
+		3 "Rover_Geo_Fixed:Camera_Arm_Arm_Geo_rotateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.rotateZ" 
 		""
-		3 "Rover_Geo_Fixed:Left_Wheel_1_Geo_translateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.translateX" 
+		3 "Rover_Geo_Fixed:Right_Solar_Panel_Geo1_translateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.translateX" 
 		""
-		3 "Rover_Geo_Fixed:Left_Wheel_1_Geo_translateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.translateY" 
+		3 "Rover_Geo_Fixed:Right_Solar_Panel_Geo1_translateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.translateY" 
 		""
-		3 "Rover_Geo_Fixed:Left_Wheel_1_Geo_translateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.translateZ" 
+		3 "Rover_Geo_Fixed:Right_Solar_Panel_Geo1_translateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.translateZ" 
 		""
-		3 "Rover_Geo_Fixed:Left_Wheel_1_Geo_rotateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.rotateX" 
+		3 "Rover_Geo_Fixed:Right_Solar_Panel_Geo1_rotateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.rotateX" 
 		""
-		3 "Rover_Geo_Fixed:Left_Wheel_1_Geo_rotateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.rotateY" 
+		3 "Rover_Geo_Fixed:Right_Solar_Panel_Geo1_rotateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.rotateY" 
 		""
-		3 "Rover_Geo_Fixed:Left_Wheel_1_Geo_rotateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.rotateZ" 
+		3 "Rover_Geo_Fixed:Right_Solar_Panel_Geo1_rotateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.rotateZ" 
 		""
-		3 "Rover_Geo_Fixed:Camera_Arm_Arm_Geo_translateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.translateX" 
+		3 "Rover_Geo_Fixed:Left_Wheel_1_Geo_translateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.translateX" 
 		""
-		3 "Rover_Geo_Fixed:Camera_Arm_Arm_Geo_translateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.translateY" 
+		3 "Rover_Geo_Fixed:Left_Wheel_1_Geo_translateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.translateY" 
 		""
-		3 "Rover_Geo_Fixed:Camera_Arm_Arm_Geo_translateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.translateZ" 
+		3 "Rover_Geo_Fixed:Left_Wheel_1_Geo_translateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.translateZ" 
 		""
-		3 "Rover_Geo_Fixed:Camera_Arm_Arm_Geo_rotateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.rotateX" 
+		3 "Rover_Geo_Fixed:Left_Wheel_1_Geo_rotateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.rotateX" 
 		""
-		3 "Rover_Geo_Fixed:Camera_Arm_Arm_Geo_rotateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.rotateY" 
+		3 "Rover_Geo_Fixed:Left_Wheel_1_Geo_rotateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.rotateY" 
 		""
-		3 "Rover_Geo_Fixed:Camera_Arm_Arm_Geo_rotateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.rotateZ" 
+		3 "Rover_Geo_Fixed:Left_Wheel_1_Geo_rotateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.rotateZ" 
 		""
-		3 "Rover_Geo_Fixed:Dish_Elbow_Geo_translateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.translateX" 
+		3 "Rover_Geo_Fixed:Left_Wheel_3_Geo_translateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.translateX" 
 		""
-		3 "Rover_Geo_Fixed:Dish_Elbow_Geo_translateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.translateY" 
+		3 "Rover_Geo_Fixed:Left_Wheel_3_Geo_translateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.translateY" 
 		""
-		3 "Rover_Geo_Fixed:Dish_Elbow_Geo_translateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.translateZ" 
+		3 "Rover_Geo_Fixed:Left_Wheel_3_Geo_translateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.translateZ" 
 		""
-		3 "Rover_Geo_Fixed:Dish_Elbow_Geo_rotateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.rotateX" 
+		3 "Rover_Geo_Fixed:Left_Wheel_3_Geo_rotateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.rotateX" 
 		""
-		3 "Rover_Geo_Fixed:Dish_Elbow_Geo_rotateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.rotateY" 
+		3 "Rover_Geo_Fixed:Left_Wheel_3_Geo_rotateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.rotateY" 
 		""
-		3 "Rover_Geo_Fixed:Dish_Elbow_Geo_rotateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.rotateZ" 
+		3 "Rover_Geo_Fixed:Left_Wheel_3_Geo_rotateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.rotateZ" 
 		""
-		3 "Rover_Geo_Fixed:Camera_Arm_Head_Geo_translateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.translateX" 
+		3 "Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo_translateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.translateX" 
 		""
-		3 "Rover_Geo_Fixed:Camera_Arm_Head_Geo_translateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.translateY" 
+		3 "Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo_translateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.translateY" 
 		""
-		3 "Rover_Geo_Fixed:Camera_Arm_Head_Geo_translateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.translateZ" 
+		3 "Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo_translateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.translateZ" 
 		""
-		3 "Rover_Geo_Fixed:Camera_Arm_Head_Geo_rotateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.rotateX" 
+		3 "Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo_rotateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.rotateX" 
 		""
-		3 "Rover_Geo_Fixed:Camera_Arm_Head_Geo_rotateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.rotateY" 
+		3 "Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo_rotateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.rotateY" 
 		""
-		3 "Rover_Geo_Fixed:Camera_Arm_Head_Geo_rotateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.rotateZ" 
+		3 "Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo_rotateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.rotateZ" 
 		""
-		3 "Rover_Geo_Fixed:Right_Solar_Panel_Geo1_translateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.translateX" 
+		3 "Rover_Geo_Fixed:Dish_Geo_translateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.translateX" 
 		""
-		3 "Rover_Geo_Fixed:Right_Solar_Panel_Geo1_translateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.translateY" 
+		3 "Rover_Geo_Fixed:Dish_Geo_translateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.translateY" 
 		""
-		3 "Rover_Geo_Fixed:Right_Solar_Panel_Geo1_translateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.translateZ" 
+		3 "Rover_Geo_Fixed:Dish_Geo_translateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.translateZ" 
 		""
-		3 "Rover_Geo_Fixed:Right_Solar_Panel_Geo1_rotateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.rotateX" 
+		3 "Rover_Geo_Fixed:Dish_Geo_rotateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.rotateX" 
 		""
-		3 "Rover_Geo_Fixed:Right_Solar_Panel_Geo1_rotateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.rotateY" 
+		3 "Rover_Geo_Fixed:Dish_Geo_rotateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.rotateY" 
 		""
-		3 "Rover_Geo_Fixed:Right_Solar_Panel_Geo1_rotateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.rotateZ" 
+		3 "Rover_Geo_Fixed:Dish_Geo_rotateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.rotateZ" 
 		""
-		3 "Rover_Geo_Fixed:polySurface102_translateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.translateX" 
+		3 "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_translateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.translateX" 
 		""
-		3 "Rover_Geo_Fixed:polySurface102_translateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.translateY" 
+		3 "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_translateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.translateY" 
 		""
-		3 "Rover_Geo_Fixed:polySurface102_translateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.translateZ" 
+		3 "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_translateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.translateZ" 
 		""
-		3 "Rover_Geo_Fixed:polySurface102_rotateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.rotateX" 
+		3 "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_rotateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.rotateX" 
 		""
-		3 "Rover_Geo_Fixed:polySurface102_rotateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.rotateY" 
+		3 "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_rotateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.rotateY" 
 		""
-		3 "Rover_Geo_Fixed:polySurface102_rotateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.rotateZ" 
+		3 "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_rotateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.rotateZ" 
 		""
-		3 "Rover_Geo_Fixed:Dish_Geo_translateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.translateX" 
+		3 "Rover_Geo_Fixed:Left_Solar_Panel_Geo1_translateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.translateX" 
 		""
-		3 "Rover_Geo_Fixed:Dish_Geo_translateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.translateY" 
+		3 "Rover_Geo_Fixed:Left_Solar_Panel_Geo1_translateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.translateY" 
 		""
-		3 "Rover_Geo_Fixed:Dish_Geo_translateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.translateZ" 
+		3 "Rover_Geo_Fixed:Left_Solar_Panel_Geo1_translateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.translateZ" 
 		""
-		3 "Rover_Geo_Fixed:Dish_Geo_rotateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.rotateX" 
+		3 "Rover_Geo_Fixed:Left_Solar_Panel_Geo1_rotateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.rotateX" 
 		""
-		3 "Rover_Geo_Fixed:Dish_Geo_rotateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.rotateY" 
+		3 "Rover_Geo_Fixed:Left_Solar_Panel_Geo1_rotateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.rotateY" 
 		""
-		3 "Rover_Geo_Fixed:Dish_Geo_rotateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.rotateZ" 
+		3 "Rover_Geo_Fixed:Left_Solar_Panel_Geo1_rotateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.rotateZ" 
 		""
-		3 "Rover_Geo_Fixed:Camera_Arm_Boom_Geo_translateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.translateX" 
+		3 "Rover_Geo_Fixed:Right_Wheel_1_Geo_translateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.translateX" 
 		""
-		3 "Rover_Geo_Fixed:Camera_Arm_Boom_Geo_translateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.translateY" 
+		3 "Rover_Geo_Fixed:Right_Wheel_1_Geo_translateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.translateY" 
 		""
-		3 "Rover_Geo_Fixed:Camera_Arm_Boom_Geo_translateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.translateZ" 
+		3 "Rover_Geo_Fixed:Right_Wheel_1_Geo_translateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.translateZ" 
 		""
-		3 "Rover_Geo_Fixed:Camera_Arm_Boom_Geo_rotateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.rotateX" 
+		3 "Rover_Geo_Fixed:Right_Wheel_1_Geo_rotateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.rotateX" 
 		""
-		3 "Rover_Geo_Fixed:Camera_Arm_Boom_Geo_rotateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.rotateY" 
+		3 "Rover_Geo_Fixed:Right_Wheel_1_Geo_rotateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.rotateY" 
 		""
-		3 "Rover_Geo_Fixed:Camera_Arm_Boom_Geo_rotateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.rotateZ" 
+		3 "Rover_Geo_Fixed:Right_Wheel_1_Geo_rotateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.rotateZ" 
 		""
-		3 "Rover_Geo_Fixed:Left_Solar_Panel_Geo1_translateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.translateX" 
+		3 "Rover_Geo_Fixed:Dish_Elbow_Geo_translateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.translateX" 
 		""
-		3 "Rover_Geo_Fixed:Left_Solar_Panel_Geo1_translateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.translateY" 
+		3 "Rover_Geo_Fixed:Dish_Elbow_Geo_translateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.translateY" 
 		""
-		3 "Rover_Geo_Fixed:Left_Solar_Panel_Geo1_translateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.translateZ" 
+		3 "Rover_Geo_Fixed:Dish_Elbow_Geo_translateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.translateZ" 
 		""
-		3 "Rover_Geo_Fixed:Left_Solar_Panel_Geo1_rotateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.rotateX" 
+		3 "Rover_Geo_Fixed:Dish_Elbow_Geo_rotateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.rotateX" 
 		""
-		3 "Rover_Geo_Fixed:Left_Solar_Panel_Geo1_rotateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.rotateY" 
+		3 "Rover_Geo_Fixed:Dish_Elbow_Geo_rotateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.rotateY" 
 		""
-		3 "Rover_Geo_Fixed:Left_Solar_Panel_Geo1_rotateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.rotateZ" 
+		3 "Rover_Geo_Fixed:Dish_Elbow_Geo_rotateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.rotateZ" 
 		""
-		3 "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_translateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.translateX" 
+		3 "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_translateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.translateX" 
 		""
-		3 "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_translateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.translateY" 
+		3 "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_translateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.translateY" 
 		""
-		3 "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_translateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.translateZ" 
+		3 "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_translateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.translateZ" 
 		""
-		3 "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_rotateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.rotateX" 
+		3 "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_rotateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.rotateX" 
 		""
-		3 "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_rotateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.rotateY" 
+		3 "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_rotateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.rotateY" 
 		""
-		3 "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_rotateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.rotateZ" 
+		3 "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_rotateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.rotateZ" 
 		""
-		3 "Rover_Geo_Fixed:Right_Wheel_2_Geo_translateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.translateX" 
+		3 "Rover_Geo_Fixed:Camera_Arm_Head_Geo_translateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.translateX" 
 		""
-		3 "Rover_Geo_Fixed:Right_Wheel_2_Geo_translateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.translateY" 
+		3 "Rover_Geo_Fixed:Camera_Arm_Head_Geo_translateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.translateY" 
 		""
-		3 "Rover_Geo_Fixed:Right_Wheel_2_Geo_translateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.translateZ" 
+		3 "Rover_Geo_Fixed:Camera_Arm_Head_Geo_translateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.translateZ" 
 		""
-		3 "Rover_Geo_Fixed:Right_Wheel_2_Geo_rotateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.rotateX" 
+		3 "Rover_Geo_Fixed:Camera_Arm_Head_Geo_rotateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.rotateX" 
 		""
-		3 "Rover_Geo_Fixed:Right_Wheel_2_Geo_rotateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.rotateY" 
+		3 "Rover_Geo_Fixed:Camera_Arm_Head_Geo_rotateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.rotateY" 
 		""
-		3 "Rover_Geo_Fixed:Right_Wheel_2_Geo_rotateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.rotateZ" 
+		3 "Rover_Geo_Fixed:Camera_Arm_Head_Geo_rotateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.rotateZ" 
 		""
-		3 "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_translateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.translateX" 
+		3 "Rover_Geo_Fixed:polySurface102_translateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.translateX" 
 		""
-		3 "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_translateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.translateY" 
+		3 "Rover_Geo_Fixed:polySurface102_translateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.translateY" 
 		""
-		3 "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_translateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.translateZ" 
+		3 "Rover_Geo_Fixed:polySurface102_translateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.translateZ" 
 		""
-		3 "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_rotateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.rotateX" 
+		3 "Rover_Geo_Fixed:polySurface102_rotateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.rotateX" 
 		""
-		3 "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_rotateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.rotateY" 
+		3 "Rover_Geo_Fixed:polySurface102_rotateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.rotateY" 
 		""
-		3 "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_rotateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.rotateZ" 
+		3 "Rover_Geo_Fixed:polySurface102_rotateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.rotateZ" 
 		""
-		3 "Rover_Geo_Fixed:Right_Wheel_1_Geo_translateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.translateX" 
+		3 "Rover_Geo_Fixed:Right_Wheel_3_Geo_translateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.translateX" 
 		""
-		3 "Rover_Geo_Fixed:Right_Wheel_1_Geo_translateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.translateY" 
+		3 "Rover_Geo_Fixed:Right_Wheel_3_Geo_translateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.translateY" 
 		""
-		3 "Rover_Geo_Fixed:Right_Wheel_1_Geo_translateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.translateZ" 
+		3 "Rover_Geo_Fixed:Right_Wheel_3_Geo_translateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.translateZ" 
 		""
-		3 "Rover_Geo_Fixed:Right_Wheel_1_Geo_rotateX.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.rotateX" 
+		3 "Rover_Geo_Fixed:Right_Wheel_3_Geo_rotateX.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.rotateX" 
 		""
-		3 "Rover_Geo_Fixed:Right_Wheel_1_Geo_rotateY.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.rotateY" 
+		3 "Rover_Geo_Fixed:Right_Wheel_3_Geo_rotateY.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.rotateY" 
 		""
-		3 "Rover_Geo_Fixed:Right_Wheel_1_Geo_rotateZ.output" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.rotateZ" 
+		3 "Rover_Geo_Fixed:Right_Wheel_3_Geo_rotateZ.output" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.rotateZ" 
 		""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo.drawOverride" "Rover_Geo_FixedRN.placeHolderList[1]" 
-		""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.translateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo.drawOverride" 
+		"Rover_Geo_FixedRN.placeHolderList[1]" ""
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.translateX" 
 		"Rover_Geo_FixedRN.placeHolderList[2]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.translateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.translateY" 
 		"Rover_Geo_FixedRN.placeHolderList[3]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.translateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.translateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[4]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.rotateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.rotateX" 
 		"Rover_Geo_FixedRN.placeHolderList[5]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.rotateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.rotateY" 
 		"Rover_Geo_FixedRN.placeHolderList[6]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.rotateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.rotateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[7]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.blendParent1" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.blendParent1" 
 		"Rover_Geo_FixedRN.placeHolderList[8]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[9]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[10]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.parentInverseMatrix" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.parentInverseMatrix" 
 		"Rover_Geo_FixedRN.placeHolderList[11]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.rotatePivot" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.rotatePivot" 
 		"Rover_Geo_FixedRN.placeHolderList[12]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.rotatePivotTranslate" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo.rotatePivotTranslate" 
 		"Rover_Geo_FixedRN.placeHolderList[13]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo|Rover_Geo_Fixed:Camera_Arm_Boom_GeoShape.worldMesh" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Boom_Geo|Rover_Geo_Fixed:Camera_Arm_Boom_GeoShape.worldMesh" 
 		"Rover_Geo_FixedRN.placeHolderList[14]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.translateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.translateX" 
 		"Rover_Geo_FixedRN.placeHolderList[15]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.translateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.translateY" 
 		"Rover_Geo_FixedRN.placeHolderList[16]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.translateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.translateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[17]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.rotateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.rotateX" 
 		"Rover_Geo_FixedRN.placeHolderList[18]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.rotateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.rotateY" 
 		"Rover_Geo_FixedRN.placeHolderList[19]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.rotateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.rotateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[20]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.blendParent1" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.blendParent1" 
 		"Rover_Geo_FixedRN.placeHolderList[21]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[22]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[23]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.parentInverseMatrix" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.parentInverseMatrix" 
 		"Rover_Geo_FixedRN.placeHolderList[24]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.rotatePivot" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.rotatePivot" 
 		"Rover_Geo_FixedRN.placeHolderList[25]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.rotatePivotTranslate" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo.rotatePivotTranslate" 
 		"Rover_Geo_FixedRN.placeHolderList[26]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo|Rover_Geo_Fixed:Camera_Arm_Shoulder_GeoShape.worldMesh" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Shoulder_Geo|Rover_Geo_Fixed:Camera_Arm_Shoulder_GeoShape.worldMesh" 
 		"Rover_Geo_FixedRN.placeHolderList[27]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.translateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.translateX" 
 		"Rover_Geo_FixedRN.placeHolderList[28]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.translateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.translateY" 
 		"Rover_Geo_FixedRN.placeHolderList[29]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.translateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.translateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[30]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.rotateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.rotateX" 
 		"Rover_Geo_FixedRN.placeHolderList[31]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.rotateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.rotateY" 
 		"Rover_Geo_FixedRN.placeHolderList[32]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.rotateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.rotateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[33]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.blendParent1" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.blendParent1" 
 		"Rover_Geo_FixedRN.placeHolderList[34]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[35]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[36]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.parentInverseMatrix" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.parentInverseMatrix" 
 		"Rover_Geo_FixedRN.placeHolderList[37]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.rotatePivot" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.rotatePivot" 
 		"Rover_Geo_FixedRN.placeHolderList[38]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.rotatePivotTranslate" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo.rotatePivotTranslate" 
 		"Rover_Geo_FixedRN.placeHolderList[39]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo|Rover_Geo_Fixed:Camera_Arm_Arm_GeoShape.worldMesh" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Arm_Geo|Rover_Geo_Fixed:Camera_Arm_Arm_GeoShape.worldMesh" 
 		"Rover_Geo_FixedRN.placeHolderList[40]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.translateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.translateX" 
 		"Rover_Geo_FixedRN.placeHolderList[41]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.translateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.translateY" 
 		"Rover_Geo_FixedRN.placeHolderList[42]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.translateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.translateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[43]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.rotateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.rotateX" 
 		"Rover_Geo_FixedRN.placeHolderList[44]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.rotateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.rotateY" 
 		"Rover_Geo_FixedRN.placeHolderList[45]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.rotateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.rotateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[46]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.blendParent1" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.blendParent1" 
 		"Rover_Geo_FixedRN.placeHolderList[47]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[48]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[49]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.parentInverseMatrix" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.parentInverseMatrix" 
 		"Rover_Geo_FixedRN.placeHolderList[50]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.rotatePivot" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.rotatePivot" 
 		"Rover_Geo_FixedRN.placeHolderList[51]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.rotatePivotTranslate" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo.rotatePivotTranslate" 
 		"Rover_Geo_FixedRN.placeHolderList[52]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo|Rover_Geo_Fixed:Camera_Arm_Head_GeoShape.worldMesh" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Camera_Arm_Head_Geo|Rover_Geo_Fixed:Camera_Arm_Head_GeoShape.worldMesh" 
 		"Rover_Geo_FixedRN.placeHolderList[53]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.translateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.translateX" 
 		"Rover_Geo_FixedRN.placeHolderList[54]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.translateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.translateY" 
 		"Rover_Geo_FixedRN.placeHolderList[55]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.translateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.translateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[56]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.rotateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.rotateX" 
 		"Rover_Geo_FixedRN.placeHolderList[57]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.rotateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.rotateY" 
 		"Rover_Geo_FixedRN.placeHolderList[58]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.rotateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.rotateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[59]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.blendParent1" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.blendParent1" 
 		"Rover_Geo_FixedRN.placeHolderList[60]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[61]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[62]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.parentInverseMatrix" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.parentInverseMatrix" 
 		"Rover_Geo_FixedRN.placeHolderList[63]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.rotatePivot" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.rotatePivot" 
 		"Rover_Geo_FixedRN.placeHolderList[64]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.rotatePivotTranslate" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo.rotatePivotTranslate" 
 		"Rover_Geo_FixedRN.placeHolderList[65]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo|Rover_Geo_Fixed:Dish_Elbow_GeoShape.worldMesh" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Elbow_Geo|Rover_Geo_Fixed:Dish_Elbow_GeoShape.worldMesh" 
 		"Rover_Geo_FixedRN.placeHolderList[66]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.translateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.translateX" 
 		"Rover_Geo_FixedRN.placeHolderList[67]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.translateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.translateY" 
 		"Rover_Geo_FixedRN.placeHolderList[68]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.translateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.translateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[69]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.rotateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.rotateX" 
 		"Rover_Geo_FixedRN.placeHolderList[70]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.rotateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.rotateY" 
 		"Rover_Geo_FixedRN.placeHolderList[71]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.rotateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.rotateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[72]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.blendParent1" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.blendParent1" 
 		"Rover_Geo_FixedRN.placeHolderList[73]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[74]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[75]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.parentInverseMatrix" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.parentInverseMatrix" 
 		"Rover_Geo_FixedRN.placeHolderList[76]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.rotatePivot" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.rotatePivot" 
 		"Rover_Geo_FixedRN.placeHolderList[77]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.rotatePivotTranslate" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_1_Geo.rotatePivotTranslate" 
 		"Rover_Geo_FixedRN.placeHolderList[78]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.translateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.translateX" 
 		"Rover_Geo_FixedRN.placeHolderList[79]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.translateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.translateY" 
 		"Rover_Geo_FixedRN.placeHolderList[80]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.translateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.translateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[81]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.rotateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.rotateX" 
 		"Rover_Geo_FixedRN.placeHolderList[82]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.rotateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.rotateY" 
 		"Rover_Geo_FixedRN.placeHolderList[83]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.rotateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.rotateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[84]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.blendParent1" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.blendParent1" 
 		"Rover_Geo_FixedRN.placeHolderList[85]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[86]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[87]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.parentInverseMatrix" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.parentInverseMatrix" 
 		"Rover_Geo_FixedRN.placeHolderList[88]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.rotatePivot" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.rotatePivot" 
 		"Rover_Geo_FixedRN.placeHolderList[89]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.rotatePivotTranslate" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_2_Geo.rotatePivotTranslate" 
 		"Rover_Geo_FixedRN.placeHolderList[90]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.translateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.translateX" 
 		"Rover_Geo_FixedRN.placeHolderList[91]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.translateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.translateY" 
 		"Rover_Geo_FixedRN.placeHolderList[92]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.translateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.translateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[93]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.rotateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.rotateX" 
 		"Rover_Geo_FixedRN.placeHolderList[94]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.rotateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.rotateY" 
 		"Rover_Geo_FixedRN.placeHolderList[95]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.rotateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.rotateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[96]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.blendParent1" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.blendParent1" 
 		"Rover_Geo_FixedRN.placeHolderList[97]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[98]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[99]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.parentInverseMatrix" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.parentInverseMatrix" 
 		"Rover_Geo_FixedRN.placeHolderList[100]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.rotatePivot" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.rotatePivot" 
 		"Rover_Geo_FixedRN.placeHolderList[101]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.rotatePivotTranslate" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Wheel_3_Geo.rotatePivotTranslate" 
 		"Rover_Geo_FixedRN.placeHolderList[102]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.translateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.translateX" 
 		"Rover_Geo_FixedRN.placeHolderList[103]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.translateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.translateY" 
 		"Rover_Geo_FixedRN.placeHolderList[104]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.translateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.translateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[105]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.rotateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.rotateX" 
 		"Rover_Geo_FixedRN.placeHolderList[106]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.rotateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.rotateY" 
 		"Rover_Geo_FixedRN.placeHolderList[107]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.rotateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.rotateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[108]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.blendParent1" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.blendParent1" 
 		"Rover_Geo_FixedRN.placeHolderList[109]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[110]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[111]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.parentInverseMatrix" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.parentInverseMatrix" 
 		"Rover_Geo_FixedRN.placeHolderList[112]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.rotatePivot" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.rotatePivot" 
 		"Rover_Geo_FixedRN.placeHolderList[113]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.rotatePivotTranslate" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo.rotatePivotTranslate" 
 		"Rover_Geo_FixedRN.placeHolderList[114]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo|Rover_Geo_Fixed:Left_Wheel_3_GeoShape.worldMesh" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_3_Geo|Rover_Geo_Fixed:Left_Wheel_3_GeoShape.worldMesh" 
 		"Rover_Geo_FixedRN.placeHolderList[115]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.translateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.translateX" 
 		"Rover_Geo_FixedRN.placeHolderList[116]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.translateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.translateY" 
 		"Rover_Geo_FixedRN.placeHolderList[117]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.translateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.translateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[118]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.rotateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.rotateX" 
 		"Rover_Geo_FixedRN.placeHolderList[119]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.rotateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.rotateY" 
 		"Rover_Geo_FixedRN.placeHolderList[120]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.rotateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.rotateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[121]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.blendParent1" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.blendParent1" 
 		"Rover_Geo_FixedRN.placeHolderList[122]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[123]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[124]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.parentInverseMatrix" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.parentInverseMatrix" 
 		"Rover_Geo_FixedRN.placeHolderList[125]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.rotatePivot" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.rotatePivot" 
 		"Rover_Geo_FixedRN.placeHolderList[126]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.rotatePivotTranslate" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo.rotatePivotTranslate" 
 		"Rover_Geo_FixedRN.placeHolderList[127]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo|Rover_Geo_Fixed:Left_Wheel_2_GeoShape.worldMesh" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_2_Geo|Rover_Geo_Fixed:Left_Wheel_2_GeoShape.worldMesh" 
 		"Rover_Geo_FixedRN.placeHolderList[128]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.translateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.translateX" 
 		"Rover_Geo_FixedRN.placeHolderList[129]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.translateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.translateY" 
 		"Rover_Geo_FixedRN.placeHolderList[130]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.translateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.translateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[131]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.rotateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.rotateX" 
 		"Rover_Geo_FixedRN.placeHolderList[132]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.rotateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.rotateY" 
 		"Rover_Geo_FixedRN.placeHolderList[133]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.rotateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.rotateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[134]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.blendParent1" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.blendParent1" 
 		"Rover_Geo_FixedRN.placeHolderList[135]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[136]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[137]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.parentInverseMatrix" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.parentInverseMatrix" 
 		"Rover_Geo_FixedRN.placeHolderList[138]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.rotatePivot" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.rotatePivot" 
 		"Rover_Geo_FixedRN.placeHolderList[139]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.rotatePivotTranslate" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo.rotatePivotTranslate" 
 		"Rover_Geo_FixedRN.placeHolderList[140]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo|Rover_Geo_Fixed:Left_Wheel_1_GeoShape.worldMesh" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Wheel_1_Geo|Rover_Geo_Fixed:Left_Wheel_1_GeoShape.worldMesh" 
 		"Rover_Geo_FixedRN.placeHolderList[141]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Bar_Geo|Rover_Geo_Fixed:Left_Suspension_Bar_GeoShape.worldMesh" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Bar_Geo|Rover_Geo_Fixed:Left_Suspension_Bar_GeoShape.worldMesh" 
 		"Rover_Geo_FixedRN.placeHolderList[142]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.translateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.translateX" 
 		"Rover_Geo_FixedRN.placeHolderList[143]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.translateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.translateY" 
 		"Rover_Geo_FixedRN.placeHolderList[144]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.translateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.translateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[145]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.rotateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.rotateX" 
 		"Rover_Geo_FixedRN.placeHolderList[146]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.rotateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.rotateY" 
 		"Rover_Geo_FixedRN.placeHolderList[147]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.rotateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.rotateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[148]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.blendParent1" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.blendParent1" 
 		"Rover_Geo_FixedRN.placeHolderList[149]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[150]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[151]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.parentInverseMatrix" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.parentInverseMatrix" 
 		"Rover_Geo_FixedRN.placeHolderList[152]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.rotatePivot" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.rotatePivot" 
 		"Rover_Geo_FixedRN.placeHolderList[153]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.rotatePivotTranslate" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo.rotatePivotTranslate" 
 		"Rover_Geo_FixedRN.placeHolderList[154]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo|Rover_Geo_Fixed:Body_GeoShape.worldMesh" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Body_Geo|Rover_Geo_Fixed:Body_GeoShape.worldMesh" 
 		"Rover_Geo_FixedRN.placeHolderList[155]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_Geo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_GeoShape.worldMesh" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_Geo|Rover_Geo_Fixed:Left_Suspension_Front_Arm_GeoShape.worldMesh" 
 		"Rover_Geo_FixedRN.placeHolderList[156]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.translateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.translateX" 
 		"Rover_Geo_FixedRN.placeHolderList[157]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.translateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.translateY" 
 		"Rover_Geo_FixedRN.placeHolderList[158]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.translateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.translateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[159]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.rotateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.rotateX" 
 		"Rover_Geo_FixedRN.placeHolderList[160]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.rotateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.rotateY" 
 		"Rover_Geo_FixedRN.placeHolderList[161]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.rotateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.rotateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[162]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.blendParent1" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.blendParent1" 
 		"Rover_Geo_FixedRN.placeHolderList[163]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[164]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[165]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.parentInverseMatrix" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.parentInverseMatrix" 
 		"Rover_Geo_FixedRN.placeHolderList[166]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.rotatePivot" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.rotatePivot" 
 		"Rover_Geo_FixedRN.placeHolderList[167]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.rotatePivotTranslate" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Hip_Geo.rotatePivotTranslate" 
 		"Rover_Geo_FixedRN.placeHolderList[168]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.translateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.translateX" 
 		"Rover_Geo_FixedRN.placeHolderList[169]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.translateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.translateY" 
 		"Rover_Geo_FixedRN.placeHolderList[170]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.translateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.translateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[171]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.rotateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.rotateX" 
 		"Rover_Geo_FixedRN.placeHolderList[172]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.rotateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.rotateY" 
 		"Rover_Geo_FixedRN.placeHolderList[173]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.rotateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.rotateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[174]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.blendParent1" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.blendParent1" 
 		"Rover_Geo_FixedRN.placeHolderList[175]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[176]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[177]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.parentInverseMatrix" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.parentInverseMatrix" 
 		"Rover_Geo_FixedRN.placeHolderList[178]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.rotatePivot" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.rotatePivot" 
 		"Rover_Geo_FixedRN.placeHolderList[179]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.rotatePivotTranslate" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Hip_Geo.rotatePivotTranslate" 
 		"Rover_Geo_FixedRN.placeHolderList[180]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.translateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.translateX" 
 		"Rover_Geo_FixedRN.placeHolderList[181]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.translateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.translateY" 
 		"Rover_Geo_FixedRN.placeHolderList[182]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.translateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.translateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[183]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.rotateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.rotateX" 
 		"Rover_Geo_FixedRN.placeHolderList[184]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.rotateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.rotateY" 
 		"Rover_Geo_FixedRN.placeHolderList[185]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.rotateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.rotateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[186]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.blendParent1" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.blendParent1" 
 		"Rover_Geo_FixedRN.placeHolderList[187]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[188]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[189]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.parentInverseMatrix" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.parentInverseMatrix" 
 		"Rover_Geo_FixedRN.placeHolderList[190]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.rotatePivot" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.rotatePivot" 
 		"Rover_Geo_FixedRN.placeHolderList[191]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.rotatePivotTranslate" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo.rotatePivotTranslate" 
 		"Rover_Geo_FixedRN.placeHolderList[192]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo|Rover_Geo_Fixed:Dish_GeoShape.worldMesh" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Dish_Geo|Rover_Geo_Fixed:Dish_GeoShape.worldMesh" 
 		"Rover_Geo_FixedRN.placeHolderList[193]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.translateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.translateX" 
 		"Rover_Geo_FixedRN.placeHolderList[194]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.translateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.translateY" 
 		"Rover_Geo_FixedRN.placeHolderList[195]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.translateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.translateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[196]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.rotateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.rotateX" 
 		"Rover_Geo_FixedRN.placeHolderList[197]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.rotateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.rotateY" 
 		"Rover_Geo_FixedRN.placeHolderList[198]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.rotateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.rotateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[199]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.blendParent1" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.blendParent1" 
 		"Rover_Geo_FixedRN.placeHolderList[200]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.rotatePivot" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.rotatePivot" 
 		"Rover_Geo_FixedRN.placeHolderList[201]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.rotatePivotTranslate" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.rotatePivotTranslate" 
 		"Rover_Geo_FixedRN.placeHolderList[202]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[203]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[204]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.parentInverseMatrix" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Solar_Panel_Geo1.parentInverseMatrix" 
 		"Rover_Geo_FixedRN.placeHolderList[205]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.translateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.translateX" 
 		"Rover_Geo_FixedRN.placeHolderList[206]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.translateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.translateY" 
 		"Rover_Geo_FixedRN.placeHolderList[207]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.translateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.translateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[208]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.rotateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.rotateX" 
 		"Rover_Geo_FixedRN.placeHolderList[209]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.rotateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.rotateY" 
 		"Rover_Geo_FixedRN.placeHolderList[210]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.rotateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.rotateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[211]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.blendParent1" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.blendParent1" 
 		"Rover_Geo_FixedRN.placeHolderList[212]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.rotatePivot" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.rotatePivot" 
 		"Rover_Geo_FixedRN.placeHolderList[213]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.rotatePivotTranslate" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.rotatePivotTranslate" 
 		"Rover_Geo_FixedRN.placeHolderList[214]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[215]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[216]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.parentInverseMatrix" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Solar_Panel_Geo1.parentInverseMatrix" 
 		"Rover_Geo_FixedRN.placeHolderList[217]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.translateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.translateX" 
 		"Rover_Geo_FixedRN.placeHolderList[218]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.translateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.translateY" 
 		"Rover_Geo_FixedRN.placeHolderList[219]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.translateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.translateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[220]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.rotateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.rotateX" 
 		"Rover_Geo_FixedRN.placeHolderList[221]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.rotateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.rotateY" 
 		"Rover_Geo_FixedRN.placeHolderList[222]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.rotateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.rotateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[223]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.blendParent1" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.blendParent1" 
 		"Rover_Geo_FixedRN.placeHolderList[224]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[225]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[226]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.parentInverseMatrix" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.parentInverseMatrix" 
 		"Rover_Geo_FixedRN.placeHolderList[227]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.rotatePivot" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.rotatePivot" 
 		"Rover_Geo_FixedRN.placeHolderList[228]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.rotatePivotTranslate" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Antenna_Geo.rotatePivotTranslate" 
 		"Rover_Geo_FixedRN.placeHolderList[229]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo.rotateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo.rotateX" 
 		"Rover_Geo_FixedRN.placeHolderList[230]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo.rotateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo.rotateY" 
 		"Rover_Geo_FixedRN.placeHolderList[231]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo.rotateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo.rotateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[232]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo.translateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo.translateX" 
 		"Rover_Geo_FixedRN.placeHolderList[233]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo.translateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo.translateY" 
 		"Rover_Geo_FixedRN.placeHolderList[234]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo.translateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo.translateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[235]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[236]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo.parentInverseMatrix" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo.parentInverseMatrix" 
 		"Rover_Geo_FixedRN.placeHolderList[237]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo.rotatePivot" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo.rotatePivot" 
 		"Rover_Geo_FixedRN.placeHolderList[238]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo.rotatePivotTranslate" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo.rotatePivotTranslate" 
 		"Rover_Geo_FixedRN.placeHolderList[239]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo|Rover_Geo_Fixed:Head_GeoShape.worldMesh" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Head_Geo|Rover_Geo_Fixed:Head_GeoShape.worldMesh" 
 		"Rover_Geo_FixedRN.placeHolderList[240]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Rear_Solar_Panel_Geo1.translateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Rear_Solar_Panel_Geo1.translateX" 
 		"Rover_Geo_FixedRN.placeHolderList[241]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Rear_Solar_Panel_Geo1.translateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Rear_Solar_Panel_Geo1.translateY" 
 		"Rover_Geo_FixedRN.placeHolderList[242]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Rear_Solar_Panel_Geo1.translateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Rear_Solar_Panel_Geo1.translateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[243]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Rear_Solar_Panel_Geo1.rotatePivot" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Rear_Solar_Panel_Geo1.rotatePivot" 
 		"Rover_Geo_FixedRN.placeHolderList[244]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Rear_Solar_Panel_Geo1.rotatePivotTranslate" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Rear_Solar_Panel_Geo1.rotatePivotTranslate" 
 		"Rover_Geo_FixedRN.placeHolderList[245]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Rear_Solar_Panel_Geo1.rotateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Rear_Solar_Panel_Geo1.rotateX" 
 		"Rover_Geo_FixedRN.placeHolderList[246]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Rear_Solar_Panel_Geo1.rotateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Rear_Solar_Panel_Geo1.rotateY" 
 		"Rover_Geo_FixedRN.placeHolderList[247]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Rear_Solar_Panel_Geo1.rotateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Rear_Solar_Panel_Geo1.rotateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[248]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Rear_Solar_Panel_Geo1.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Rear_Solar_Panel_Geo1.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[249]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Rear_Solar_Panel_Geo1.parentInverseMatrix" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Rear_Solar_Panel_Geo1.parentInverseMatrix" 
 		"Rover_Geo_FixedRN.placeHolderList[250]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo.translateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo.translateX" 
 		"Rover_Geo_FixedRN.placeHolderList[251]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo.translateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo.translateY" 
 		"Rover_Geo_FixedRN.placeHolderList[252]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo.translateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo.translateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[253]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo.rotateX" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo.rotateX" 
 		"Rover_Geo_FixedRN.placeHolderList[254]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo.rotateY" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo.rotateY" 
 		"Rover_Geo_FixedRN.placeHolderList[255]" ""
-		5 4 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo.rotateZ" 
+		5 4 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo.rotateZ" 
 		"Rover_Geo_FixedRN.placeHolderList[256]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo.rotateOrder" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo.rotateOrder" 
 		"Rover_Geo_FixedRN.placeHolderList[257]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo.parentInverseMatrix" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo.parentInverseMatrix" 
 		"Rover_Geo_FixedRN.placeHolderList[258]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo.rotatePivot" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo.rotatePivot" 
 		"Rover_Geo_FixedRN.placeHolderList[259]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo.rotatePivotTranslate" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo.rotatePivotTranslate" 
 		"Rover_Geo_FixedRN.placeHolderList[260]" ""
-		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo|Rover_Geo_Fixed:Neck_GeoShape.worldMesh" 
+		5 3 "Rover_Geo_FixedRN" "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Neck_Geo|Rover_Geo_Fixed:Neck_GeoShape.worldMesh" 
 		"Rover_Geo_FixedRN.placeHolderList[261]" ""
 		5 3 "Rover_Geo_FixedRN" "|Rover_Geo_FixedRNfosterParent1|transform3|Rover_Geo_Fixed:Right_Suspension_Front_Arm_GeoShape.outMesh" 
 		"Rover_Geo_FixedRN.placeHolderList[262]" ""
@@ -4367,6 +4409,76 @@ createNode pairBlend -n "pairBlend22";
 	rename -uid "72E7C321-45BD-DCF4-EB14-F2A4B83ABCF1";
 createNode ikRPsolver -n "ikRPsolver";
 	rename -uid "EE2DC3D7-4ED2-CCF5-311F-189F57C1E371";
+createNode makeNurbCircle -n "makeNurbCircle1";
+	rename -uid "3951F50F-49BB-2149-2554-FA86D1F79EFD";
+	setAttr ".nr" -type "double3" 0 1 0 ;
+	setAttr ".tol" 0;
+createNode transformGeometry -n "transformGeometry1";
+	rename -uid "9D8605C8-4935-ECFC-517F-6CB354944B96";
+	setAttr ".txf" -type "matrix" 1 0 0 0 0 1 0 0 0 0 1 0 -2.8092139876741098e-30 14.4563241379796 -99.164320339932345 1;
+createNode multiplyDivide -n "multiplyDivide1";
+	rename -uid "91F00478-40B1-F987-5E17-92A0DAC6C856";
+	setAttr ".i2" -type "float3" 1 1 -1 ;
+createNode unitConversion -n "unitConversion1";
+	rename -uid "C981F87B-40EB-D5E7-7822-479D7EE0DC6E";
+	setAttr ".cf" 57.295779513082323;
+createNode unitConversion -n "unitConversion2";
+	rename -uid "6F2B3CC0-4C6F-0984-7F1C-98BCCFE704D1";
+	setAttr ".cf" 0.017453292519943295;
+createNode multiplyDivide -n "pasted__multiplyDivide1";
+	rename -uid "E4197F68-4A9F-DBD9-3ACA-47BFEED03286";
+	setAttr ".i2" -type "float3" 1 1 -1 ;
+createNode unitConversion -n "unitConversion3";
+	rename -uid "DF9DB2E2-4D4A-90FE-1C0C-9693021CD800";
+	setAttr ".cf" 57.295779513082323;
+createNode unitConversion -n "unitConversion4";
+	rename -uid "0DCC7255-4CE6-9FE4-75AB-8D8FC2D419FA";
+	setAttr ".cf" 0.017453292519943295;
+createNode nodeGraphEditorInfo -n "MayaNodeEditorSavedTabsInfo";
+	rename -uid "DE6F3A02-4567-E94D-7FD7-8EABF0F7BBE8";
+	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
+	setAttr ".tgi[0].vl" -type "double2" -5373.0522721300804 -3671.5918356023762 ;
+	setAttr ".tgi[0].vh" -type "double2" 4341.2330561446079 490.312760923155 ;
+	setAttr -s 13 ".tgi[0].ni";
+	setAttr ".tgi[0].ni[0].x" -834.27020263671875;
+	setAttr ".tgi[0].ni[0].y" -5.8920402526855469;
+	setAttr ".tgi[0].ni[0].nvs" 18304;
+	setAttr ".tgi[0].ni[1].x" 874.28570556640625;
+	setAttr ".tgi[0].ni[1].y" -1567.142822265625;
+	setAttr ".tgi[0].ni[1].nvs" 18306;
+	setAttr ".tgi[0].ni[2].x" 1490;
+	setAttr ".tgi[0].ni[2].y" -1587.142822265625;
+	setAttr ".tgi[0].ni[2].nvs" 18304;
+	setAttr ".tgi[0].ni[3].x" 2104.28564453125;
+	setAttr ".tgi[0].ni[3].y" -1621.4285888671875;
+	setAttr ".tgi[0].ni[3].nvs" 18306;
+	setAttr ".tgi[0].ni[4].x" 2104.28564453125;
+	setAttr ".tgi[0].ni[4].y" -2250;
+	setAttr ".tgi[0].ni[4].nvs" 18306;
+	setAttr ".tgi[0].ni[5].x" 2104.28564453125;
+	setAttr ".tgi[0].ni[5].y" -477.14285278320312;
+	setAttr ".tgi[0].ni[5].nvs" 18306;
+	setAttr ".tgi[0].ni[6].x" 2104.28564453125;
+	setAttr ".tgi[0].ni[6].y" -1061.4285888671875;
+	setAttr ".tgi[0].ni[6].nvs" 18306;
+	setAttr ".tgi[0].ni[7].x" 1182.857177734375;
+	setAttr ".tgi[0].ni[7].y" -1654.2857666015625;
+	setAttr ".tgi[0].ni[7].nvs" 18304;
+	setAttr ".tgi[0].ni[8].x" 1797.142822265625;
+	setAttr ".tgi[0].ni[8].y" -1171.4285888671875;
+	setAttr ".tgi[0].ni[8].nvs" 18304;
+	setAttr ".tgi[0].ni[9].x" 1797.142822265625;
+	setAttr ".tgi[0].ni[9].y" -1997.142822265625;
+	setAttr ".tgi[0].ni[9].nvs" 18304;
+	setAttr ".tgi[0].ni[10].x" 1490;
+	setAttr ".tgi[0].ni[10].y" -1731.4285888671875;
+	setAttr ".tgi[0].ni[10].nvs" 18304;
+	setAttr ".tgi[0].ni[11].x" 1182.857177734375;
+	setAttr ".tgi[0].ni[11].y" -1552.857177734375;
+	setAttr ".tgi[0].ni[11].nvs" 18304;
+	setAttr ".tgi[0].ni[12].x" -2344.28564453125;
+	setAttr ".tgi[0].ni[12].y" -1848.5714111328125;
+	setAttr ".tgi[0].ni[12].nvs" 18304;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -4383,6 +4495,8 @@ select -ne :defaultShaderList1;
 	setAttr -s 5 ".s";
 select -ne :postProcessList1;
 	setAttr -s 2 ".p";
+select -ne :defaultRenderUtilityList1;
+	setAttr -s 2 ".u";
 select -ne :defaultRenderingList1;
 	setAttr -s 2 ".r";
 select -ne :initialShadingGroup;
@@ -4419,9 +4533,9 @@ connectAttr "pairBlend14.orx" "Rover_Geo_FixedRN.phl[5]";
 connectAttr "pairBlend14.ory" "Rover_Geo_FixedRN.phl[6]";
 connectAttr "pairBlend14.orz" "Rover_Geo_FixedRN.phl[7]";
 connectAttr "Rover_Geo_FixedRN.phl[8]" "pairBlend14.w";
-connectAttr "Rover_Geo_FixedRN.phl[9]" "Camera_Arm_Boom_Geo_parentConstraint1.cro"
+connectAttr "Rover_Geo_FixedRN.phl[9]" "pairBlend14.ro";
+connectAttr "Rover_Geo_FixedRN.phl[10]" "Camera_Arm_Boom_Geo_parentConstraint1.cro"
 		;
-connectAttr "Rover_Geo_FixedRN.phl[10]" "pairBlend14.ro";
 connectAttr "Rover_Geo_FixedRN.phl[11]" "Camera_Arm_Boom_Geo_parentConstraint1.cpim"
 		;
 connectAttr "Rover_Geo_FixedRN.phl[12]" "Camera_Arm_Boom_Geo_parentConstraint1.crp"
@@ -4436,9 +4550,9 @@ connectAttr "pairBlend13.orx" "Rover_Geo_FixedRN.phl[18]";
 connectAttr "pairBlend13.ory" "Rover_Geo_FixedRN.phl[19]";
 connectAttr "pairBlend13.orz" "Rover_Geo_FixedRN.phl[20]";
 connectAttr "Rover_Geo_FixedRN.phl[21]" "pairBlend13.w";
-connectAttr "Rover_Geo_FixedRN.phl[22]" "Camera_Arm_Shoulder_Geo_parentConstraint1.cro"
+connectAttr "Rover_Geo_FixedRN.phl[22]" "pairBlend13.ro";
+connectAttr "Rover_Geo_FixedRN.phl[23]" "Camera_Arm_Shoulder_Geo_parentConstraint1.cro"
 		;
-connectAttr "Rover_Geo_FixedRN.phl[23]" "pairBlend13.ro";
 connectAttr "Rover_Geo_FixedRN.phl[24]" "Camera_Arm_Shoulder_Geo_parentConstraint1.cpim"
 		;
 connectAttr "Rover_Geo_FixedRN.phl[25]" "Camera_Arm_Shoulder_Geo_parentConstraint1.crp"
@@ -4453,9 +4567,9 @@ connectAttr "pairBlend15.orx" "Rover_Geo_FixedRN.phl[31]";
 connectAttr "pairBlend15.ory" "Rover_Geo_FixedRN.phl[32]";
 connectAttr "pairBlend15.orz" "Rover_Geo_FixedRN.phl[33]";
 connectAttr "Rover_Geo_FixedRN.phl[34]" "pairBlend15.w";
-connectAttr "Rover_Geo_FixedRN.phl[35]" "Camera_Arm_Arm_Geo_parentConstraint1.cro"
+connectAttr "Rover_Geo_FixedRN.phl[35]" "pairBlend15.ro";
+connectAttr "Rover_Geo_FixedRN.phl[36]" "Camera_Arm_Arm_Geo_parentConstraint1.cro"
 		;
-connectAttr "Rover_Geo_FixedRN.phl[36]" "pairBlend15.ro";
 connectAttr "Rover_Geo_FixedRN.phl[37]" "Camera_Arm_Arm_Geo_parentConstraint1.cpim"
 		;
 connectAttr "Rover_Geo_FixedRN.phl[38]" "Camera_Arm_Arm_Geo_parentConstraint1.crp"
@@ -4470,9 +4584,9 @@ connectAttr "pairBlend16.orx" "Rover_Geo_FixedRN.phl[44]";
 connectAttr "pairBlend16.ory" "Rover_Geo_FixedRN.phl[45]";
 connectAttr "pairBlend16.orz" "Rover_Geo_FixedRN.phl[46]";
 connectAttr "Rover_Geo_FixedRN.phl[47]" "pairBlend16.w";
-connectAttr "Rover_Geo_FixedRN.phl[48]" "Camera_Arm_Head_Geo_parentConstraint1.cro"
+connectAttr "Rover_Geo_FixedRN.phl[48]" "pairBlend16.ro";
+connectAttr "Rover_Geo_FixedRN.phl[49]" "Camera_Arm_Head_Geo_parentConstraint1.cro"
 		;
-connectAttr "Rover_Geo_FixedRN.phl[49]" "pairBlend16.ro";
 connectAttr "Rover_Geo_FixedRN.phl[50]" "Camera_Arm_Head_Geo_parentConstraint1.cpim"
 		;
 connectAttr "Rover_Geo_FixedRN.phl[51]" "Camera_Arm_Head_Geo_parentConstraint1.crp"
@@ -4487,8 +4601,8 @@ connectAttr "pairBlend17.orx" "Rover_Geo_FixedRN.phl[57]";
 connectAttr "pairBlend17.ory" "Rover_Geo_FixedRN.phl[58]";
 connectAttr "pairBlend17.orz" "Rover_Geo_FixedRN.phl[59]";
 connectAttr "Rover_Geo_FixedRN.phl[60]" "pairBlend17.w";
-connectAttr "Rover_Geo_FixedRN.phl[61]" "Dish_Elbow_Geo_parentConstraint1.cro";
-connectAttr "Rover_Geo_FixedRN.phl[62]" "pairBlend17.ro";
+connectAttr "Rover_Geo_FixedRN.phl[61]" "pairBlend17.ro";
+connectAttr "Rover_Geo_FixedRN.phl[62]" "Dish_Elbow_Geo_parentConstraint1.cro";
 connectAttr "Rover_Geo_FixedRN.phl[63]" "Dish_Elbow_Geo_parentConstraint1.cpim";
 connectAttr "Rover_Geo_FixedRN.phl[64]" "Dish_Elbow_Geo_parentConstraint1.crp";
 connectAttr "Rover_Geo_FixedRN.phl[65]" "Dish_Elbow_Geo_parentConstraint1.crt";
@@ -4500,9 +4614,9 @@ connectAttr "pairBlend10.orx" "Rover_Geo_FixedRN.phl[70]";
 connectAttr "pairBlend10.ory" "Rover_Geo_FixedRN.phl[71]";
 connectAttr "pairBlend10.orz" "Rover_Geo_FixedRN.phl[72]";
 connectAttr "Rover_Geo_FixedRN.phl[73]" "pairBlend10.w";
-connectAttr "Rover_Geo_FixedRN.phl[74]" "Right_Wheel_1_Geo_parentConstraint1.cro"
+connectAttr "Rover_Geo_FixedRN.phl[74]" "pairBlend10.ro";
+connectAttr "Rover_Geo_FixedRN.phl[75]" "Right_Wheel_1_Geo_parentConstraint1.cro"
 		;
-connectAttr "Rover_Geo_FixedRN.phl[75]" "pairBlend10.ro";
 connectAttr "Rover_Geo_FixedRN.phl[76]" "Right_Wheel_1_Geo_parentConstraint1.cpim"
 		;
 connectAttr "Rover_Geo_FixedRN.phl[77]" "Right_Wheel_1_Geo_parentConstraint1.crp"
@@ -4516,9 +4630,9 @@ connectAttr "pairBlend11.orx" "Rover_Geo_FixedRN.phl[82]";
 connectAttr "pairBlend11.ory" "Rover_Geo_FixedRN.phl[83]";
 connectAttr "pairBlend11.orz" "Rover_Geo_FixedRN.phl[84]";
 connectAttr "Rover_Geo_FixedRN.phl[85]" "pairBlend11.w";
-connectAttr "Rover_Geo_FixedRN.phl[86]" "Right_Wheel_2_Geo_parentConstraint1.cro"
+connectAttr "Rover_Geo_FixedRN.phl[86]" "pairBlend11.ro";
+connectAttr "Rover_Geo_FixedRN.phl[87]" "Right_Wheel_2_Geo_parentConstraint1.cro"
 		;
-connectAttr "Rover_Geo_FixedRN.phl[87]" "pairBlend11.ro";
 connectAttr "Rover_Geo_FixedRN.phl[88]" "Right_Wheel_2_Geo_parentConstraint1.cpim"
 		;
 connectAttr "Rover_Geo_FixedRN.phl[89]" "Right_Wheel_2_Geo_parentConstraint1.crp"
@@ -4532,9 +4646,9 @@ connectAttr "pairBlend12.orx" "Rover_Geo_FixedRN.phl[94]";
 connectAttr "pairBlend12.ory" "Rover_Geo_FixedRN.phl[95]";
 connectAttr "pairBlend12.orz" "Rover_Geo_FixedRN.phl[96]";
 connectAttr "Rover_Geo_FixedRN.phl[97]" "pairBlend12.w";
-connectAttr "Rover_Geo_FixedRN.phl[98]" "Right_Wheel_3_Geo_parentConstraint1.cro"
+connectAttr "Rover_Geo_FixedRN.phl[98]" "pairBlend12.ro";
+connectAttr "Rover_Geo_FixedRN.phl[99]" "Right_Wheel_3_Geo_parentConstraint1.cro"
 		;
-connectAttr "Rover_Geo_FixedRN.phl[99]" "pairBlend12.ro";
 connectAttr "Rover_Geo_FixedRN.phl[100]" "Right_Wheel_3_Geo_parentConstraint1.cpim"
 		;
 connectAttr "Rover_Geo_FixedRN.phl[101]" "Right_Wheel_3_Geo_parentConstraint1.crp"
@@ -4548,9 +4662,9 @@ connectAttr "pairBlend8.orx" "Rover_Geo_FixedRN.phl[106]";
 connectAttr "pairBlend8.ory" "Rover_Geo_FixedRN.phl[107]";
 connectAttr "pairBlend8.orz" "Rover_Geo_FixedRN.phl[108]";
 connectAttr "Rover_Geo_FixedRN.phl[109]" "pairBlend8.w";
-connectAttr "Rover_Geo_FixedRN.phl[110]" "Left_Wheel_3_Geo_parentConstraint1.cro"
+connectAttr "Rover_Geo_FixedRN.phl[110]" "pairBlend8.ro";
+connectAttr "Rover_Geo_FixedRN.phl[111]" "Left_Wheel_3_Geo_parentConstraint1.cro"
 		;
-connectAttr "Rover_Geo_FixedRN.phl[111]" "pairBlend8.ro";
 connectAttr "Rover_Geo_FixedRN.phl[112]" "Left_Wheel_3_Geo_parentConstraint1.cpim"
 		;
 connectAttr "Rover_Geo_FixedRN.phl[113]" "Left_Wheel_3_Geo_parentConstraint1.crp"
@@ -4565,9 +4679,9 @@ connectAttr "pairBlend7.orx" "Rover_Geo_FixedRN.phl[119]";
 connectAttr "pairBlend7.ory" "Rover_Geo_FixedRN.phl[120]";
 connectAttr "pairBlend7.orz" "Rover_Geo_FixedRN.phl[121]";
 connectAttr "Rover_Geo_FixedRN.phl[122]" "pairBlend7.w";
-connectAttr "Rover_Geo_FixedRN.phl[123]" "Left_Wheel_2_Geo_parentConstraint1.cro"
+connectAttr "Rover_Geo_FixedRN.phl[123]" "pairBlend7.ro";
+connectAttr "Rover_Geo_FixedRN.phl[124]" "Left_Wheel_2_Geo_parentConstraint1.cro"
 		;
-connectAttr "Rover_Geo_FixedRN.phl[124]" "pairBlend7.ro";
 connectAttr "Rover_Geo_FixedRN.phl[125]" "Left_Wheel_2_Geo_parentConstraint1.cpim"
 		;
 connectAttr "Rover_Geo_FixedRN.phl[126]" "Left_Wheel_2_Geo_parentConstraint1.crp"
@@ -4582,9 +4696,9 @@ connectAttr "pairBlend6.orx" "Rover_Geo_FixedRN.phl[132]";
 connectAttr "pairBlend6.ory" "Rover_Geo_FixedRN.phl[133]";
 connectAttr "pairBlend6.orz" "Rover_Geo_FixedRN.phl[134]";
 connectAttr "Rover_Geo_FixedRN.phl[135]" "pairBlend6.w";
-connectAttr "Rover_Geo_FixedRN.phl[136]" "Left_Wheel_1_Geo_parentConstraint1.cro"
+connectAttr "Rover_Geo_FixedRN.phl[136]" "pairBlend6.ro";
+connectAttr "Rover_Geo_FixedRN.phl[137]" "Left_Wheel_1_Geo_parentConstraint1.cro"
 		;
-connectAttr "Rover_Geo_FixedRN.phl[137]" "pairBlend6.ro";
 connectAttr "Rover_Geo_FixedRN.phl[138]" "Left_Wheel_1_Geo_parentConstraint1.cpim"
 		;
 connectAttr "Rover_Geo_FixedRN.phl[139]" "Left_Wheel_1_Geo_parentConstraint1.crp"
@@ -4600,8 +4714,8 @@ connectAttr "pairBlend19.orx" "Rover_Geo_FixedRN.phl[146]";
 connectAttr "pairBlend19.ory" "Rover_Geo_FixedRN.phl[147]";
 connectAttr "pairBlend19.orz" "Rover_Geo_FixedRN.phl[148]";
 connectAttr "Rover_Geo_FixedRN.phl[149]" "pairBlend19.w";
-connectAttr "Rover_Geo_FixedRN.phl[150]" "Body_Geo_parentConstraint1.cro";
-connectAttr "Rover_Geo_FixedRN.phl[151]" "pairBlend19.ro";
+connectAttr "Rover_Geo_FixedRN.phl[150]" "pairBlend19.ro";
+connectAttr "Rover_Geo_FixedRN.phl[151]" "Body_Geo_parentConstraint1.cro";
 connectAttr "Rover_Geo_FixedRN.phl[152]" "Body_Geo_parentConstraint1.cpim";
 connectAttr "Rover_Geo_FixedRN.phl[153]" "Body_Geo_parentConstraint1.crp";
 connectAttr "Rover_Geo_FixedRN.phl[154]" "Body_Geo_parentConstraint1.crt";
@@ -4615,9 +4729,9 @@ connectAttr "pairBlend5.orx" "Rover_Geo_FixedRN.phl[160]";
 connectAttr "pairBlend5.ory" "Rover_Geo_FixedRN.phl[161]";
 connectAttr "pairBlend5.orz" "Rover_Geo_FixedRN.phl[162]";
 connectAttr "Rover_Geo_FixedRN.phl[163]" "pairBlend5.w";
-connectAttr "Rover_Geo_FixedRN.phl[164]" "Left_Suspension_Hip_Geo_parentConstraint1.cro"
+connectAttr "Rover_Geo_FixedRN.phl[164]" "pairBlend5.ro";
+connectAttr "Rover_Geo_FixedRN.phl[165]" "Left_Suspension_Hip_Geo_parentConstraint1.cro"
 		;
-connectAttr "Rover_Geo_FixedRN.phl[165]" "pairBlend5.ro";
 connectAttr "Rover_Geo_FixedRN.phl[166]" "Left_Suspension_Hip_Geo_parentConstraint1.cpim"
 		;
 connectAttr "Rover_Geo_FixedRN.phl[167]" "Left_Suspension_Hip_Geo_parentConstraint1.crp"
@@ -4631,9 +4745,9 @@ connectAttr "pairBlend9.orx" "Rover_Geo_FixedRN.phl[172]";
 connectAttr "pairBlend9.ory" "Rover_Geo_FixedRN.phl[173]";
 connectAttr "pairBlend9.orz" "Rover_Geo_FixedRN.phl[174]";
 connectAttr "Rover_Geo_FixedRN.phl[175]" "pairBlend9.w";
-connectAttr "Rover_Geo_FixedRN.phl[176]" "Right_Suspension_Hip_Geo_parentConstraint1.cro"
+connectAttr "Rover_Geo_FixedRN.phl[176]" "pairBlend9.ro";
+connectAttr "Rover_Geo_FixedRN.phl[177]" "Right_Suspension_Hip_Geo_parentConstraint1.cro"
 		;
-connectAttr "Rover_Geo_FixedRN.phl[177]" "pairBlend9.ro";
 connectAttr "Rover_Geo_FixedRN.phl[178]" "Right_Suspension_Hip_Geo_parentConstraint1.cpim"
 		;
 connectAttr "Rover_Geo_FixedRN.phl[179]" "Right_Suspension_Hip_Geo_parentConstraint1.crp"
@@ -4647,8 +4761,8 @@ connectAttr "pairBlend18.orx" "Rover_Geo_FixedRN.phl[184]";
 connectAttr "pairBlend18.ory" "Rover_Geo_FixedRN.phl[185]";
 connectAttr "pairBlend18.orz" "Rover_Geo_FixedRN.phl[186]";
 connectAttr "Rover_Geo_FixedRN.phl[187]" "pairBlend18.w";
-connectAttr "Rover_Geo_FixedRN.phl[188]" "Dish_Geo_parentConstraint1.cro";
-connectAttr "Rover_Geo_FixedRN.phl[189]" "pairBlend18.ro";
+connectAttr "Rover_Geo_FixedRN.phl[188]" "pairBlend18.ro";
+connectAttr "Rover_Geo_FixedRN.phl[189]" "Dish_Geo_parentConstraint1.cro";
 connectAttr "Rover_Geo_FixedRN.phl[190]" "Dish_Geo_parentConstraint1.cpim";
 connectAttr "Rover_Geo_FixedRN.phl[191]" "Dish_Geo_parentConstraint1.crp";
 connectAttr "Rover_Geo_FixedRN.phl[192]" "Dish_Geo_parentConstraint1.crt";
@@ -4664,9 +4778,9 @@ connectAttr "Rover_Geo_FixedRN.phl[201]" "Left_Solar_Panel_Geo1_parentConstraint
 		;
 connectAttr "Rover_Geo_FixedRN.phl[202]" "Left_Solar_Panel_Geo1_parentConstraint1.crt"
 		;
-connectAttr "Rover_Geo_FixedRN.phl[203]" "Left_Solar_Panel_Geo1_parentConstraint1.cro"
+connectAttr "Rover_Geo_FixedRN.phl[203]" "pairBlend20.ro";
+connectAttr "Rover_Geo_FixedRN.phl[204]" "Left_Solar_Panel_Geo1_parentConstraint1.cro"
 		;
-connectAttr "Rover_Geo_FixedRN.phl[204]" "pairBlend20.ro";
 connectAttr "Rover_Geo_FixedRN.phl[205]" "Left_Solar_Panel_Geo1_parentConstraint1.cpim"
 		;
 connectAttr "pairBlend21.otx" "Rover_Geo_FixedRN.phl[206]";
@@ -4680,9 +4794,9 @@ connectAttr "Rover_Geo_FixedRN.phl[213]" "Right_Solar_Panel_Geo1_parentConstrain
 		;
 connectAttr "Rover_Geo_FixedRN.phl[214]" "Right_Solar_Panel_Geo1_parentConstraint1.crt"
 		;
-connectAttr "Rover_Geo_FixedRN.phl[215]" "Right_Solar_Panel_Geo1_parentConstraint1.cro"
+connectAttr "Rover_Geo_FixedRN.phl[215]" "pairBlend21.ro";
+connectAttr "Rover_Geo_FixedRN.phl[216]" "Right_Solar_Panel_Geo1_parentConstraint1.cro"
 		;
-connectAttr "Rover_Geo_FixedRN.phl[216]" "pairBlend21.ro";
 connectAttr "Rover_Geo_FixedRN.phl[217]" "Right_Solar_Panel_Geo1_parentConstraint1.cpim"
 		;
 connectAttr "pairBlend22.otx" "Rover_Geo_FixedRN.phl[218]";
@@ -4692,8 +4806,8 @@ connectAttr "pairBlend22.orx" "Rover_Geo_FixedRN.phl[221]";
 connectAttr "pairBlend22.ory" "Rover_Geo_FixedRN.phl[222]";
 connectAttr "pairBlend22.orz" "Rover_Geo_FixedRN.phl[223]";
 connectAttr "Rover_Geo_FixedRN.phl[224]" "pairBlend22.w";
-connectAttr "Rover_Geo_FixedRN.phl[225]" "Antenna_Geo_parentConstraint1.cro";
-connectAttr "Rover_Geo_FixedRN.phl[226]" "pairBlend22.ro";
+connectAttr "Rover_Geo_FixedRN.phl[225]" "pairBlend22.ro";
+connectAttr "Rover_Geo_FixedRN.phl[226]" "Antenna_Geo_parentConstraint1.cro";
 connectAttr "Rover_Geo_FixedRN.phl[227]" "Antenna_Geo_parentConstraint1.cpim";
 connectAttr "Rover_Geo_FixedRN.phl[228]" "Antenna_Geo_parentConstraint1.crp";
 connectAttr "Rover_Geo_FixedRN.phl[229]" "Antenna_Geo_parentConstraint1.crt";
@@ -5362,6 +5476,13 @@ connectAttr "Dish_base_control.s" "dish_base_parentConstraint1.tg[0].ts";
 connectAttr "Dish_base_control.pm" "dish_base_parentConstraint1.tg[0].tpm";
 connectAttr "dish_base_parentConstraint1.w0" "dish_base_parentConstraint1.tg[0].tw"
 		;
+connectAttr "Master_Wheel_Turn_Control.ry" "Left_front_wheel_turn_control_offset.rz"
+		;
+connectAttr "unitConversion4.o" "Left_back_wheel_turn_control_offset.rz";
+connectAttr "unitConversion2.o" "Right_front_wheel_turn_control_offset.rz";
+connectAttr "Master_Wheel_Turn_Control.ry" "Right_back_wheel_turn_control_offset.rz"
+		;
+connectAttr "transformGeometry1.og" "Master_Wheel_Turn_ControlShape.cr";
 connectAttr "lower_arm_shoulder.msg" "lower_arm_IK_handle.hsj";
 connectAttr "effector1.hp" "lower_arm_IK_handle.hee";
 connectAttr "ikRPsolver.msg" "lower_arm_IK_handle.hsv";
@@ -6338,6 +6459,36 @@ connectAttr "Antenna_Geo_parentConstraint1.ctz" "pairBlend22.itz2";
 connectAttr "Antenna_Geo_parentConstraint1.crx" "pairBlend22.irx2";
 connectAttr "Antenna_Geo_parentConstraint1.cry" "pairBlend22.iry2";
 connectAttr "Antenna_Geo_parentConstraint1.crz" "pairBlend22.irz2";
+connectAttr "makeNurbCircle1.oc" "transformGeometry1.ig";
+connectAttr "unitConversion1.o" "multiplyDivide1.i1z";
+connectAttr "Master_Wheel_Turn_Control.ry" "unitConversion1.i";
+connectAttr "multiplyDivide1.oz" "unitConversion2.i";
+connectAttr "unitConversion3.o" "pasted__multiplyDivide1.i1z";
+connectAttr "Master_Wheel_Turn_Control.ry" "unitConversion3.i";
+connectAttr "pasted__multiplyDivide1.oz" "unitConversion4.i";
+connectAttr "Master_Wheel_Turn_ControlShape.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
+		;
+connectAttr "Master_Wheel_Turn_Control.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
+		;
+connectAttr "multiplyDivide1.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[2].dn";
+connectAttr "Left_back_wheel_turn_control_offset.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
+		;
+connectAttr "Right_back_wheel_turn_control_offset.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
+		;
+connectAttr "Left_front_wheel_turn_control_offset.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[5].dn"
+		;
+connectAttr "Right_front_wheel_turn_control_offset.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[6].dn"
+		;
+connectAttr "unitConversion3.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[7].dn";
+connectAttr "unitConversion2.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[8].dn";
+connectAttr "unitConversion4.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[9].dn";
+connectAttr "pasted__multiplyDivide1.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[10].dn"
+		;
+connectAttr "unitConversion1.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[11].dn"
+		;
+connectAttr "Rover.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni[12].dn";
+connectAttr "multiplyDivide1.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "pasted__multiplyDivide1.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "Body_GeoShapeDeformed.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "Left_Wheel_1_GeoShapeDeformed.iog" ":initialShadingGroup.dsm" -na;
