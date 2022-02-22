@@ -1,6 +1,6 @@
 //Maya ASCII 2022 scene
 //Name: Rover - rigged.ma
-//Last modified: Tue, Feb 15, 2022 07:04:18 PM
+//Last modified: Tue, Feb 22, 2022 03:48:35 PM
 //Codeset: 1252
 requires maya "2022";
 requires "stereoCamera" "10.0";
@@ -12,21 +12,21 @@ fileInfo "product" "Maya 2022";
 fileInfo "version" "2022";
 fileInfo "cutIdentifier" "202106180615-26a94e7f8c";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19044)";
-fileInfo "UUID" "4F990219-45B3-243B-CFC7-EA838B3BE281";
+fileInfo "UUID" "10553B29-4D93-C52D-F3AD-1DB76B3ADDDE";
 createNode transform -s -n "persp";
 	rename -uid "C9AE3A1A-4FCC-766E-412C-BD8C56CF242E";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -212.21794453217066 198.20330576393172 -206.23170534731298 ;
-	setAttr ".r" -type "double3" 332.06164696979465 -3369.3999999983921 0 ;
+	setAttr ".t" -type "double3" -212.41674411392663 157.31328107149116 -182.95692400637688 ;
+	setAttr ".r" -type "double3" 335.06164680231348 -2284.6000000026984 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "45E0E5B8-4B67-ECEF-03F0-1CA118A199FA";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 275.22006898812327;
+	setAttr ".coi" 231.87222797433014;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" -38.537918090820277 75.426101684570341 25.038948059082028 ;
+	setAttr ".tp" -type "double3" -1.7763568394002505e-15 69.353177798355233 -45.46970367431642 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 	setAttr ".ai_translator" -type "string" "perspective";
 createNode transform -s -n "top";
@@ -83,7 +83,6 @@ createNode transform -n "Rover";
 	rename -uid "504566F5-4A41-60E5-E312-C2B6650F60B0";
 createNode transform -n "Skeleton" -p "Rover";
 	rename -uid "7AA66EE2-4758-0096-026D-07A81A498279";
-	setAttr ".v" no;
 createNode joint -n "root" -p "Skeleton";
 	rename -uid "BDFC11B4-4F36-FE2B-6EEF-35A8A939C2F5";
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
@@ -159,9 +158,9 @@ createNode joint -n "left_front_wheel_spin" -p "left_front_wheel_turn";
 	setAttr ".jo" -type "double3" 90 0 -90 ;
 	setAttr ".radi" 1.8589798547749206;
 createNode orientConstraint -n "left_front_wheel_spin_orientConstraint1" -p "left_front_wheel_spin";
-	rename -uid "330B4B6C-4CA4-D538-4BF5-6BBAEE6792A0";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Wheel_spin_controlW0" -dv 1 -min 
-		0 -at "double";
+	rename -uid "9401AAA1-44F0-8B6A-9257-6BA0CB03C14C";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Front_Left_Wheel_Spin_ControlW0" 
+		-dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -214,7 +213,9 @@ createNode joint -n "left_mid_wheel_spin" -p "left_dual_joint";
 	setAttr ".jo" -type "double3" 0 180 0 ;
 	setAttr ".radi" 2;
 createNode orientConstraint -n "left_mid_wheel_spin_orientConstraint1" -p "left_mid_wheel_spin";
-	rename -uid "7D21FA49-4CEB-D16E-3967-A4B55C35962E";
+	rename -uid "53DAB415-4CB6-7386-B74D-C582111A6B4B";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Mid_Left_Wheel_Spin_ControlW0" -dv 
+		1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -227,6 +228,9 @@ createNode orientConstraint -n "left_mid_wheel_spin_orientConstraint1" -p "left_
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
+	setAttr ".lr" -type "double3" 0 89.999999999999972 0 ;
+	setAttr ".o" -type "double3" 0 -89.999999999999972 0 ;
+	setAttr -k on ".w0";
 createNode joint -n "left_back_wheel_turn" -p "left_dual_joint";
 	rename -uid "8DE2F9F5-45C0-A162-8402-CC88ECACD961";
 	setAttr ".s" -type "double3" 1 1 0.99999999999999989 ;
@@ -243,7 +247,9 @@ createNode joint -n "left_back_wheel_spin" -p "left_back_wheel_turn";
 	setAttr ".jo" -type "double3" 90 0 -90 ;
 	setAttr ".radi" 1.6122662244306019;
 createNode orientConstraint -n "left_back_wheel_spin_orientConstraint1" -p "left_back_wheel_spin";
-	rename -uid "955CA25B-4BC0-779C-B5FE-6F825874EAFD";
+	rename -uid "C2B1D9EE-483B-1CB1-3540-7EA3FAC45701";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Back_Left_Wheel_Spin_ControlW0" -dv 
+		1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -256,6 +262,9 @@ createNode orientConstraint -n "left_back_wheel_spin_orientConstraint1" -p "left
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
+	setAttr ".lr" -type "double3" 0 90 0 ;
+	setAttr ".o" -type "double3" 0 -90 0 ;
+	setAttr -k on ".w0";
 createNode parentConstraint -n "left_back_wheel_turn_parentConstraint1" -p "left_back_wheel_turn";
 	rename -uid "5D5D8DCD-4483-D2B9-2CF5-C3949ED385A5";
 	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Left_back_wheel_turn_controlW0" -dv 
@@ -342,9 +351,9 @@ createNode joint -n "right_front_wheel_spin" -p "right_front_wheel_turn";
 	setAttr ".jo" -type "double3" 90.000000000000014 3.8166656177562195e-14 -90.000000000000014 ;
 	setAttr ".radi" 1.8589798547749206;
 createNode orientConstraint -n "right_front_wheel_spin_orientConstraint1" -p "right_front_wheel_spin";
-	rename -uid "0D355D47-42F9-43D2-77EE-6488C67BC989";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Wheel_spin_controlW0" -dv 1 -min 
-		0 -at "double";
+	rename -uid "63C5C8EB-433A-9B68-7E8E-8B9B439D7D0D";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Front_Right_Wheel_Spin_ControlW0" 
+		-dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -396,11 +405,12 @@ createNode joint -n "right_mid_wheel_spin" -p "right_dual_joint";
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" 0 180 0 ;
+	setAttr ".pa" -type "double3" 0 0 7.016709298534876e-15 ;
 	setAttr ".radi" 2;
 createNode orientConstraint -n "right_mid_wheel_spin_orientConstraint1" -p "right_mid_wheel_spin";
-	rename -uid "4745AB0A-427B-9CE9-DADE-CFB6934099C1";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Wheel_spin_controlW0" -dv 1 -min 
-		0 -at "double";
+	rename -uid "8730E1BD-40B8-6A91-510C-27A205173A47";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Mid_Right_Wheel_Spin_ControlW0" -dv 
+		1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -413,7 +423,7 @@ createNode orientConstraint -n "right_mid_wheel_spin_orientConstraint1" -p "righ
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" 180 89.999999999999972 0 ;
+	setAttr ".lr" -type "double3" 180 89.999999999999957 0 ;
 	setAttr ".o" -type "double3" -180 89.999999999999972 0 ;
 	setAttr ".rsrr" -type "double3" 7.016709298534872e-15 -4.2964952914991002e-31 7.016709298534876e-15 ;
 	setAttr -k on ".w0";
@@ -424,6 +434,7 @@ createNode joint -n "right_back_wheel_turn" -p "right_dual_joint";
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" -90.000000000000028 -90 0 ;
+	setAttr ".pa" -type "double3" -3.1805546814635148e-15 3.1805546814635187e-15 7.9513867036587922e-14 ;
 	setAttr ".radi" 1.6122662244306019;
 createNode joint -n "right_back_wheel_spin" -p "right_back_wheel_turn";
 	rename -uid "D1C7FDBC-48EE-C84D-D010-F8B050AE35CE";
@@ -431,11 +442,12 @@ createNode joint -n "right_back_wheel_spin" -p "right_back_wheel_turn";
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jo" -type "double3" 90.000000000000014 3.8166656177562195e-14 -90.000000000000014 ;
+	setAttr ".pa" -type "double3" 0 0 -7.016709298534876e-15 ;
 	setAttr ".radi" 1.6122662244306019;
 createNode orientConstraint -n "right_back_wheel_spin_orientConstraint1" -p "right_back_wheel_spin";
-	rename -uid "B45FC084-423B-10B8-160C-BABC9BF0DF6C";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Wheel_spin_controlW0" -dv 1 -min 
-		0 -at "double";
+	rename -uid "7C2928BE-42AA-4F83-9220-5C96D0928771";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Back_Right_Wheel_Spin_ControlW0" 
+		-dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -804,17 +816,17 @@ createNode nurbsCurve -n "Left_hip_controlShape" -p "Left_hip_control";
 		3 8 2 no 3
 		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
 		11
-		5.701254184058107 -5.7008887348251447 -2.2704576036137785
-		1.1536179099612776e-14 -8.0622741663696811 -2.2741326391957992
-		-5.7012541840580298 -5.7008887348251305 -2.2704576036137785
-		-8.0627909896312406 -2.4972962788259755e-14 -2.2615852828694614
-		-5.7012541840580298 5.7008887348250781 -2.2527129621251452
-		1.0234820252903839e-14 8.0622741663696473 -2.2490379265431253
-		5.701254184058107 5.7008887348250825 -2.2527129621251447
-		8.0627909896312939 -2.3455563590326636e-14 -2.2615852828694614
-		5.701254184058107 -5.7008887348251447 -2.2704576036137785
-		1.1536179099612776e-14 -8.0622741663696811 -2.2741326391957992
-		-5.7012541840580298 -5.7008887348251305 -2.2704576036137785
+		6.9824872372034941 -4.031042497963357 -2.2704576036137785
+		2.0866701010945303 -7.7875588359196479 -2.2741326391957992
+		-3.9909343769957109e-12 -7.0005444661937651e-12 -2.2704576036137785
+		-7.7880580488556088 -2.0868038647975982 -2.2615852828694614
+		-6.982487237203407 4.0310424979632975 -2.2527129621251452
+		-2.0866701010945063 7.7875588359196071 -2.2490379265431253
+		4.0720457830785821e-12 6.9639131849515189e-12 -2.2527129621251447
+		7.7880580488556665 2.0868038647975489 -2.2615852828694614
+		6.9824872372034941 -4.031042497963357 -2.2704576036137785
+		2.0866701010945303 -7.7875588359196479 -2.2741326391957992
+		-3.9909343769957109e-12 -7.0005444661937651e-12 -2.2704576036137785
 		;
 createNode transform -n "Left_front_wheel_turn_control_group" -p "Left_hip_control";
 	rename -uid "52AA9D3D-451B-2FC5-7DAF-62A230D6569F";
@@ -843,18 +855,66 @@ createNode nurbsCurve -n "Left_front_wheel_turn_controlShape" -p "Left_front_whe
 		3 8 2 no 3
 		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
 		11
-		3.6540755330171359 12.499066868046059 0.16665636391309135
-		-8.8449913350290199 17.676349881798977 0.16665636391309135
-		-21.344058203075193 12.499066868046048 0.16665636391309135
+		0.031060250788467469 12.499066868046059 0.16665636391309135
+		-8.8449913350290199 25.176536486784748 0.16665636391309135
+		-17.721042920846525 12.499066868046048 0.16665636391309135
 		-26.521341216828045 -5.5927073761526078e-14 0.16665636391309135
 		-21.344058203075193 -12.499066868046205 0.16665636391309135
 		-8.8449913350290199 -17.676349881799158 0.16665636391309135
 		3.6540755330171359 -12.499066868046198 0.16665636391309135
 		8.8313585467700229 -5.9253936453061723e-14 0.16665636391309135
-		3.6540755330171359 12.499066868046059 0.16665636391309135
-		-8.8449913350290199 17.676349881798977 0.16665636391309135
-		-21.344058203075193 12.499066868046048 0.16665636391309135
+		0.031060250788467469 12.499066868046059 0.16665636391309135
+		-8.8449913350290199 25.176536486784748 0.16665636391309135
+		-17.721042920846525 12.499066868046048 0.16665636391309135
 		;
+createNode transform -n "Front_Left_Wheel_Spin_Control_group" -p "Left_front_wheel_turn_control";
+	rename -uid "ECF5B840-440D-8E73-6FBC-0C95551217D6";
+	setAttr ".t" -type "double3" -12.194552349162414 0.76246420801146542 -2.9906997680664098 ;
+	setAttr ".r" -type "double3" 90 0 0 ;
+	setAttr ".s" -type "double3" 0.99999999999999956 0.99999999999999978 0.99999999999999978 ;
+createNode transform -n "Front_Left_Wheel_Spin_Control_offset" -p "Front_Left_Wheel_Spin_Control_group";
+	rename -uid "F153B6AE-4B8C-D722-9DA1-2A8CC2CF968E";
+createNode transform -n "Front_Left_Wheel_Spin_Control" -p "Front_Left_Wheel_Spin_Control_offset";
+	rename -uid "7BC76E90-4D7B-B208-AE78-AFA2CF6CF12E";
+createNode nurbsCurve -n "Front_Left_Wheel_Spin_ControlShape" -p "Front_Left_Wheel_Spin_Control";
+	rename -uid "E640B4A3-44D3-B438-DC24-E3B4E5ACC737";
+	setAttr -k off ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 5;
+	setAttr ".cc" -type "nurbsCurve" 
+		3 8 2 no 3
+		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
+		11
+		-6.4609660066425159 5.1567911691724708 -5.1567911691724557
+		-6.4609660066425079 7.3061553802161874e-16 -7.2928040097694975
+		-6.4609660066425167 -5.1567911691725081 -5.1567911691724557
+		-6.4609660066425123 -7.2928040097695472 2.8043649182724898e-14
+		-6.4609660066425167 -5.1567911691725081 5.1567911691725241
+		-6.4609660066425079 -7.3061553802161874e-16 7.2928040097695801
+		-6.4609660066425159 5.1567911691724708 5.1567911691725241
+		-6.4609660066425105 13.266007400935214 4.362708125349081e-14
+		-6.4609660066425159 5.1567911691724708 -5.1567911691724557
+		-6.4609660066425079 7.3061553802161874e-16 -7.2928040097694975
+		-6.4609660066425167 -5.1567911691725081 -5.1567911691724557
+		;
+createNode orientConstraint -n "Front_Left_Wheel_Spin_Control_offset_orientConstraint1" 
+		-p "Front_Left_Wheel_Spin_Control_offset";
+	rename -uid "59C581A4-4509-65AF-98D9-94B100B8799D";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Master_Wheel_spin_controlW0" -dv 
+		1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
 createNode transform -n "Left_dual_arm_control_group" -p "Left_hip_control";
 	rename -uid "E7232F19-4584-802E-2FCF-C1890561CD0E";
 	setAttr ".t" -type "double3" -38.000000000000014 -6.2000007629394815 0.74999999999997158 ;
@@ -918,18 +978,114 @@ createNode nurbsCurve -n "Left_back_wheel_turn_controlShape" -p "Left_back_wheel
 		3 8 2 no 3
 		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
 		11
-		3.6540755330171359 12.499066868046059 0.16665636391309135
-		-8.8449913350290199 17.676349881798977 0.16665636391309135
-		-21.344058203075193 12.499066868046048 0.16665636391309135
+		0.59489505255040798 12.499066868046059 0.16665636391309135
+		-8.8449913350290199 21.897532568908556 0.16665636391309491
+		-18.28487772260846 12.499066868046048 0.16665636391309135
 		-26.521341216828045 -5.5927073761526078e-14 0.16665636391309135
 		-21.344058203075193 -12.499066868046205 0.16665636391309135
 		-8.8449913350290199 -17.676349881799158 0.16665636391309135
 		3.6540755330171359 -12.499066868046198 0.16665636391309135
 		8.8313585467700229 -5.9253936453061723e-14 0.16665636391309135
-		3.6540755330171359 12.499066868046059 0.16665636391309135
-		-8.8449913350290199 17.676349881798977 0.16665636391309135
-		-21.344058203075193 12.499066868046048 0.16665636391309135
+		0.59489505255040798 12.499066868046059 0.16665636391309135
+		-8.8449913350290199 21.897532568908556 0.16665636391309491
+		-18.28487772260846 12.499066868046048 0.16665636391309135
 		;
+createNode transform -n "Back_Left_Wheel_Spin_Control_group" -p "Left_back_wheel_turn_control";
+	rename -uid "3529D061-41E0-870C-B928-C1B35C7BC325";
+	setAttr ".t" -type "double3" -11.936985015869261 -0.070003509521484375 -2.9940948486327787 ;
+	setAttr ".r" -type "double3" 90 0 0 ;
+	setAttr ".s" -type "double3" 0.99999999999999956 1 0.99999999999999978 ;
+createNode transform -n "Back_Left_Wheel_Spin_Control_offset" -p "Back_Left_Wheel_Spin_Control_group";
+	rename -uid "002BB856-49C7-78B5-59B8-6CAFCCBFE47B";
+createNode transform -n "Back_Left_Wheel_Spin_Control" -p "Back_Left_Wheel_Spin_Control_offset";
+	rename -uid "57F5C49A-4736-A1B0-D32F-54976EC80901";
+createNode nurbsCurve -n "Back_Left_Wheel_Spin_ControlShape" -p "Back_Left_Wheel_Spin_Control";
+	rename -uid "751CABA1-4174-F59E-477E-30B7DE85883C";
+	setAttr -k off ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 5;
+	setAttr ".cc" -type "nurbsCurve" 
+		3 8 2 no 3
+		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
+		11
+		-6.4609660066425159 5.1567911691724708 -5.1567911691724557
+		-6.4609660066425079 7.3061553802161874e-16 -7.2928040097694975
+		-6.4609660066425167 -5.1567911691725081 -5.1567911691724557
+		-6.4609660066425123 -7.2928040097695472 2.8043649182724898e-14
+		-6.4609660066425167 -5.1567911691725081 5.1567911691725241
+		-6.4609660066425079 -7.3061553802161874e-16 7.2928040097695801
+		-6.4609660066425159 5.1567911691724708 5.1567911691725241
+		-6.4609660066425105 13.266007400935214 4.362708125349081e-14
+		-6.4609660066425159 5.1567911691724708 -5.1567911691724557
+		-6.4609660066425079 7.3061553802161874e-16 -7.2928040097694975
+		-6.4609660066425167 -5.1567911691725081 -5.1567911691724557
+		;
+createNode orientConstraint -n "Back_Left_Wheel_Spin_Control_offset_orientConstraint1" 
+		-p "Back_Left_Wheel_Spin_Control_offset";
+	rename -uid "34A36478-4C6C-7762-A6C2-CBA2609CAA8B";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Master_Wheel_spin_controlW0" -dv 
+		1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode transform -n "Mid_Left_Wheel_Spin_Control_group" -p "Left_dual_arm_control";
+	rename -uid "63044F80-47ED-2FE3-1C91-1A870739E871";
+	setAttr ".t" -type "double3" 19.29795050621037 -19.319995880126985 -15.72455978393549 ;
+	setAttr ".r" -type "double3" 0 -89.999999999999986 0 ;
+	setAttr ".s" -type "double3" 0.99999999999999956 0.99999999999999978 0.99999999999999933 ;
+createNode transform -n "Mid_Left_Wheel_Spin_Control_offset" -p "Mid_Left_Wheel_Spin_Control_group";
+	rename -uid "8C4EE8BA-4684-6A98-BE6A-53AA6586BA71";
+createNode transform -n "Mid_Left_Wheel_Spin_Control" -p "Mid_Left_Wheel_Spin_Control_offset";
+	rename -uid "7CBA0A03-4A75-2A6C-8F25-C391D7A9F3CA";
+createNode nurbsCurve -n "Mid_Left_Wheel_Spin_ControlShape" -p "Mid_Left_Wheel_Spin_Control";
+	rename -uid "B2C484E2-4AB6-2C26-6807-94AE0DE5B6CC";
+	setAttr -k off ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 5;
+	setAttr ".cc" -type "nurbsCurve" 
+		3 8 2 no 3
+		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
+		11
+		-6.4609660066425159 5.1567911691724708 -5.1567911691724557
+		-6.4609660066425079 7.3061553802161874e-16 -7.2928040097694975
+		-6.4609660066425167 -5.1567911691725081 -5.1567911691724557
+		-6.4609660066425123 -7.2928040097695472 2.8043649182724898e-14
+		-6.4609660066425167 -5.1567911691725081 5.1567911691725241
+		-6.4609660066425079 -7.3061553802161874e-16 7.2928040097695801
+		-6.4609660066425159 5.1567911691724708 5.1567911691725241
+		-6.4609660066425105 13.266007400935214 4.362708125349081e-14
+		-6.4609660066425159 5.1567911691724708 -5.1567911691724557
+		-6.4609660066425079 7.3061553802161874e-16 -7.2928040097694975
+		-6.4609660066425167 -5.1567911691725081 -5.1567911691724557
+		;
+createNode orientConstraint -n "Mid_Left_Wheel_Spin_Control_offset_orientConstraint1" 
+		-p "Mid_Left_Wheel_Spin_Control_offset";
+	rename -uid "8DEE819B-4960-7707-C4A7-BC8658091EB8";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Master_Wheel_spin_controlW0" -dv 
+		1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
 createNode transform -n "Right_hip_control_group1" -p "COG_control";
 	rename -uid "2839270D-494B-0C05-0641-8DB10A5B6791";
 	setAttr ".t" -type "double3" 8.7249871704101576 -12.600018395996116 29.499999999999989 ;
@@ -956,17 +1112,17 @@ createNode nurbsCurve -n "Right_hip_controlShape" -p "Right_hip_control";
 		3 8 2 no 3
 		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
 		11
-		5.7012541840581141 -5.7008887348251376 2.2109219760307357
-		1.9636672615495054e-14 -8.062274166369674 2.2072469404487149
-		-5.7012541840580226 -5.7008887348251234 2.2109219760307357
-		-8.0627909896312335 -1.8416346146456379e-14 2.2197942967750528
-		-5.7012541840580226 5.7008887348250852 2.228666617519369
-		1.8335313768786114e-14 8.0622741663696544 2.2323416531013889
-		5.7012541840581141 5.7008887348250896 2.2286666175193695
-		8.062790989631301 -1.689894694852326e-14 2.2197942967750528
-		5.7012541840581141 -5.7008887348251376 2.2109219760307357
-		1.9636672615495054e-14 -8.062274166369674 2.2072469404487149
-		-5.7012541840580226 -5.7008887348251234 2.2109219760307357
+		6.9824872372035021 -4.0310424979633472 2.2109219760307357
+		2.0866701010945405 -7.7875588359196408 2.2072469404487149
+		-3.9838289496381083e-12 -6.9863336114785703e-12 2.2109219760307357
+		-7.7880580488555999 -2.0868038647975911 2.2197942967750528
+		-6.982487237203399 4.0310424979633055 2.228666617519369
+		-2.0866701010944966 7.7875588359196142 2.2323416531013889
+		4.0791512104361839e-12 6.9781240396667145e-12 2.2286666175193695
+		7.7880580488556763 2.086803864797556 2.2197942967750528
+		6.9824872372035021 -4.0310424979633472 2.2109219760307357
+		2.0866701010945405 -7.7875588359196408 2.2072469404487149
+		-3.9838289496381083e-12 -6.9863336114785703e-12 2.2109219760307357
 		;
 createNode transform -n "Right_front_wheel_turn_control_group" -p "Right_hip_control";
 	rename -uid "83882231-42BC-82DC-D528-9FBED3B82A70";
@@ -1000,14 +1156,62 @@ createNode nurbsCurve -n "Right_front_wheel_turn_controlShape" -p "Right_front_w
 		9.1592678167001562 17.676349881798977 0.16665636391309313
 		-3.3397990513460165 12.499066868046048 0.16665636391309313
 		-8.5170820650988688 -5.5927073761526078e-14 0.16665636391309313
-		-3.3397990513460236 -12.499066868046205 0.16665636391309308
-		9.1592678167001562 -17.676349881799158 0.16665636391309313
-		21.658334684746311 -12.499066868046198 0.16665636391309313
+		0.26620447603216124 -12.499066868046205 0.16665636391309308
+		9.1592678167001491 -23.774344329650521 0.16665636391308944
+		18.05233115736813 -12.499066868046198 0.16665636391309313
 		26.835617698499199 -5.9253936453061723e-14 0.16665636391309313
 		21.658334684746311 12.499066868046059 0.16665636391309313
 		9.1592678167001562 17.676349881798977 0.16665636391309313
 		-3.3397990513460165 12.499066868046048 0.16665636391309313
 		;
+createNode transform -n "Front_Right_Wheel_Spin_Control_group" -p "Right_front_wheel_turn_control";
+	rename -uid "B2334B61-4472-1849-5749-FDB17950B628";
+	setAttr ".t" -type "double3" 12.194499999999984 -0.76250000000000284 2.9906999999999968 ;
+	setAttr ".r" -type "double3" -89.999999999999986 0 0 ;
+	setAttr ".s" -type "double3" 0.99999999999999889 0.99999999999999933 0.99999999999999956 ;
+createNode transform -n "Front_Right_Wheel_Spin_Control_offset" -p "Front_Right_Wheel_Spin_Control_group";
+	rename -uid "53659DD1-4A8F-2273-C45E-F88D629BA8E8";
+createNode transform -n "Front_Right_Wheel_Spin_Control" -p "Front_Right_Wheel_Spin_Control_offset";
+	rename -uid "3956F7A6-4AEA-F841-A0EE-1A9718F6147D";
+createNode nurbsCurve -n "Front_Right_Wheel_Spin_ControlShape" -p "Front_Right_Wheel_Spin_Control";
+	rename -uid "DE95224D-409F-72B0-2DF2-57B7AA15A5AB";
+	setAttr -k off ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr ".cc" -type "nurbsCurve" 
+		3 8 2 no 3
+		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
+		11
+		6.1351970164154102 5.1567911691724708 -5.1567911691724557
+		6.1351970164154181 7.3061553802161874e-16 -7.2928040097694975
+		6.1351970164154093 -5.1567911691725081 -5.1567911691724557
+		6.1351970164154137 -7.2928040097695472 2.8043649182724898e-14
+		6.1351970164154093 -5.1567911691725081 5.1567911691725241
+		6.1351970164154181 -7.3061553802161874e-16 7.2928040097695801
+		6.1351970164154102 5.1567911691724708 5.1567911691725241
+		6.1351970164154155 13.266007400935214 4.362708125349081e-14
+		6.1351970164154102 5.1567911691724708 -5.1567911691724557
+		6.1351970164154181 7.3061553802161874e-16 -7.2928040097694975
+		6.1351970164154093 -5.1567911691725081 -5.1567911691724557
+		;
+createNode orientConstraint -n "Front_Right_Wheel_Spin_Control_offset_orientConstraint1" 
+		-p "Front_Right_Wheel_Spin_Control_offset";
+	rename -uid "EE7D71F4-4DCE-3778-B796-38B6DAE3A017";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Master_Wheel_spin_controlW0" -dv 
+		1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
 createNode transform -n "Right_dual_arm_control_group" -p "Right_hip_control";
 	rename -uid "63B26413-4C15-7728-A2DB-B28F09096993";
 	setAttr ".t" -type "double3" 37.999999999999979 6.1999999999999993 -0.75000000000001066 ;
@@ -1069,14 +1273,110 @@ createNode nurbsCurve -n "Right_back_wheel_turn_controlShape" -p "Right_back_whe
 		9.1407620312297997 17.67634988179897 0.16665636391309668
 		-3.358304836816373 12.499066868046041 0.16665636391309668
 		-8.5355878505692253 -6.303250111912708e-14 0.16665636391309668
-		-3.358304836816373 -12.499066868046212 0.16665636391309668
-		9.1407620312297997 -17.676349881799165 0.16665636391309668
-		21.639828899275955 -12.499066868046205 0.16665636391309668
+		-0.5331625554021121 -12.499066868046212 0.16665636391309668
+		9.1407620312298068 -24.310578204972977 0.16665636391309396
+		18.814686617861696 -12.499066868046205 0.16665636391309668
 		26.817111913028842 -6.6359363810662725e-14 0.16665636391309668
 		21.639828899275955 12.499066868046052 0.16665636391309668
 		9.1407620312297997 17.67634988179897 0.16665636391309668
 		-3.358304836816373 12.499066868046041 0.16665636391309668
 		;
+createNode transform -n "Back_Right_Wheel_Spin_Control_group" -p "Right_back_wheel_turn_control";
+	rename -uid "378F5466-435A-FAF4-BD86-0786E2D3BC06";
+	setAttr ".t" -type "double3" 11.937000000000019 0.069999999999971863 2.9941000000000138 ;
+	setAttr ".r" -type "double3" -89.999999999999972 0 0 ;
+	setAttr ".s" -type "double3" 0.99999999999999956 0.99999999999999978 0.99999999999999978 ;
+createNode transform -n "Back_Right_Wheel_Spin_Control_offset" -p "Back_Right_Wheel_Spin_Control_group";
+	rename -uid "B3482119-49D5-96BF-08C4-BDB8B987DF12";
+createNode transform -n "Back_Right_Wheel_Spin_Control" -p "Back_Right_Wheel_Spin_Control_offset";
+	rename -uid "186440D5-4BD4-F4CF-941B-13A9F7F26D56";
+createNode nurbsCurve -n "Back_Right_Wheel_Spin_ControlShape" -p "Back_Right_Wheel_Spin_Control";
+	rename -uid "9A417E7A-49A0-F256-70C7-CB8DF40832C8";
+	setAttr -k off ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr ".cc" -type "nurbsCurve" 
+		3 8 2 no 3
+		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
+		11
+		6.1351970164154102 5.1567911691724708 -5.1567911691724557
+		6.1351970164154181 7.3061553802161874e-16 -7.2928040097694975
+		6.1351970164154093 -5.1567911691725081 -5.1567911691724557
+		6.1351970164154137 -7.2928040097695472 2.8043649182724898e-14
+		6.1351970164154093 -5.1567911691725081 5.1567911691725241
+		6.1351970164154181 -7.3061553802161874e-16 7.2928040097695801
+		6.1351970164154102 5.1567911691724708 5.1567911691725241
+		6.1351970164154155 13.266007400935214 4.362708125349081e-14
+		6.1351970164154102 5.1567911691724708 -5.1567911691724557
+		6.1351970164154181 7.3061553802161874e-16 -7.2928040097694975
+		6.1351970164154093 -5.1567911691725081 -5.1567911691724557
+		;
+createNode orientConstraint -n "Back_Right_Wheel_Spin_Control_offset_orientConstraint1" 
+		-p "Back_Right_Wheel_Spin_Control_offset";
+	rename -uid "DCBA86EF-4F10-4D80-3C25-11969F40EF20";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Master_Wheel_spin_controlW0" -dv 
+		1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
+createNode transform -n "Mid_Right_Wheel_Spin_Control_group" -p "Right_dual_arm_control";
+	rename -uid "5CEFEFB5-43F3-E271-7EB5-21A5C25D75D2";
+	setAttr ".t" -type "double3" -19.297959999999964 -19.319999999999983 15.724600000000013 ;
+	setAttr ".r" -type "double3" 0 -89.999999999999986 0 ;
+	setAttr ".s" -type "double3" 0.99999999999999944 0.99999999999999978 -0.99999999999999856 ;
+createNode transform -n "Mid_Right_Wheel_Spin_Control_offset" -p "Mid_Right_Wheel_Spin_Control_group";
+	rename -uid "D098422B-4168-6CB4-D491-D39E29AC0DBA";
+createNode transform -n "Mid_Right_Wheel_Spin_Control" -p "Mid_Right_Wheel_Spin_Control_offset";
+	rename -uid "8A4FD82A-4B69-4C77-3034-679631C7B4A3";
+createNode nurbsCurve -n "Mid_Right_Wheel_Spin_ControlShape" -p "Mid_Right_Wheel_Spin_Control";
+	rename -uid "4885F240-4D35-C09D-100F-5EA0C7FA65E5";
+	setAttr -k off ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr ".cc" -type "nurbsCurve" 
+		3 8 2 no 3
+		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
+		11
+		6.1351970164154102 5.1567911691724708 -5.1567911691724557
+		6.1351970164154181 7.3061553802161874e-16 -7.2928040097694975
+		6.1351970164154093 -5.1567911691725081 -5.1567911691724557
+		6.1351970164154137 -7.2928040097695472 2.8043649182724898e-14
+		6.1351970164154093 -5.1567911691725081 5.1567911691725241
+		6.1351970164154181 -7.3061553802161874e-16 7.2928040097695801
+		6.1351970164154102 5.1567911691724708 5.1567911691725241
+		6.1351970164154155 13.266007400935214 4.362708125349081e-14
+		6.1351970164154102 5.1567911691724708 -5.1567911691724557
+		6.1351970164154181 7.3061553802161874e-16 -7.2928040097694975
+		6.1351970164154093 -5.1567911691725081 -5.1567911691724557
+		;
+createNode orientConstraint -n "Mid_Right_Wheel_Spin_Control_offset_orientConstraint1" 
+		-p "Mid_Right_Wheel_Spin_Control_offset";
+	rename -uid "9A82359C-451E-0410-6C95-649258A38C6C";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Master_Wheel_spin_controlW0" -dv 
+		1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr -k on ".w0";
 createNode transform -n "Dish_base_control_group" -p "COG_control";
 	rename -uid "1D89A78F-4B49-89DF-FE01-AC9D6B941BC4";
 	setAttr ".t" -type "double3" -38.783660888671868 24.958183288574247 -38.537918090820256 ;
@@ -1103,7 +1403,7 @@ createNode nurbsCurve -n "Dish_base_controlShape" -p "Dish_base_control";
 		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
 		11
 		6.5238304039157544 -6.523830403915758 -3.5206300355111674e-15
-		5.6493504481240806e-16 -9.2260894358396222 -3.7981857916674566e-15
+		7.6703624024134093e-15 -17.307443832425861 1.0412668923534544e-14
 		-6.5238304039157544 -6.523830403915758 -3.5206300355111674e-15
 		-9.2260894358396062 -4.0309957843597323e-15 -3.5527136788005017e-15
 		-6.5238304039157544 6.52383040391575 -2.7989850695048157e-15
@@ -1111,7 +1411,7 @@ createNode nurbsCurve -n "Dish_base_controlShape" -p "Dish_base_control";
 		6.5238304039157544 6.52383040391575 -2.7989850695048157e-15
 		9.2260894358396062 -2.2945551199626625e-15 -3.5527136788005001e-15
 		6.5238304039157544 -6.523830403915758 -3.5206300355111674e-15
-		5.6493504481240806e-16 -9.2260894358396222 -3.7981857916674566e-15
+		7.6703624024134093e-15 -17.307443832425861 1.0412668923534544e-14
 		-6.5238304039157544 -6.523830403915758 -3.5206300355111674e-15
 		;
 createNode transform -n "Dish_spin_control_group" -p "Dish_base_control";
@@ -1140,7 +1440,7 @@ createNode nurbsCurve -n "Dish_spin_controlShape" -p "Dish_spin_control";
 		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
 		11
 		5.1597818781914428 5.1597818781914935 -2.1971255303324501e-14
-		-1.5775769607360121e-14 7.2970335110253126 -2.174921069839947e-14
+		-1.5775769607360121e-14 13.774018000752044 -2.174921069839947e-14
 		-5.1597818781914739 5.1597818781914917 -2.1582677244705696e-14
 		-7.2970335110253011 2.5457040246701802e-14 -2.1316282072803015e-14
 		-5.1597818781914739 -5.1597818781914455 -2.1416143791011923e-14
@@ -1148,7 +1448,7 @@ createNode nurbsCurve -n "Dish_spin_controlShape" -p "Dish_spin_control";
 		5.1597818781914428 -5.1597818781914455 -2.1416143791011923e-14
 		7.2970335110252798 2.4083666857452837e-14 -2.1316282072803002e-14
 		5.1597818781914428 5.1597818781914935 -2.1971255303324501e-14
-		-1.5775769607360121e-14 7.2970335110253126 -2.174921069839947e-14
+		-1.5775769607360121e-14 13.774018000752044 -2.174921069839947e-14
 		-5.1597818781914739 5.1597818781914917 -2.1582677244705696e-14
 		;
 createNode transform -n "Neck_base_control_group" -p "COG_control";
@@ -1177,7 +1477,7 @@ createNode nurbsCurve -n "Neck_base_controlShape" -p "Neck_base_control";
 		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
 		11
 		6.6188086865100937 -6.6188086865101772 -4.2852609282380953
-		5.7315974671476517e-16 -9.3604090112154221 -4.2852609282380945
+		5.7315974671476517e-16 -17.696282616607231 -4.2852609282380945
 		-6.6188086865100937 -6.6188086865101772 -4.2852609282380953
 		-9.3604090112154381 -4.4630965589931293e-14 -4.28526092823809
 		-6.6188086865100937 6.6188086865100839 -4.2852609282380909
@@ -1185,7 +1485,7 @@ createNode nurbsCurve -n "Neck_base_controlShape" -p "Neck_base_control";
 		6.6188086865100937 6.6188086865100839 -4.2852609282380909
 		9.3604090112154381 -4.4630965589931293e-14 -4.28526092823809
 		6.6188086865100937 -6.6188086865101772 -4.2852609282380953
-		5.7315974671476517e-16 -9.3604090112154221 -4.2852609282380945
+		5.7315974671476517e-16 -17.696282616607231 -4.2852609282380945
 		-6.6188086865100937 -6.6188086865101772 -4.2852609282380953
 		;
 createNode transform -n "Head_tilt_control_group" -p "Neck_base_control";
@@ -1213,17 +1513,17 @@ createNode nurbsCurve -n "Head_tilt_controlShape" -p "Head_tilt_control";
 		3 8 2 no 3
 		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
 		11
-		9.7136476858745215 9.7136476858745873 21.974000110549738
-		-8.0132272680382398e-14 13.737172297477869 21.974000110549746
-		-9.7136476858746725 9.7136476858745873 21.974000110549746
-		-13.737172297477921 4.9073362524385194e-15 21.974000110549746
-		-9.7136476858746725 -9.7136476858745873 21.974000110549746
-		-8.2349493828875282e-14 -13.737172297477869 21.974000110549738
-		9.7136476858745215 -9.7136476858745873 21.974000110549738
-		13.737172297477803 2.3218654788183136e-15 21.974000110549746
-		9.7136476858745215 9.7136476858745873 21.974000110549738
-		-8.0132272680382398e-14 13.737172297477869 21.974000110549746
-		-9.7136476858746725 9.7136476858745873 21.974000110549746
+		9.7136476858745215 4.1322290846792331e-05 21.974000110549738
+		-8.0132272680382398e-14 5.8438545620141218 21.974000110549746
+		-2.0204825408915958 4.1322291890681262 21.974000110549746
+		-6.044007152494844 2.08760279955252e-15 21.974000110549746
+		-2.0204825408915958 -4.1322291890681262 21.974000110549746
+		-8.2349493828875282e-14 -5.8438545620141218 21.974000110549738
+		9.7136476858745215 -4.1322290846792331e-05 21.974000110549738
+		26.017085506913894 2.3218654788183136e-15 21.974000110549746
+		9.7136476858745215 4.1322290846792331e-05 21.974000110549738
+		-8.0132272680382398e-14 5.8438545620141218 21.974000110549746
+		-2.0204825408915958 4.1322291890681262 21.974000110549746
 		;
 createNode transform -n "lower_arm_turn_control_group" -p "COG_control";
 	rename -uid "A198EF3D-4E0B-807B-0799-F9B34A82E367";
@@ -1250,17 +1550,17 @@ createNode nurbsCurve -n "lower_arm_turn_controlShape" -p "lower_arm_turn_contro
 		3 8 2 no 3
 		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
 		11
-		5.8535864504432418 6.059571949187994 9.5741615308510237
-		5.0690760427275872e-16 8.5695288327172161 9.5475305627372684
-		-5.8535864504432418 6.0595719491879922 9.5741615308510237
+		5.8535936202073859 0.29939952897398658 9.5741615308510237
+		1.2845769994817327e-05 -1.7507339467793406 9.5475305627372684
+		-5.8535792806790976 0.29939952897398481 9.5741615308510237
 		-8.2782213467402102 6.8120875528484519e-14 9.6384543752503795
 		-5.8535864504432418 -6.0595719491878786 9.7027472196497317
 		-8.2922235351096318e-16 -8.5695288327170793 9.7293781877634871
 		5.8535864504432418 -6.059571949187875 9.7027472196497317
 		8.2782213467402102 6.6508006019324118e-14 9.6384543752503795
-		5.8535864504432418 6.059571949187994 9.5741615308510237
-		5.0690760427275872e-16 8.5695288327172161 9.5475305627372684
-		-5.8535864504432418 6.0595719491879922 9.5741615308510237
+		5.8535936202073859 0.29939952897398658 9.5741615308510237
+		1.2845769994817327e-05 -1.7507339467793406 9.5475305627372684
+		-5.8535792806790976 0.29939952897398481 9.5741615308510237
 		;
 createNode transform -n "Lower_arm_IK_control_group" -p "lower_arm_turn_control";
 	rename -uid "CE1812A8-4388-E4CC-84D2-4082CC9DDCA4";
@@ -1297,12 +1597,12 @@ createNode nurbsCurve -n "Lower_arm_IK_controlShape" -p "Lower_arm_IK_control";
 		6.4268604349242582e-17 4.9192066822480953 -11.723622536405442
 		-9.2927217869929972 -7.7759663812732169 -9.3572009398846809
 		;
-createNode transform -n "Wheel_spin_control_group" -p "COG_control";
+createNode transform -n "Master_Wheel_spin_control_group" -p "COG_control";
 	rename -uid "297859EE-4E6F-3C6E-7196-18B86AB98365";
 	setAttr ".t" -type "double3" 85.419607510342473 -36.011594258016487 -1.8966963002485228e-14 ;
 	setAttr ".r" -type "double3" 0 -89.999999999999986 0 ;
 	setAttr ".s" -type "double3" 0.99999999999999978 0.99999999999999978 1 ;
-createNode transform -n "Wheel_spin_control" -p "Wheel_spin_control_group";
+createNode transform -n "Master_Wheel_spin_control" -p "Master_Wheel_spin_control_group";
 	rename -uid "6D7434E5-482B-3511-2428-ADADEB5ED81F";
 	setAttr -l on -k off ".v";
 	setAttr -l on -k off ".tx";
@@ -1313,7 +1613,7 @@ createNode transform -n "Wheel_spin_control" -p "Wheel_spin_control_group";
 	setAttr -l on -k off ".sx";
 	setAttr -l on -k off ".sy";
 	setAttr -l on -k off ".sz";
-createNode nurbsCurve -n "Wheel_spin_controlShape" -p "Wheel_spin_control";
+createNode nurbsCurve -n "Master_Wheel_spin_controlShape" -p "Master_Wheel_spin_control";
 	rename -uid "312346A8-418E-01E5-EFFF-929170341BD1";
 	setAttr -k off ".v";
 	setAttr ".ove" yes;
@@ -1322,17 +1622,17 @@ createNode nurbsCurve -n "Wheel_spin_controlShape" -p "Wheel_spin_control";
 		3 8 2 no 3
 		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
 		11
-		9.7144514654701197e-17 -7.1851527792901271 -7.1851527792901244
+		9.7144514654701197e-17 -6.4159851463811099 -6.4159851463811082
 		6.7857323231109183e-17 -6.2220265642035791e-16 -10.16134050819484
-		0 7.1851527792901262 -7.1851527792901217
+		0 6.4159851463811099 -6.4159851463811055
 		-2.4980018054066022e-16 10.161340508194836 -5.2676568630308942e-16
-		-9.7144514654701197e-17 7.1851527792901271 7.1851527792901244
+		-9.7144514654701197e-17 6.4159851463811099 6.4159851463811082
 		-6.7857323231109171e-17 1.0178684283648637e-15 10.161340508194845
-		0 -7.1851527792901262 7.1851527792901217
+		0 -6.4159851463811099 6.4159851463811055
 		2.4980018054066022e-16 -10.161340508194836 1.3856984173585007e-15
-		9.7144514654701197e-17 -7.1851527792901271 -7.1851527792901244
+		9.7144514654701197e-17 -6.4159851463811099 -6.4159851463811082
 		6.7857323231109183e-17 -6.2220265642035791e-16 -10.16134050819484
-		0 7.1851527792901262 -7.1851527792901217
+		0 6.4159851463811099 -6.4159851463811055
 		;
 createNode transform -n "Master_Wheel_Turn_Control_group" -p "COG_control";
 	rename -uid "13919934-47C1-08B5-B298-60B573DBE124";
@@ -22082,10 +22382,10 @@ createNode mesh -n "Rover_Geo_Fixed:Left_Suspension_Front_Arm_GeoShape" -p "Rove
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 4 ".pt";
+	setAttr -s 3 ".pt";
 	setAttr ".pt[164]" -type "float3" 0 -2.3841858e-06 0 ;
-	setAttr ".pt[166:167]" -type "float3" 0 -2.3841858e-06 0  0 -2.3841858e-06 
-		0 ;
+	setAttr ".pt[166]" -type "float3" 0 -2.3841858e-06 0 ;
+	setAttr ".pt[167]" -type "float3" 0 -2.3841858e-06 0 ;
 	setAttr -s 168 ".vt";
 	setAttr ".vt[0:165]"  -29 34.017822266 -23.50860786 -29 34.30492401 -26.18420792
 		 -29 40.682724 -25.29450798 -29 38.20982361 -27.59000778 -26 34.30492401 -26.18420792
@@ -34571,22 +34871,22 @@ createNode mesh -n "Neck_GeoShapeTag" -p "Rover_Geo_Fixed:Neck_Geo";
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "FEFF5CBC-4E9E-1957-2D41-40B094C1006A";
+	rename -uid "57ED86E1-4962-5766-D1DC-C5832F961BB7";
 	setAttr -s 2 ".lnk";
 	setAttr -s 2 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "D8374B5B-4E9C-36AE-CB3B-EFACBA6EEED0";
+	rename -uid "EEB10636-44EA-1426-5BAD-3B8AFD4AC859";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "C413E4B3-4AED-3C5C-1C79-FD8E5DC6F2D5";
+	rename -uid "497CDE9E-49AE-CD31-3E38-058A8A71D8B7";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "A211A0D9-4CC5-2F7A-1F75-8CAF13915E9E";
-	setAttr ".cdl" 1;
-	setAttr -s 2 ".dli[1]"  1;
-	setAttr -s 2 ".dli";
+	rename -uid "EFBE3F56-48CC-938F-74BB-4B97C0C57D38";
+	setAttr ".cdl" 3;
+	setAttr -s 4 ".dli[1:3]"  1 2 3;
+	setAttr -s 4 ".dli";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "6008D54C-48C6-EDE2-B095-DFB884F1FB19";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "EC6368D3-44B8-CA51-4CCA-62AB08FB4144";
+	rename -uid "EBBD7B16-4394-88E8-A197-E0BF55766EEF";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "A3ECFC9E-407E-B1B7-939E-0892F4A6679F";
 	setAttr ".g" yes;
@@ -34606,7 +34906,7 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|persp|perspShape\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n"
 		+ "            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n"
 		+ "            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n"
-		+ "            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1673\n            -height 811\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n"
+		+ "            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1650\n            -height 696\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n"
 		+ "\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -docTag \"isolOutln_fromSeln\" \n            -showShapes 1\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n"
 		+ "            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -isSet 0\n            -isSetMember 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n"
 		+ "            -renderFilterVisible 0\n            -renderFilterIndex 0\n            -selectionOrder \"chronological\" \n            -expandAttribute 0\n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 0\n            -showReferenceMembers 0\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n"
@@ -34633,8 +34933,8 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -cullingOverride \"none\" \n                -lowQualityLighting 0\n                -maximumNumHardwareLights 0\n                -occlusionCulling 0\n                -shadingModel 0\n                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -controllers 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n"
 		+ "                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName; };\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n"
 		+ "\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"vacantCell.xP:/\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap true\n\t\t\t\t\t(localizedPanelLabel(\"Persp View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1673\\n    -height 811\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1673\\n    -height 811\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1650\\n    -height 696\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Persp View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -cam `findStartUpCamera persp` \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 0\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 0\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 1\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 1\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1650\\n    -height 696\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
@@ -36093,6 +36393,13 @@ createNode groupId -n "Rover_Geo_Fixed:groupId363";
 createNode groupId -n "Rover_Geo_Fixed:groupId364";
 	rename -uid "5312C6A9-456D-0496-77D8-A59844D36BA3";
 	setAttr ".ihi" 0;
+createNode displayLayer -n "Controls_layer";
+	rename -uid "8C095A61-42D9-9649-797C-67AC75E0005E";
+	setAttr ".do" 2;
+createNode displayLayer -n "Skeleton_Layer";
+	rename -uid "ABEB7B58-4637-04DA-1BF2-2EA1929BF448";
+	setAttr ".v" no;
+	setAttr ".do" 3;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -36138,6 +36445,9 @@ select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
 select -ne :ikSystem;
+	setAttr -s 4 ".sol";
+connectAttr "Skeleton_Layer.di" "Skeleton.do";
+connectAttr "Skeleton_Layer.di" "root.do";
 connectAttr "root.s" "COG.is";
 connectAttr "COG_scaleConstraint1.csx" "COG.sx";
 connectAttr "COG_scaleConstraint1.csy" "COG.sy";
@@ -36148,6 +36458,7 @@ connectAttr "COG_parentConstraint1.ctz" "COG.tz";
 connectAttr "COG_parentConstraint1.crx" "COG.rx";
 connectAttr "COG_parentConstraint1.cry" "COG.ry";
 connectAttr "COG_parentConstraint1.crz" "COG.rz";
+connectAttr "Skeleton_Layer.di" "COG.do";
 connectAttr "COG.ro" "COG_parentConstraint1.cro";
 connectAttr "COG.pim" "COG_parentConstraint1.cpim";
 connectAttr "COG.rp" "COG_parentConstraint1.crp";
@@ -36161,11 +36472,13 @@ connectAttr "COG_control.ro" "COG_parentConstraint1.tg[0].tro";
 connectAttr "COG_control.s" "COG_parentConstraint1.tg[0].ts";
 connectAttr "COG_control.pm" "COG_parentConstraint1.tg[0].tpm";
 connectAttr "COG_parentConstraint1.w0" "COG_parentConstraint1.tg[0].tw";
+connectAttr "Skeleton_Layer.di" "COG_parentConstraint1.do";
 connectAttr "COG.ssc" "COG_scaleConstraint1.tsc";
 connectAttr "COG.pim" "COG_scaleConstraint1.cpim";
 connectAttr "COG_control.s" "COG_scaleConstraint1.tg[0].ts";
 connectAttr "COG_control.pm" "COG_scaleConstraint1.tg[0].tpm";
 connectAttr "COG_scaleConstraint1.w0" "COG_scaleConstraint1.tg[0].tw";
+connectAttr "Skeleton_Layer.di" "COG_scaleConstraint1.do";
 connectAttr "COG.s" "left_hip.is";
 connectAttr "left_hip_parentConstraint1.ctx" "left_hip.tx";
 connectAttr "left_hip_parentConstraint1.cty" "left_hip.ty";
@@ -36173,6 +36486,7 @@ connectAttr "left_hip_parentConstraint1.ctz" "left_hip.tz";
 connectAttr "left_hip_parentConstraint1.crx" "left_hip.rx";
 connectAttr "left_hip_parentConstraint1.cry" "left_hip.ry";
 connectAttr "left_hip_parentConstraint1.crz" "left_hip.rz";
+connectAttr "Skeleton_Layer.di" "left_hip.do";
 connectAttr "left_hip.s" "left_front_wheel_turn.is";
 connectAttr "left_front_wheel_turn_parentConstraint1.ctx" "left_front_wheel_turn.tx"
 		;
@@ -36186,9 +36500,11 @@ connectAttr "left_front_wheel_turn_parentConstraint1.cry" "left_front_wheel_turn
 		;
 connectAttr "left_front_wheel_turn_parentConstraint1.crz" "left_front_wheel_turn.rz"
 		;
+connectAttr "Skeleton_Layer.di" "left_front_wheel_turn.do";
 connectAttr "left_front_wheel_turn.s" "left_front_wheel_spin.is";
 connectAttr "left_front_wheel_spin_orientConstraint1.crz" "left_front_wheel_spin.rz"
 		;
+connectAttr "Skeleton_Layer.di" "left_front_wheel_spin.do";
 connectAttr "left_front_wheel_spin.ro" "left_front_wheel_spin_orientConstraint1.cro"
 		;
 connectAttr "left_front_wheel_spin.pim" "left_front_wheel_spin_orientConstraint1.cpim"
@@ -36197,14 +36513,15 @@ connectAttr "left_front_wheel_spin.jo" "left_front_wheel_spin_orientConstraint1.
 		;
 connectAttr "left_front_wheel_spin.is" "left_front_wheel_spin_orientConstraint1.is"
 		;
-connectAttr "Wheel_spin_control.r" "left_front_wheel_spin_orientConstraint1.tg[0].tr"
+connectAttr "Front_Left_Wheel_Spin_Control.r" "left_front_wheel_spin_orientConstraint1.tg[0].tr"
 		;
-connectAttr "Wheel_spin_control.ro" "left_front_wheel_spin_orientConstraint1.tg[0].tro"
+connectAttr "Front_Left_Wheel_Spin_Control.ro" "left_front_wheel_spin_orientConstraint1.tg[0].tro"
 		;
-connectAttr "Wheel_spin_control.pm" "left_front_wheel_spin_orientConstraint1.tg[0].tpm"
+connectAttr "Front_Left_Wheel_Spin_Control.pm" "left_front_wheel_spin_orientConstraint1.tg[0].tpm"
 		;
 connectAttr "left_front_wheel_spin_orientConstraint1.w0" "left_front_wheel_spin_orientConstraint1.tg[0].tw"
 		;
+connectAttr "Skeleton_Layer.di" "left_front_wheel_spin_orientConstraint1.do";
 connectAttr "left_front_wheel_turn.ro" "left_front_wheel_turn_parentConstraint1.cro"
 		;
 connectAttr "left_front_wheel_turn.pim" "left_front_wheel_turn_parentConstraint1.cpim"
@@ -36231,6 +36548,7 @@ connectAttr "Left_front_wheel_turn_control.pm" "left_front_wheel_turn_parentCons
 		;
 connectAttr "left_front_wheel_turn_parentConstraint1.w0" "left_front_wheel_turn_parentConstraint1.tg[0].tw"
 		;
+connectAttr "Skeleton_Layer.di" "left_front_wheel_turn_parentConstraint1.do";
 connectAttr "left_hip.s" "left_dual_joint.is";
 connectAttr "left_dual_joint_parentConstraint1.ctx" "left_dual_joint.tx";
 connectAttr "left_dual_joint_parentConstraint1.cty" "left_dual_joint.ty";
@@ -36238,9 +36556,11 @@ connectAttr "left_dual_joint_parentConstraint1.ctz" "left_dual_joint.tz";
 connectAttr "left_dual_joint_parentConstraint1.crx" "left_dual_joint.rx";
 connectAttr "left_dual_joint_parentConstraint1.cry" "left_dual_joint.ry";
 connectAttr "left_dual_joint_parentConstraint1.crz" "left_dual_joint.rz";
+connectAttr "Skeleton_Layer.di" "left_dual_joint.do";
 connectAttr "left_dual_joint.s" "left_mid_wheel_spin.is";
 connectAttr "left_mid_wheel_spin_orientConstraint1.crz" "left_mid_wheel_spin.rz"
 		;
+connectAttr "Skeleton_Layer.di" "left_mid_wheel_spin.do";
 connectAttr "left_mid_wheel_spin.ro" "left_mid_wheel_spin_orientConstraint1.cro"
 		;
 connectAttr "left_mid_wheel_spin.pim" "left_mid_wheel_spin_orientConstraint1.cpim"
@@ -36248,6 +36568,15 @@ connectAttr "left_mid_wheel_spin.pim" "left_mid_wheel_spin_orientConstraint1.cpi
 connectAttr "left_mid_wheel_spin.jo" "left_mid_wheel_spin_orientConstraint1.cjo"
 		;
 connectAttr "left_mid_wheel_spin.is" "left_mid_wheel_spin_orientConstraint1.is";
+connectAttr "Mid_Left_Wheel_Spin_Control.r" "left_mid_wheel_spin_orientConstraint1.tg[0].tr"
+		;
+connectAttr "Mid_Left_Wheel_Spin_Control.ro" "left_mid_wheel_spin_orientConstraint1.tg[0].tro"
+		;
+connectAttr "Mid_Left_Wheel_Spin_Control.pm" "left_mid_wheel_spin_orientConstraint1.tg[0].tpm"
+		;
+connectAttr "left_mid_wheel_spin_orientConstraint1.w0" "left_mid_wheel_spin_orientConstraint1.tg[0].tw"
+		;
+connectAttr "Skeleton_Layer.di" "left_mid_wheel_spin_orientConstraint1.do";
 connectAttr "left_dual_joint.s" "left_back_wheel_turn.is";
 connectAttr "left_back_wheel_turn_parentConstraint1.ctx" "left_back_wheel_turn.tx"
 		;
@@ -36261,9 +36590,11 @@ connectAttr "left_back_wheel_turn_parentConstraint1.cry" "left_back_wheel_turn.r
 		;
 connectAttr "left_back_wheel_turn_parentConstraint1.crz" "left_back_wheel_turn.rz"
 		;
+connectAttr "Skeleton_Layer.di" "left_back_wheel_turn.do";
 connectAttr "left_back_wheel_turn.s" "left_back_wheel_spin.is";
 connectAttr "left_back_wheel_spin_orientConstraint1.crz" "left_back_wheel_spin.rz"
 		;
+connectAttr "Skeleton_Layer.di" "left_back_wheel_spin.do";
 connectAttr "left_back_wheel_spin.ro" "left_back_wheel_spin_orientConstraint1.cro"
 		;
 connectAttr "left_back_wheel_spin.pim" "left_back_wheel_spin_orientConstraint1.cpim"
@@ -36272,6 +36603,15 @@ connectAttr "left_back_wheel_spin.jo" "left_back_wheel_spin_orientConstraint1.cj
 		;
 connectAttr "left_back_wheel_spin.is" "left_back_wheel_spin_orientConstraint1.is"
 		;
+connectAttr "Back_Left_Wheel_Spin_Control.r" "left_back_wheel_spin_orientConstraint1.tg[0].tr"
+		;
+connectAttr "Back_Left_Wheel_Spin_Control.ro" "left_back_wheel_spin_orientConstraint1.tg[0].tro"
+		;
+connectAttr "Back_Left_Wheel_Spin_Control.pm" "left_back_wheel_spin_orientConstraint1.tg[0].tpm"
+		;
+connectAttr "left_back_wheel_spin_orientConstraint1.w0" "left_back_wheel_spin_orientConstraint1.tg[0].tw"
+		;
+connectAttr "Skeleton_Layer.di" "left_back_wheel_spin_orientConstraint1.do";
 connectAttr "left_back_wheel_turn.ro" "left_back_wheel_turn_parentConstraint1.cro"
 		;
 connectAttr "left_back_wheel_turn.pim" "left_back_wheel_turn_parentConstraint1.cpim"
@@ -36298,6 +36638,7 @@ connectAttr "Left_back_wheel_turn_control.pm" "left_back_wheel_turn_parentConstr
 		;
 connectAttr "left_back_wheel_turn_parentConstraint1.w0" "left_back_wheel_turn_parentConstraint1.tg[0].tw"
 		;
+connectAttr "Skeleton_Layer.di" "left_back_wheel_turn_parentConstraint1.do";
 connectAttr "left_dual_joint.ro" "left_dual_joint_parentConstraint1.cro";
 connectAttr "left_dual_joint.pim" "left_dual_joint_parentConstraint1.cpim";
 connectAttr "left_dual_joint.rp" "left_dual_joint_parentConstraint1.crp";
@@ -36319,6 +36660,7 @@ connectAttr "Left_dual_arm_control.pm" "left_dual_joint_parentConstraint1.tg[0].
 		;
 connectAttr "left_dual_joint_parentConstraint1.w0" "left_dual_joint_parentConstraint1.tg[0].tw"
 		;
+connectAttr "Skeleton_Layer.di" "left_dual_joint_parentConstraint1.do";
 connectAttr "left_hip.ro" "left_hip_parentConstraint1.cro";
 connectAttr "left_hip.pim" "left_hip_parentConstraint1.cpim";
 connectAttr "left_hip.rp" "left_hip_parentConstraint1.crp";
@@ -36333,6 +36675,7 @@ connectAttr "Left_hip_control.s" "left_hip_parentConstraint1.tg[0].ts";
 connectAttr "Left_hip_control.pm" "left_hip_parentConstraint1.tg[0].tpm";
 connectAttr "left_hip_parentConstraint1.w0" "left_hip_parentConstraint1.tg[0].tw"
 		;
+connectAttr "Skeleton_Layer.di" "left_hip_parentConstraint1.do";
 connectAttr "COG.s" "right_hip.is";
 connectAttr "right_hip_parentConstraint1.ctx" "right_hip.tx";
 connectAttr "right_hip_parentConstraint1.cty" "right_hip.ty";
@@ -36340,6 +36683,7 @@ connectAttr "right_hip_parentConstraint1.ctz" "right_hip.tz";
 connectAttr "right_hip_parentConstraint1.crx" "right_hip.rx";
 connectAttr "right_hip_parentConstraint1.cry" "right_hip.ry";
 connectAttr "right_hip_parentConstraint1.crz" "right_hip.rz";
+connectAttr "Skeleton_Layer.di" "right_hip.do";
 connectAttr "right_hip.s" "right_front_wheel_turn.is";
 connectAttr "right_front_wheel_turn_parentConstraint1.ctx" "right_front_wheel_turn.tx"
 		;
@@ -36353,9 +36697,11 @@ connectAttr "right_front_wheel_turn_parentConstraint1.cry" "right_front_wheel_tu
 		;
 connectAttr "right_front_wheel_turn_parentConstraint1.crz" "right_front_wheel_turn.rz"
 		;
+connectAttr "Skeleton_Layer.di" "right_front_wheel_turn.do";
 connectAttr "right_front_wheel_turn.s" "right_front_wheel_spin.is";
 connectAttr "right_front_wheel_spin_orientConstraint1.crz" "right_front_wheel_spin.rz"
 		;
+connectAttr "Skeleton_Layer.di" "right_front_wheel_spin.do";
 connectAttr "right_front_wheel_spin.ro" "right_front_wheel_spin_orientConstraint1.cro"
 		;
 connectAttr "right_front_wheel_spin.pim" "right_front_wheel_spin_orientConstraint1.cpim"
@@ -36364,14 +36710,15 @@ connectAttr "right_front_wheel_spin.jo" "right_front_wheel_spin_orientConstraint
 		;
 connectAttr "right_front_wheel_spin.is" "right_front_wheel_spin_orientConstraint1.is"
 		;
-connectAttr "Wheel_spin_control.r" "right_front_wheel_spin_orientConstraint1.tg[0].tr"
+connectAttr "Front_Right_Wheel_Spin_Control.r" "right_front_wheel_spin_orientConstraint1.tg[0].tr"
 		;
-connectAttr "Wheel_spin_control.ro" "right_front_wheel_spin_orientConstraint1.tg[0].tro"
+connectAttr "Front_Right_Wheel_Spin_Control.ro" "right_front_wheel_spin_orientConstraint1.tg[0].tro"
 		;
-connectAttr "Wheel_spin_control.pm" "right_front_wheel_spin_orientConstraint1.tg[0].tpm"
+connectAttr "Front_Right_Wheel_Spin_Control.pm" "right_front_wheel_spin_orientConstraint1.tg[0].tpm"
 		;
 connectAttr "right_front_wheel_spin_orientConstraint1.w0" "right_front_wheel_spin_orientConstraint1.tg[0].tw"
 		;
+connectAttr "Skeleton_Layer.di" "right_front_wheel_spin_orientConstraint1.do";
 connectAttr "right_front_wheel_turn.ro" "right_front_wheel_turn_parentConstraint1.cro"
 		;
 connectAttr "right_front_wheel_turn.pim" "right_front_wheel_turn_parentConstraint1.cpim"
@@ -36398,6 +36745,7 @@ connectAttr "Right_front_wheel_turn_control.pm" "right_front_wheel_turn_parentCo
 		;
 connectAttr "right_front_wheel_turn_parentConstraint1.w0" "right_front_wheel_turn_parentConstraint1.tg[0].tw"
 		;
+connectAttr "Skeleton_Layer.di" "right_front_wheel_turn_parentConstraint1.do";
 connectAttr "right_hip.s" "right_dual_joint.is";
 connectAttr "right_dual_joint_parentConstraint1.ctx" "right_dual_joint.tx";
 connectAttr "right_dual_joint_parentConstraint1.cty" "right_dual_joint.ty";
@@ -36405,9 +36753,11 @@ connectAttr "right_dual_joint_parentConstraint1.ctz" "right_dual_joint.tz";
 connectAttr "right_dual_joint_parentConstraint1.crx" "right_dual_joint.rx";
 connectAttr "right_dual_joint_parentConstraint1.cry" "right_dual_joint.ry";
 connectAttr "right_dual_joint_parentConstraint1.crz" "right_dual_joint.rz";
+connectAttr "Skeleton_Layer.di" "right_dual_joint.do";
 connectAttr "right_dual_joint.s" "right_mid_wheel_spin.is";
 connectAttr "right_mid_wheel_spin_orientConstraint1.crz" "right_mid_wheel_spin.rz"
 		;
+connectAttr "Skeleton_Layer.di" "right_mid_wheel_spin.do";
 connectAttr "right_mid_wheel_spin.ro" "right_mid_wheel_spin_orientConstraint1.cro"
 		;
 connectAttr "right_mid_wheel_spin.pim" "right_mid_wheel_spin_orientConstraint1.cpim"
@@ -36416,14 +36766,15 @@ connectAttr "right_mid_wheel_spin.jo" "right_mid_wheel_spin_orientConstraint1.cj
 		;
 connectAttr "right_mid_wheel_spin.is" "right_mid_wheel_spin_orientConstraint1.is"
 		;
-connectAttr "Wheel_spin_control.r" "right_mid_wheel_spin_orientConstraint1.tg[0].tr"
+connectAttr "Mid_Right_Wheel_Spin_Control.r" "right_mid_wheel_spin_orientConstraint1.tg[0].tr"
 		;
-connectAttr "Wheel_spin_control.ro" "right_mid_wheel_spin_orientConstraint1.tg[0].tro"
+connectAttr "Mid_Right_Wheel_Spin_Control.ro" "right_mid_wheel_spin_orientConstraint1.tg[0].tro"
 		;
-connectAttr "Wheel_spin_control.pm" "right_mid_wheel_spin_orientConstraint1.tg[0].tpm"
+connectAttr "Mid_Right_Wheel_Spin_Control.pm" "right_mid_wheel_spin_orientConstraint1.tg[0].tpm"
 		;
 connectAttr "right_mid_wheel_spin_orientConstraint1.w0" "right_mid_wheel_spin_orientConstraint1.tg[0].tw"
 		;
+connectAttr "Skeleton_Layer.di" "right_mid_wheel_spin_orientConstraint1.do";
 connectAttr "right_dual_joint.s" "right_back_wheel_turn.is";
 connectAttr "right_back_wheel_turn_parentConstraint1.ctx" "right_back_wheel_turn.tx"
 		;
@@ -36437,9 +36788,11 @@ connectAttr "right_back_wheel_turn_parentConstraint1.cry" "right_back_wheel_turn
 		;
 connectAttr "right_back_wheel_turn_parentConstraint1.crz" "right_back_wheel_turn.rz"
 		;
+connectAttr "Skeleton_Layer.di" "right_back_wheel_turn.do";
 connectAttr "right_back_wheel_turn.s" "right_back_wheel_spin.is";
 connectAttr "right_back_wheel_spin_orientConstraint1.crz" "right_back_wheel_spin.rz"
 		;
+connectAttr "Skeleton_Layer.di" "right_back_wheel_spin.do";
 connectAttr "right_back_wheel_spin.ro" "right_back_wheel_spin_orientConstraint1.cro"
 		;
 connectAttr "right_back_wheel_spin.pim" "right_back_wheel_spin_orientConstraint1.cpim"
@@ -36448,14 +36801,15 @@ connectAttr "right_back_wheel_spin.jo" "right_back_wheel_spin_orientConstraint1.
 		;
 connectAttr "right_back_wheel_spin.is" "right_back_wheel_spin_orientConstraint1.is"
 		;
-connectAttr "Wheel_spin_control.r" "right_back_wheel_spin_orientConstraint1.tg[0].tr"
+connectAttr "Back_Right_Wheel_Spin_Control.r" "right_back_wheel_spin_orientConstraint1.tg[0].tr"
 		;
-connectAttr "Wheel_spin_control.ro" "right_back_wheel_spin_orientConstraint1.tg[0].tro"
+connectAttr "Back_Right_Wheel_Spin_Control.ro" "right_back_wheel_spin_orientConstraint1.tg[0].tro"
 		;
-connectAttr "Wheel_spin_control.pm" "right_back_wheel_spin_orientConstraint1.tg[0].tpm"
+connectAttr "Back_Right_Wheel_Spin_Control.pm" "right_back_wheel_spin_orientConstraint1.tg[0].tpm"
 		;
 connectAttr "right_back_wheel_spin_orientConstraint1.w0" "right_back_wheel_spin_orientConstraint1.tg[0].tw"
 		;
+connectAttr "Skeleton_Layer.di" "right_back_wheel_spin_orientConstraint1.do";
 connectAttr "right_back_wheel_turn.ro" "right_back_wheel_turn_parentConstraint1.cro"
 		;
 connectAttr "right_back_wheel_turn.pim" "right_back_wheel_turn_parentConstraint1.cpim"
@@ -36482,6 +36836,7 @@ connectAttr "Right_back_wheel_turn_control.pm" "right_back_wheel_turn_parentCons
 		;
 connectAttr "right_back_wheel_turn_parentConstraint1.w0" "right_back_wheel_turn_parentConstraint1.tg[0].tw"
 		;
+connectAttr "Skeleton_Layer.di" "right_back_wheel_turn_parentConstraint1.do";
 connectAttr "right_dual_joint.ro" "right_dual_joint_parentConstraint1.cro";
 connectAttr "right_dual_joint.pim" "right_dual_joint_parentConstraint1.cpim";
 connectAttr "right_dual_joint.rp" "right_dual_joint_parentConstraint1.crp";
@@ -36503,6 +36858,7 @@ connectAttr "Right_dual_arm_control.pm" "right_dual_joint_parentConstraint1.tg[0
 		;
 connectAttr "right_dual_joint_parentConstraint1.w0" "right_dual_joint_parentConstraint1.tg[0].tw"
 		;
+connectAttr "Skeleton_Layer.di" "right_dual_joint_parentConstraint1.do";
 connectAttr "right_hip.ro" "right_hip_parentConstraint1.cro";
 connectAttr "right_hip.pim" "right_hip_parentConstraint1.cpim";
 connectAttr "right_hip.rp" "right_hip_parentConstraint1.crp";
@@ -36517,6 +36873,7 @@ connectAttr "Right_hip_control.s" "right_hip_parentConstraint1.tg[0].ts";
 connectAttr "Right_hip_control.pm" "right_hip_parentConstraint1.tg[0].tpm";
 connectAttr "right_hip_parentConstraint1.w0" "right_hip_parentConstraint1.tg[0].tw"
 		;
+connectAttr "Skeleton_Layer.di" "right_hip_parentConstraint1.do";
 connectAttr "COG.s" "lower_arm_base.is";
 connectAttr "lower_arm_base_parentConstraint1.ctx" "lower_arm_base.tx";
 connectAttr "lower_arm_base_parentConstraint1.cty" "lower_arm_base.ty";
@@ -36524,12 +36881,16 @@ connectAttr "lower_arm_base_parentConstraint1.ctz" "lower_arm_base.tz";
 connectAttr "lower_arm_base_parentConstraint1.crx" "lower_arm_base.rx";
 connectAttr "lower_arm_base_parentConstraint1.cry" "lower_arm_base.ry";
 connectAttr "lower_arm_base_parentConstraint1.crz" "lower_arm_base.rz";
+connectAttr "Skeleton_Layer.di" "lower_arm_base.do";
 connectAttr "lower_arm_base.s" "lower_arm_shoulder.is";
+connectAttr "Skeleton_Layer.di" "lower_arm_shoulder.do";
 connectAttr "lower_arm_shoulder.s" "lower_arm_elbow.is";
+connectAttr "Skeleton_Layer.di" "lower_arm_elbow.do";
 connectAttr "lower_arm_elbow.s" "lower_arm_wrist.is";
 connectAttr "lower_arm_wrist_orientConstraint1.crx" "lower_arm_wrist.rx";
 connectAttr "lower_arm_wrist_orientConstraint1.cry" "lower_arm_wrist.ry";
 connectAttr "lower_arm_wrist_orientConstraint1.crz" "lower_arm_wrist.rz";
+connectAttr "Skeleton_Layer.di" "lower_arm_wrist.do";
 connectAttr "lower_arm_wrist.ro" "lower_arm_wrist_orientConstraint1.cro";
 connectAttr "lower_arm_wrist.pim" "lower_arm_wrist_orientConstraint1.cpim";
 connectAttr "lower_arm_wrist.jo" "lower_arm_wrist_orientConstraint1.cjo";
@@ -36542,10 +36903,12 @@ connectAttr "Lower_arm_IK_control.pm" "lower_arm_wrist_orientConstraint1.tg[0].t
 		;
 connectAttr "lower_arm_wrist_orientConstraint1.w0" "lower_arm_wrist_orientConstraint1.tg[0].tw"
 		;
+connectAttr "Skeleton_Layer.di" "lower_arm_wrist_orientConstraint1.do";
 connectAttr "lower_arm_wrist.tx" "effector1.tx";
 connectAttr "lower_arm_wrist.ty" "effector1.ty";
 connectAttr "lower_arm_wrist.tz" "effector1.tz";
 connectAttr "lower_arm_wrist.opm" "effector1.opm";
+connectAttr "Skeleton_Layer.di" "effector1.do";
 connectAttr "lower_arm_base.ro" "lower_arm_base_parentConstraint1.cro";
 connectAttr "lower_arm_base.pim" "lower_arm_base_parentConstraint1.cpim";
 connectAttr "lower_arm_base.rp" "lower_arm_base_parentConstraint1.crp";
@@ -36567,6 +36930,7 @@ connectAttr "lower_arm_turn_control.pm" "lower_arm_base_parentConstraint1.tg[0].
 		;
 connectAttr "lower_arm_base_parentConstraint1.w0" "lower_arm_base_parentConstraint1.tg[0].tw"
 		;
+connectAttr "Skeleton_Layer.di" "lower_arm_base_parentConstraint1.do";
 connectAttr "COG.s" "neck_base.is";
 connectAttr "neck_base_parentConstraint1.ctx" "neck_base.tx";
 connectAttr "neck_base_parentConstraint1.cty" "neck_base.ty";
@@ -36574,6 +36938,7 @@ connectAttr "neck_base_parentConstraint1.ctz" "neck_base.tz";
 connectAttr "neck_base_parentConstraint1.crx" "neck_base.rx";
 connectAttr "neck_base_parentConstraint1.cry" "neck_base.ry";
 connectAttr "neck_base_parentConstraint1.crz" "neck_base.rz";
+connectAttr "Skeleton_Layer.di" "neck_base.do";
 connectAttr "neck_base.s" "head_tilt.is";
 connectAttr "head_tilt_parentConstraint1.ctx" "head_tilt.tx";
 connectAttr "head_tilt_parentConstraint1.cty" "head_tilt.ty";
@@ -36581,6 +36946,7 @@ connectAttr "head_tilt_parentConstraint1.ctz" "head_tilt.tz";
 connectAttr "head_tilt_parentConstraint1.crx" "head_tilt.rx";
 connectAttr "head_tilt_parentConstraint1.cry" "head_tilt.ry";
 connectAttr "head_tilt_parentConstraint1.crz" "head_tilt.rz";
+connectAttr "Skeleton_Layer.di" "head_tilt.do";
 connectAttr "head_tilt.ro" "head_tilt_parentConstraint1.cro";
 connectAttr "head_tilt.pim" "head_tilt_parentConstraint1.cpim";
 connectAttr "head_tilt.rp" "head_tilt_parentConstraint1.crp";
@@ -36595,6 +36961,7 @@ connectAttr "Head_tilt_control.s" "head_tilt_parentConstraint1.tg[0].ts";
 connectAttr "Head_tilt_control.pm" "head_tilt_parentConstraint1.tg[0].tpm";
 connectAttr "head_tilt_parentConstraint1.w0" "head_tilt_parentConstraint1.tg[0].tw"
 		;
+connectAttr "Skeleton_Layer.di" "head_tilt_parentConstraint1.do";
 connectAttr "neck_base.ro" "neck_base_parentConstraint1.cro";
 connectAttr "neck_base.pim" "neck_base_parentConstraint1.cpim";
 connectAttr "neck_base.rp" "neck_base_parentConstraint1.crp";
@@ -36609,6 +36976,7 @@ connectAttr "Neck_base_control.s" "neck_base_parentConstraint1.tg[0].ts";
 connectAttr "Neck_base_control.pm" "neck_base_parentConstraint1.tg[0].tpm";
 connectAttr "neck_base_parentConstraint1.w0" "neck_base_parentConstraint1.tg[0].tw"
 		;
+connectAttr "Skeleton_Layer.di" "neck_base_parentConstraint1.do";
 connectAttr "COG.s" "dish_base.is";
 connectAttr "dish_base_parentConstraint1.ctx" "dish_base.tx";
 connectAttr "dish_base_parentConstraint1.cty" "dish_base.ty";
@@ -36616,6 +36984,7 @@ connectAttr "dish_base_parentConstraint1.ctz" "dish_base.tz";
 connectAttr "dish_base_parentConstraint1.crx" "dish_base.rx";
 connectAttr "dish_base_parentConstraint1.cry" "dish_base.ry";
 connectAttr "dish_base_parentConstraint1.crz" "dish_base.rz";
+connectAttr "Skeleton_Layer.di" "dish_base.do";
 connectAttr "dish_base.s" "dish_spin.is";
 connectAttr "dish_spin_parentConstraint1.ctx" "dish_spin.tx";
 connectAttr "dish_spin_parentConstraint1.cty" "dish_spin.ty";
@@ -36623,6 +36992,7 @@ connectAttr "dish_spin_parentConstraint1.ctz" "dish_spin.tz";
 connectAttr "dish_spin_parentConstraint1.crx" "dish_spin.rx";
 connectAttr "dish_spin_parentConstraint1.cry" "dish_spin.ry";
 connectAttr "dish_spin_parentConstraint1.crz" "dish_spin.rz";
+connectAttr "Skeleton_Layer.di" "dish_spin.do";
 connectAttr "dish_spin.ro" "dish_spin_parentConstraint1.cro";
 connectAttr "dish_spin.pim" "dish_spin_parentConstraint1.cpim";
 connectAttr "dish_spin.rp" "dish_spin_parentConstraint1.crp";
@@ -36637,6 +37007,7 @@ connectAttr "Dish_spin_control.s" "dish_spin_parentConstraint1.tg[0].ts";
 connectAttr "Dish_spin_control.pm" "dish_spin_parentConstraint1.tg[0].tpm";
 connectAttr "dish_spin_parentConstraint1.w0" "dish_spin_parentConstraint1.tg[0].tw"
 		;
+connectAttr "Skeleton_Layer.di" "dish_spin_parentConstraint1.do";
 connectAttr "dish_base.ro" "dish_base_parentConstraint1.cro";
 connectAttr "dish_base.pim" "dish_base_parentConstraint1.cpim";
 connectAttr "dish_base.rp" "dish_base_parentConstraint1.crp";
@@ -36651,11 +37022,97 @@ connectAttr "Dish_base_control.s" "dish_base_parentConstraint1.tg[0].ts";
 connectAttr "Dish_base_control.pm" "dish_base_parentConstraint1.tg[0].tpm";
 connectAttr "dish_base_parentConstraint1.w0" "dish_base_parentConstraint1.tg[0].tw"
 		;
+connectAttr "Skeleton_Layer.di" "dish_base_parentConstraint1.do";
+connectAttr "Controls_layer.di" "Controls.do";
 connectAttr "Master_Wheel_Turn_Control.ry" "Left_front_wheel_turn_control_offset.rz"
 		;
+connectAttr "Front_Left_Wheel_Spin_Control_offset_orientConstraint1.crx" "Front_Left_Wheel_Spin_Control_offset.rx"
+		;
+connectAttr "Front_Left_Wheel_Spin_Control_offset.ro" "Front_Left_Wheel_Spin_Control_offset_orientConstraint1.cro"
+		;
+connectAttr "Front_Left_Wheel_Spin_Control_offset.pim" "Front_Left_Wheel_Spin_Control_offset_orientConstraint1.cpim"
+		;
+connectAttr "Master_Wheel_spin_control.r" "Front_Left_Wheel_Spin_Control_offset_orientConstraint1.tg[0].tr"
+		;
+connectAttr "Master_Wheel_spin_control.ro" "Front_Left_Wheel_Spin_Control_offset_orientConstraint1.tg[0].tro"
+		;
+connectAttr "Master_Wheel_spin_control.pm" "Front_Left_Wheel_Spin_Control_offset_orientConstraint1.tg[0].tpm"
+		;
+connectAttr "Front_Left_Wheel_Spin_Control_offset_orientConstraint1.w0" "Front_Left_Wheel_Spin_Control_offset_orientConstraint1.tg[0].tw"
+		;
 connectAttr "unitConversion4.o" "Left_back_wheel_turn_control_offset.rz";
+connectAttr "Back_Left_Wheel_Spin_Control_offset_orientConstraint1.crx" "Back_Left_Wheel_Spin_Control_offset.rx"
+		;
+connectAttr "Back_Left_Wheel_Spin_Control_offset.ro" "Back_Left_Wheel_Spin_Control_offset_orientConstraint1.cro"
+		;
+connectAttr "Back_Left_Wheel_Spin_Control_offset.pim" "Back_Left_Wheel_Spin_Control_offset_orientConstraint1.cpim"
+		;
+connectAttr "Master_Wheel_spin_control.r" "Back_Left_Wheel_Spin_Control_offset_orientConstraint1.tg[0].tr"
+		;
+connectAttr "Master_Wheel_spin_control.ro" "Back_Left_Wheel_Spin_Control_offset_orientConstraint1.tg[0].tro"
+		;
+connectAttr "Master_Wheel_spin_control.pm" "Back_Left_Wheel_Spin_Control_offset_orientConstraint1.tg[0].tpm"
+		;
+connectAttr "Back_Left_Wheel_Spin_Control_offset_orientConstraint1.w0" "Back_Left_Wheel_Spin_Control_offset_orientConstraint1.tg[0].tw"
+		;
+connectAttr "Mid_Left_Wheel_Spin_Control_offset_orientConstraint1.crx" "Mid_Left_Wheel_Spin_Control_offset.rx"
+		;
+connectAttr "Mid_Left_Wheel_Spin_Control_offset.ro" "Mid_Left_Wheel_Spin_Control_offset_orientConstraint1.cro"
+		;
+connectAttr "Mid_Left_Wheel_Spin_Control_offset.pim" "Mid_Left_Wheel_Spin_Control_offset_orientConstraint1.cpim"
+		;
+connectAttr "Master_Wheel_spin_control.r" "Mid_Left_Wheel_Spin_Control_offset_orientConstraint1.tg[0].tr"
+		;
+connectAttr "Master_Wheel_spin_control.ro" "Mid_Left_Wheel_Spin_Control_offset_orientConstraint1.tg[0].tro"
+		;
+connectAttr "Master_Wheel_spin_control.pm" "Mid_Left_Wheel_Spin_Control_offset_orientConstraint1.tg[0].tpm"
+		;
+connectAttr "Mid_Left_Wheel_Spin_Control_offset_orientConstraint1.w0" "Mid_Left_Wheel_Spin_Control_offset_orientConstraint1.tg[0].tw"
+		;
 connectAttr "unitConversion2.o" "Right_front_wheel_turn_control_offset.rz";
+connectAttr "Front_Right_Wheel_Spin_Control_offset_orientConstraint1.crx" "Front_Right_Wheel_Spin_Control_offset.rx"
+		;
+connectAttr "Front_Right_Wheel_Spin_Control_offset.ro" "Front_Right_Wheel_Spin_Control_offset_orientConstraint1.cro"
+		;
+connectAttr "Front_Right_Wheel_Spin_Control_offset.pim" "Front_Right_Wheel_Spin_Control_offset_orientConstraint1.cpim"
+		;
+connectAttr "Master_Wheel_spin_control.r" "Front_Right_Wheel_Spin_Control_offset_orientConstraint1.tg[0].tr"
+		;
+connectAttr "Master_Wheel_spin_control.ro" "Front_Right_Wheel_Spin_Control_offset_orientConstraint1.tg[0].tro"
+		;
+connectAttr "Master_Wheel_spin_control.pm" "Front_Right_Wheel_Spin_Control_offset_orientConstraint1.tg[0].tpm"
+		;
+connectAttr "Front_Right_Wheel_Spin_Control_offset_orientConstraint1.w0" "Front_Right_Wheel_Spin_Control_offset_orientConstraint1.tg[0].tw"
+		;
 connectAttr "Master_Wheel_Turn_Control.ry" "Right_back_wheel_turn_control_offset.rz"
+		;
+connectAttr "Back_Right_Wheel_Spin_Control_offset_orientConstraint1.crx" "Back_Right_Wheel_Spin_Control_offset.rx"
+		;
+connectAttr "Back_Right_Wheel_Spin_Control_offset.ro" "Back_Right_Wheel_Spin_Control_offset_orientConstraint1.cro"
+		;
+connectAttr "Back_Right_Wheel_Spin_Control_offset.pim" "Back_Right_Wheel_Spin_Control_offset_orientConstraint1.cpim"
+		;
+connectAttr "Master_Wheel_spin_control.r" "Back_Right_Wheel_Spin_Control_offset_orientConstraint1.tg[0].tr"
+		;
+connectAttr "Master_Wheel_spin_control.ro" "Back_Right_Wheel_Spin_Control_offset_orientConstraint1.tg[0].tro"
+		;
+connectAttr "Master_Wheel_spin_control.pm" "Back_Right_Wheel_Spin_Control_offset_orientConstraint1.tg[0].tpm"
+		;
+connectAttr "Back_Right_Wheel_Spin_Control_offset_orientConstraint1.w0" "Back_Right_Wheel_Spin_Control_offset_orientConstraint1.tg[0].tw"
+		;
+connectAttr "Mid_Right_Wheel_Spin_Control_offset_orientConstraint1.crx" "Mid_Right_Wheel_Spin_Control_offset.rx"
+		;
+connectAttr "Mid_Right_Wheel_Spin_Control_offset.ro" "Mid_Right_Wheel_Spin_Control_offset_orientConstraint1.cro"
+		;
+connectAttr "Mid_Right_Wheel_Spin_Control_offset.pim" "Mid_Right_Wheel_Spin_Control_offset_orientConstraint1.cpim"
+		;
+connectAttr "Master_Wheel_spin_control.r" "Mid_Right_Wheel_Spin_Control_offset_orientConstraint1.tg[0].tr"
+		;
+connectAttr "Master_Wheel_spin_control.ro" "Mid_Right_Wheel_Spin_Control_offset_orientConstraint1.tg[0].tro"
+		;
+connectAttr "Master_Wheel_spin_control.pm" "Mid_Right_Wheel_Spin_Control_offset_orientConstraint1.tg[0].tpm"
+		;
+connectAttr "Mid_Right_Wheel_Spin_Control_offset_orientConstraint1.w0" "Mid_Right_Wheel_Spin_Control_offset_orientConstraint1.tg[0].tw"
 		;
 connectAttr "transformGeometry1.og" "Master_Wheel_Turn_ControlShape.cr";
 connectAttr "lower_arm_shoulder.msg" "lower_arm_IK_handle.hsj";
@@ -36902,11 +37359,11 @@ connectAttr "Rover_Geo_Fixed:Camera_Arm_Head_GeoShape.w" "Camera_Arm_Head_GeoSha
 		;
 connectAttr "Camera_Arm_Head_GeoShapeTag.w" "Camera_Arm_Head_GeoShapeDeformed.i"
 		;
+connectAttr "Rover_Geo_Fixed:Dish_Elbow_Geo_visibility.o" "Rover_Geo_Fixed:Dish_Elbow_Geo.v"
+		;
 connectAttr "pairBlend17.otx" "Rover_Geo_Fixed:Dish_Elbow_Geo.tx";
 connectAttr "pairBlend17.oty" "Rover_Geo_Fixed:Dish_Elbow_Geo.ty";
 connectAttr "pairBlend17.otz" "Rover_Geo_Fixed:Dish_Elbow_Geo.tz";
-connectAttr "Rover_Geo_Fixed:Dish_Elbow_Geo_visibility.o" "Rover_Geo_Fixed:Dish_Elbow_Geo.v"
-		;
 connectAttr "pairBlend17.orx" "Rover_Geo_Fixed:Dish_Elbow_Geo.rx";
 connectAttr "pairBlend17.ory" "Rover_Geo_Fixed:Dish_Elbow_Geo.ry";
 connectAttr "pairBlend17.orz" "Rover_Geo_Fixed:Dish_Elbow_Geo.rz";
@@ -37521,11 +37978,11 @@ connectAttr "Left_Back_Turning_Cube_parentConstraint1.w0" "Left_Back_Turning_Cub
 		;
 connectAttr "Rover_Geo_Fixed:Left_Suspension_Bar_GeoShape.w" "Left_Suspension_Bar_GeoShapeTag.i"
 		;
+connectAttr "Rover_Geo_Fixed:Body_Geo_visibility.o" "Rover_Geo_Fixed:Body_Geo.v"
+		;
 connectAttr "pairBlend19.otx" "Rover_Geo_Fixed:Body_Geo.tx";
 connectAttr "pairBlend19.oty" "Rover_Geo_Fixed:Body_Geo.ty";
 connectAttr "pairBlend19.otz" "Rover_Geo_Fixed:Body_Geo.tz";
-connectAttr "Rover_Geo_Fixed:Body_Geo_visibility.o" "Rover_Geo_Fixed:Body_Geo.v"
-		;
 connectAttr "pairBlend19.orx" "Rover_Geo_Fixed:Body_Geo.rx";
 connectAttr "pairBlend19.ory" "Rover_Geo_Fixed:Body_Geo.ry";
 connectAttr "pairBlend19.orz" "Rover_Geo_Fixed:Body_Geo.rz";
@@ -38479,6 +38936,8 @@ connectAttr "pasted__multiplyDivide1.msg" "MayaNodeEditorSavedTabsInfo.tgi[0].ni
 		;
 connectAttr "Rover_Geo_Fixed:renderLayerManager.rlmi[0]" "Rover_Geo_Fixed:defaultRenderLayer.rlid"
 		;
+connectAttr "layerManager.dli[2]" "Controls_layer.id";
+connectAttr "layerManager.dli[3]" "Skeleton_Layer.id";
 connectAttr "multiplyDivide1.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "pasted__multiplyDivide1.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
