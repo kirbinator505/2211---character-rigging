@@ -1,6 +1,6 @@
 //Maya ASCII 2022 scene
 //Name: Rover - rigged.ma
-//Last modified: Tue, Feb 22, 2022 03:52:58 PM
+//Last modified: Thu, Feb 24, 2022 03:18:24 PM
 //Codeset: 1252
 requires maya "2022";
 requires "stereoCamera" "10.0";
@@ -12,21 +12,21 @@ fileInfo "product" "Maya 2022";
 fileInfo "version" "2022";
 fileInfo "cutIdentifier" "202106180615-26a94e7f8c";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19044)";
-fileInfo "UUID" "718BA21D-4068-6634-4E3D-7BB4983C5B62";
+fileInfo "UUID" "41C5FD90-4C79-24B6-3FA3-A2860A1B5BF9";
 createNode transform -s -n "persp";
 	rename -uid "C9AE3A1A-4FCC-766E-412C-BD8C56CF242E";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 53.802303451885471 241.38070922349817 -564.45231684399141 ;
-	setAttr ".r" -type "double3" 341.66164680484746 -1987.3999999998907 0 ;
+	setAttr ".t" -type "double3" -252.11276034281974 177.80163689401809 -182.54457815379496 ;
+	setAttr ".r" -type "double3" 333.26164682168667 -1923.7999999944752 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "45E0E5B8-4B67-ECEF-03F0-1CA118A199FA";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 554.96982960132766;
+	setAttr ".coi" 350.49107925743562;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" -1.7763568394002505e-15 69.353177798355233 -45.46970367431642 ;
+	setAttr ".tp" -type "double3" -27.280205703224908 34.448245544777244 -31.554402949404803 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 	setAttr ".ai_translator" -type "string" "perspective";
 createNode transform -s -n "top";
@@ -143,12 +143,38 @@ createNode joint -n "left_hip" -p "COG";
 	setAttr ".jot" -type "string" "xzy";
 	setAttr ".jo" -type "double3" -1.0508863494019421e-30 89.999999999999986 0 ;
 	setAttr ".radi" 2;
-createNode joint -n "left_front_wheel_turn" -p "left_hip";
+createNode parentConstraint -n "left_hip_parentConstraint1" -p "left_hip";
+	rename -uid "10DE9C45-4884-3FF3-FEDA-1EA8D4B2F955";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Left_hip_controlW0" -dv 1 -min 0 
+		-at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 0 -7.1054273576010019e-15 0 ;
+	setAttr ".rst" -type "double3" -29.499999999999961 -12.599994659423864 -8.7249946594238725 ;
+	setAttr -k on ".w0";
+createNode joint -n "left_front_suspension" -p "left_hip";
+	rename -uid "82B0C083-48CA-065A-9BF8-8D8970514159";
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jot" -type "string" "xzy";
+	setAttr ".jo" -type "double3" 0 -3.0180337241523898e-15 -2.8249000307521015e-30 ;
+	setAttr ".radi" 2;
+createNode joint -n "left_front_wheel_turn" -p "left_front_suspension";
 	rename -uid "D015CF0A-49B5-0181-5B77-4CB34E7C85E2";
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
-	setAttr ".jo" -type "double3" -90 -90 0 ;
+	setAttr ".jo" -type "double3" -90.000000000000014 -90 0 ;
 	setAttr ".radi" 1.8589798547749206;
 createNode joint -n "left_front_wheel_spin" -p "left_front_wheel_turn";
 	rename -uid "7DC7E3AB-420C-3C38-2FBF-D295C590B148";
@@ -173,7 +199,7 @@ createNode orientConstraint -n "left_front_wheel_spin_orientConstraint1" -p "lef
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".lr" -type "double3" 0 90 0 ;
+	setAttr ".lr" -type "double3" 8.9959671327898869e-15 90 0 ;
 	setAttr ".o" -type "double3" 0 -90 0 ;
 	setAttr -k on ".w0";
 createNode parentConstraint -n "left_front_wheel_turn_parentConstraint1" -p "left_front_wheel_turn";
@@ -195,15 +221,44 @@ createNode parentConstraint -n "left_front_wheel_turn_parentConstraint1" -p "lef
 	setAttr ".tg[0].tot" -type "double3" -3.5527136788005009e-15 0 -1.7763568394002505e-14 ;
 	setAttr ".tg[0].tor" -type "double3" 1.272221872585407e-14 -6.3611093629270304e-15 
 		-1.2722218725854067e-14 ;
-	setAttr ".lr" -type "double3" -6.3611093629270335e-15 6.3611093629270367e-15 1.9083328088781104e-14 ;
+	setAttr ".lr" -type "double3" 1.2722218725854067e-14 -1.4124500153760508e-30 1.2722218725854067e-14 ;
 	setAttr ".rst" -type "double3" 44.717535334224948 -22.529296874999925 -1.337266505341443 ;
 	setAttr ".rsrr" -type "double3" -6.3611093629270335e-15 6.3611093629270367e-15 1.9083328088781104e-14 ;
 	setAttr -k on ".w0";
-createNode joint -n "left_dual_joint" -p "left_hip";
+createNode parentConstraint -n "left_front_suspension_parentConstraint1" -p "left_front_suspension";
+	rename -uid "3CCCEE6F-49BF-22B1-7DBA-53AD75731DFD";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Left_front_suspension_controlW0" 
+		-dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 3.5527136788005009e-15 2.8421709430404007e-14 
+		-1.0658141036401503e-14 ;
+	setAttr ".tg[0].tor" -type "double3" 0 0 -180 ;
+	setAttr ".rst" -type "double3" 0 7.1054273576010019e-15 -3.5527136788005009e-15 ;
+	setAttr -k on ".w0";
+createNode joint -n "left_back_suspension" -p "left_hip";
+	rename -uid "5B660053-4538-C06D-53EF-45891D23482B";
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jot" -type "string" "xzy";
+	setAttr ".jo" -type "double3" 0 -3.0180337241523898e-15 -2.8249000307521015e-30 ;
+	setAttr ".radi" 2;
+createNode joint -n "left_dual_joint" -p "left_back_suspension";
 	rename -uid "F519ACE2-4C9F-D650-5FDD-04A85BCB6DF4";
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
+	setAttr ".jo" -type "double3" -7.0622500768802538e-31 0 -1.4124500153760508e-30 ;
 	setAttr ".radi" 2;
 createNode joint -n "left_mid_wheel_spin" -p "left_dual_joint";
 	rename -uid "70BDFDA4-475A-D908-246B-F39F78EEBF35";
@@ -309,9 +364,38 @@ createNode parentConstraint -n "left_dual_joint_parentConstraint1" -p "left_dual
 		-1.0658141036401503e-14 ;
 	setAttr ".rst" -type "double3" -38.000000000000021 -6.2000007629394851 0.74999999999996803 ;
 	setAttr -k on ".w0";
-createNode parentConstraint -n "left_hip_parentConstraint1" -p "left_hip";
-	rename -uid "10DE9C45-4884-3FF3-FEDA-1EA8D4B2F955";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Left_hip_controlW0" -dv 1 -min 0 
+createNode parentConstraint -n "left_back_suspension_parentConstraint1" -p "left_back_suspension";
+	rename -uid "62759A67-4DB4-543E-9BEA-81B8971005EA";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Left_back_suspension_controlW0" -dv 
+		1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 3.5527136788005009e-15 2.8421709430404007e-14 
+		-1.0658141036401503e-14 ;
+	setAttr ".tg[0].tor" -type "double3" 0 0 -180 ;
+	setAttr ".rst" -type "double3" 0 7.1054273576010019e-15 -3.5527136788005009e-15 ;
+	setAttr -k on ".w0";
+createNode joint -n "right_hip" -p "COG";
+	rename -uid "E66991F3-4D42-2B19-E103-74821AC212E9";
+	setAttr ".s" -type "double3" 1.0000000000000007 1 1.0000000000000002 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jot" -type "string" "xzy";
+	setAttr ".jo" -type "double3" -180 -89.999999999999986 0 ;
+	setAttr ".radi" 2;
+createNode parentConstraint -n "right_hip_parentConstraint1" -p "right_hip";
+	rename -uid "A58B7278-4C31-9680-65F1-648E317C1E2E";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Right_hip_controlW0" -dv 1 -min 0 
 		-at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
@@ -326,22 +410,23 @@ createNode parentConstraint -n "left_hip_parentConstraint1" -p "left_hip";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
 	setAttr ".tg[0].tot" -type "double3" 0 -7.1054273576010019e-15 0 ;
-	setAttr ".rst" -type "double3" -29.499999999999961 -12.599994659423864 -8.7249946594238725 ;
+	setAttr ".tg[0].tor" -type "double3" 4.7044035846079415e-46 0 0 ;
+	setAttr ".rst" -type "double3" 29.500000000000007 -12.600018395996116 -8.7249871704101469 ;
 	setAttr -k on ".w0";
-createNode joint -n "right_hip" -p "COG";
-	rename -uid "E66991F3-4D42-2B19-E103-74821AC212E9";
+createNode joint -n "right_front_suspension" -p "right_hip";
+	rename -uid "D95683BC-48B9-668B-08D6-4794F0A83893";
 	setAttr ".s" -type "double3" 1.0000000000000007 1 1.0000000000000002 ;
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
-	setAttr ".jo" -type "double3" -180 -89.999999999999986 0 ;
+	setAttr ".jo" -type "double3" -1.4124500153760501e-30 -9.7041850017016768e-15 -2.8249000307521033e-30 ;
 	setAttr ".radi" 2;
-createNode joint -n "right_front_wheel_turn" -p "right_hip";
+createNode joint -n "right_front_wheel_turn" -p "right_front_suspension";
 	rename -uid "F90A8668-4F06-89E7-67EC-D18D6FB0337E";
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
-	setAttr ".jo" -type "double3" -90.000000000000028 -90 0 ;
+	setAttr ".jo" -type "double3" -90.000000000000043 -90 0 ;
 	setAttr ".radi" 1.8589798547749206;
 createNode joint -n "right_front_wheel_spin" -p "right_front_wheel_turn";
 	rename -uid "7EA7AC83-470A-551E-D474-F1AFF867B789";
@@ -393,11 +478,38 @@ createNode parentConstraint -n "right_front_wheel_turn_parentConstraint1" -p "ri
 	setAttr ".rst" -type "double3" -44.717499999999994 22.5293 1.3373000000000168 ;
 	setAttr ".rsrr" -type "double3" 0 0 5.0888874903416268e-14 ;
 	setAttr -k on ".w0";
-createNode joint -n "right_dual_joint" -p "right_hip";
+createNode parentConstraint -n "right_front_suspension_parentConstraint1" -p "right_front_suspension";
+	rename -uid "AB689EAE-4E9F-34CA-5A24-3487BBE3AF3F";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Right_front_suspension_controlW0" 
+		-dv 1 -min 0 -at "double";
+	setAttr -k on ".nds";
+	setAttr -k off ".v";
+	setAttr -k off ".tx";
+	setAttr -k off ".ty";
+	setAttr -k off ".tz";
+	setAttr -k off ".rx";
+	setAttr -k off ".ry";
+	setAttr -k off ".rz";
+	setAttr -k off ".sx";
+	setAttr -k off ".sy";
+	setAttr -k off ".sz";
+	setAttr ".erp" yes;
+	setAttr ".tg[0].tot" -type "double3" 0 7.1054273576010019e-15 1.0658141036401503e-14 ;
+	setAttr ".rst" -type "double3" 0 1.4210854715202004e-14 1.0658141036401503e-14 ;
+	setAttr -k on ".w0";
+createNode joint -n "right_back_suspension" -p "right_hip";
+	rename -uid "E1A95BB0-4C1D-5718-525C-0187B687A21F";
+	setAttr ".s" -type "double3" 1.0000000000000007 1 1.0000000000000002 ;
+	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
+	setAttr ".mxrl" -type "double3" 360 360 360 ;
+	setAttr ".jot" -type "string" "xzy";
+	setAttr ".radi" 2;
+createNode joint -n "right_dual_joint" -p "right_back_suspension";
 	rename -uid "180720FC-4719-95B3-1A88-3298E2E63F0A";
 	setAttr ".mnrl" -type "double3" -360 -360 -360 ;
 	setAttr ".mxrl" -type "double3" 360 360 360 ;
 	setAttr ".jot" -type "string" "xzy";
+	setAttr ".jo" -type "double3" 4.7535967677748368e-46 -1.4124500153760508e-30 0 ;
 	setAttr ".radi" 2;
 createNode joint -n "right_mid_wheel_spin" -p "right_dual_joint";
 	rename -uid "2C3B0233-4288-863C-A024-BB9DA83F4679";
@@ -508,10 +620,10 @@ createNode parentConstraint -n "right_dual_joint_parentConstraint1" -p "right_du
 		1.7763568394002505e-14 ;
 	setAttr ".rst" -type "double3" 37.999999999999972 6.1999999999999709 -0.75000000000001066 ;
 	setAttr -k on ".w0";
-createNode parentConstraint -n "right_hip_parentConstraint1" -p "right_hip";
-	rename -uid "A58B7278-4C31-9680-65F1-648E317C1E2E";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Right_hip_controlW0" -dv 1 -min 0 
-		-at "double";
+createNode parentConstraint -n "right_back_suspension_parentConstraint1" -p "right_back_suspension";
+	rename -uid "478E76EC-4303-E09F-67BB-D8ABEBC7BE87";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "Right_back_suspension_controlW0" 
+		-dv 1 -min 0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -524,9 +636,8 @@ createNode parentConstraint -n "right_hip_parentConstraint1" -p "right_hip";
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".tg[0].tot" -type "double3" 0 -7.1054273576010019e-15 0 ;
-	setAttr ".tg[0].tor" -type "double3" 4.7044035846079415e-46 0 0 ;
-	setAttr ".rst" -type "double3" 29.500000000000007 -12.600018395996116 -8.7249871704101469 ;
+	setAttr ".tg[0].tot" -type "double3" 0 7.1054273576010019e-15 1.0658141036401503e-14 ;
+	setAttr ".rst" -type "double3" 0 1.4210854715202004e-14 1.0658141036401503e-14 ;
 	setAttr -k on ".w0";
 createNode joint -n "lower_arm_base" -p "COG";
 	rename -uid "018E07BD-4F0E-14CC-E5EC-EBB4D8860584";
@@ -828,11 +939,49 @@ createNode nurbsCurve -n "Left_hip_controlShape" -p "Left_hip_control";
 		2.0866701010945303 -7.7875588359196479 -2.2741326391957992
 		-3.9909343769957109e-12 -7.0005444661937651e-12 -2.2704576036137785
 		;
-createNode transform -n "Left_front_wheel_turn_control_group" -p "Left_hip_control";
+createNode transform -n "Left_front_suspension_control_group" -p "Left_hip_control";
+	rename -uid "476A2460-442F-1840-E17F-9F8A388A7757";
+	setAttr ".t" -type "double3" 0 0 3.5527136788005009e-15 ;
+	setAttr ".r" -type "double3" 0 0 -180 ;
+	setAttr ".s" -type "double3" 1.0000000000000004 1 1.0000000000000004 ;
+createNode transform -n "Left_front_suspension_control" -p "Left_front_suspension_control_group";
+	rename -uid "4B55B161-448E-6B7C-8DF0-D3A57D64324B";
+	setAttr -l on -k off ".v";
+	setAttr ".t" -type "double3" 0 -7.1054273576010019e-15 0 ;
+	setAttr -l on -k off ".tx";
+	setAttr -l on -k off ".ty";
+	setAttr -l on -k off ".tz";
+	setAttr -l on -k off ".rx";
+	setAttr -l on -k off ".ry";
+	setAttr -l on -k off ".sx";
+	setAttr -l on -k off ".sy";
+	setAttr -l on -k off ".sz";
+createNode nurbsCurve -n "Left_front_suspension_controlShape" -p "Left_front_suspension_control";
+	rename -uid "2D000243-445F-DFF8-3B47-73B9C2B3038A";
+	setAttr -k off ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 5;
+	setAttr ".cc" -type "nurbsCurve" 
+		3 8 2 no 3
+		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
+		11
+		-9.4061427797949513 3.662628492795192 -2.2445366272688827
+		-7.3733652654980197 -3.0287414973212279 -2.2482116628508964
+		-8.1587762887764192 -2.779636396937176 -2.2445366272688756
+		-13.436311626489115 -1.0555476049717796 -2.2356643065245514
+		-14.064485931153737 5.0830504022194249 -2.2267919857802352
+		-10.167851350619525 9.8680978809112823 -2.2231169501982153
+		-4.3571519757684829 8.1181050046105305 -2.2267919857802347
+		-4.1049049896284036 7.8949039885618282 -2.2356643065245585
+		-9.4061427797949513 3.662628492795192 -2.2445366272688827
+		-7.3733652654980197 -3.0287414973212279 -2.2482116628508964
+		-8.1587762887764192 -2.779636396937176 -2.2445366272688756
+		;
+createNode transform -n "Left_front_wheel_turn_control_group" -p "Left_front_suspension_control";
 	rename -uid "52AA9D3D-451B-2FC5-7DAF-62A230D6569F";
-	setAttr ".t" -type "double3" 44.717535334224941 -22.529296874999936 -1.3372665053414394 ;
-	setAttr ".r" -type "double3" -90 -89.999999999999986 0 ;
-	setAttr ".s" -type "double3" 1 0.99999999999999956 1 ;
+	setAttr ".t" -type "double3" -44.71753533422492 22.52929687499995 -1.3372665053414394 ;
+	setAttr ".r" -type "double3" 90 -89.999999999999986 0 ;
+	setAttr ".s" -type "double3" 0.99999999999999956 0.99999999999999911 1 ;
 createNode transform -n "Left_front_wheel_turn_control_offset" -p "Left_front_wheel_turn_control_group";
 	rename -uid "741E2E73-4AB7-153C-7907-5DAE067BFE66";
 createNode transform -n "Left_front_wheel_turn_control" -p "Left_front_wheel_turn_control_offset";
@@ -924,9 +1073,49 @@ createNode orientConstraint -n "Front_Left_Wheel_Spin_Control_offset_orientConst
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
 	setAttr -k on ".w0";
-createNode transform -n "Left_dual_arm_control_group" -p "Left_hip_control";
+createNode transform -n "Left_back_suspension_control_group" -p "Left_hip_control";
+	rename -uid "8B01DEDA-496E-53B5-D5DC-198DD12250DA";
+	setAttr ".t" -type "double3" 0 0 3.5527136788005009e-15 ;
+	setAttr ".r" -type "double3" 0 0 -180 ;
+	setAttr ".s" -type "double3" 1.0000000000000004 1 1.0000000000000004 ;
+createNode transform -n "Left_back_suspension_control" -p "Left_back_suspension_control_group";
+	rename -uid "D9E73AAC-403A-331D-9F24-86A459CB80FE";
+	setAttr -l on -k off ".v";
+	setAttr ".t" -type "double3" 0 -7.1054273576010019e-15 0 ;
+	setAttr -l on -k off ".tx";
+	setAttr -l on -k off ".ty";
+	setAttr -l on -k off ".tz";
+	setAttr -l on -k off ".rx";
+	setAttr -l on -k off ".ry";
+	setAttr -l on -k off ".sx";
+	setAttr -l on -k off ".sy";
+	setAttr -l on -k off ".sz";
+createNode nurbsCurve -n "Left_back_suspension_controlShape" -p "Left_back_suspension_control";
+	rename -uid "3110B300-4D41-9667-025B-16AB61C77D1F";
+	setAttr -k off ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 5;
+	setAttr ".cc" -type "nurbsCurve" 
+		3 8 2 no 3
+		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
+		11
+		12.162133557046893 -6.8698313954723744 -2.3013523292151103
+		7.2663164209379314 -10.626347733428666 -2.3050273647971311
+		2.3669271953211499 -7.8440291815487644 -2.3013523292151175
+		1.733008753990168 -7.5349629195479402 -2.2924800084707933
+		8.9176111208771687 -5.4525622945512282 -2.2836076877264841
+		7.4343967017512718 2.3393997811692655 -2.2799326521444572
+		7.9388557154499466 2.1334449650650171 -2.2836076877264695
+		12.967704368699067 -0.75198503271147032 -2.2924800084707933
+		12.162133557046893 -6.8698313954723744 -2.3013523292151103
+		7.2663164209379314 -10.626347733428666 -2.3050273647971311
+		2.3669271953211499 -7.8440291815487644 -2.3013523292151175
+		;
+createNode transform -n "Left_dual_arm_control_group" -p "Left_back_suspension_control";
 	rename -uid "E7232F19-4584-802E-2FCF-C1890561CD0E";
-	setAttr ".t" -type "double3" -38.000000000000014 -6.2000007629394815 0.74999999999997158 ;
+	setAttr ".t" -type "double3" 38 6.2000007629394887 0.74999999999996803 ;
+	setAttr ".r" -type "double3" 0 0 180 ;
+	setAttr ".s" -type "double3" 0.99999999999999956 1 0.99999999999999956 ;
 createNode transform -n "Left_dual_arm_control" -p "Left_dual_arm_control_group";
 	rename -uid "E03E7D4C-4B79-D50B-65AA-FEAFED6F96A8";
 	setAttr -l on -k off ".v";
@@ -1113,12 +1302,12 @@ createNode orientConstraint -n "Mid_Left_Wheel_Spin_Control_offset_orientConstra
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
 	setAttr -k on ".w0";
-createNode transform -n "Right_hip_control_group1" -p "COG_control";
+createNode transform -n "Right_hip_control_group" -p "COG_control";
 	rename -uid "2839270D-494B-0C05-0641-8DB10A5B6791";
 	setAttr ".t" -type "double3" 8.7249871704101576 -12.600018395996116 29.499999999999989 ;
 	setAttr ".r" -type "double3" 0 0 180 ;
 	setAttr ".s" -type "double3" 1.0000000000000007 1 1.0000000000000002 ;
-createNode transform -n "Right_hip_control" -p "Right_hip_control_group1";
+createNode transform -n "Right_hip_control" -p "Right_hip_control_group";
 	rename -uid "2D444EC3-438F-7C3F-D616-64A44721D2C5";
 	setAttr -l on -k off ".v";
 	setAttr ".t" -type "double3" 0 -7.1054273576010019e-15 0 ;
@@ -1151,9 +1340,45 @@ createNode nurbsCurve -n "Right_hip_controlShape" -p "Right_hip_control";
 		2.0866701010945405 -7.7875588359196408 2.2072469404487149
 		-3.9838289496381083e-12 -6.9863336114785703e-12 2.2109219760307357
 		;
-createNode transform -n "Right_front_wheel_turn_control_group" -p "Right_hip_control";
+createNode transform -n "Right_front_suspension_control_group" -p "Right_hip_control";
+	rename -uid "C137A42F-43C5-DC4E-7619-EDAE2C254668";
+	setAttr ".t" -type "double3" 0 1.4210854715202004e-14 0 ;
+createNode transform -n "Right_front_suspension_control" -p "Right_front_suspension_control_group";
+	rename -uid "42946962-4A8A-0386-A2BA-BEB0A9A5AB47";
+	setAttr -l on -k off ".v";
+	setAttr ".t" -type "double3" 0 -7.1054273576010019e-15 0 ;
+	setAttr -l on -k off ".tx";
+	setAttr -l on -k off ".ty";
+	setAttr -l on -k off ".tz";
+	setAttr -l on -k off ".rx";
+	setAttr -l on -k off ".ry";
+	setAttr -l on -k off ".sx";
+	setAttr -l on -k off ".sy";
+	setAttr -l on -k off ".sz";
+createNode nurbsCurve -n "Right_front_suspension_controlShape" -p "Right_front_suspension_control";
+	rename -uid "71D81725-4B92-6E18-1CC1-57883EACCE7D";
+	setAttr -k off ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr ".cc" -type "nurbsCurve" 
+		3 8 2 no 3
+		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
+		11
+		-9.4061427797949584 3.6626284927951778 2.2109219760307286
+		-7.3733652654980268 -3.0287414973212421 2.2072469404487149
+		-8.1587762887764264 -2.7796363969371902 2.2109219760307357
+		-13.436311626489122 -1.0555476049717938 2.2197942967750599
+		-14.064485931153744 5.0830504022194107 2.2286666175193761
+		-10.167851350619532 9.868097880911268 2.232341653101396
+		-4.35715197576849 8.1181050046105163 2.2286666175193766
+		-4.1049049896284107 7.894903988561814 2.2197942967750528
+		-9.4061427797949584 3.6626284927951778 2.2109219760307286
+		-7.3733652654980268 -3.0287414973212421 2.2072469404487149
+		-8.1587762887764264 -2.7796363969371902 2.2109219760307357
+		;
+createNode transform -n "Right_front_wheel_turn_control_group" -p "Right_front_suspension_control";
 	rename -uid "83882231-42BC-82DC-D528-9FBED3B82A70";
-	setAttr ".t" -type "double3" -44.7175 22.5293 1.3373000000000026 ;
+	setAttr ".t" -type "double3" -44.717500000000015 22.5293 1.3373000000000026 ;
 	setAttr ".r" -type "double3" -90.000000000000014 -89.999999999999986 0 ;
 	setAttr ".s" -type "double3" 1.0000000000000004 0.99999999999999956 1.0000000000000004 ;
 createNode transform -n "Right_front_wheel_turn_control_offset" -p "Right_front_wheel_turn_control_group";
@@ -1248,7 +1473,43 @@ createNode orientConstraint -n "Front_Right_Wheel_Spin_Control_offset_orientCons
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
 	setAttr -k on ".w0";
-createNode transform -n "Right_dual_arm_control_group" -p "Right_hip_control";
+createNode transform -n "Right_back_suspension_control_group" -p "Right_hip_control";
+	rename -uid "981B7F45-4648-96A9-86DA-2EADCFF3173F";
+	setAttr ".t" -type "double3" 0 1.4210854715202004e-14 0 ;
+createNode transform -n "Right_back_suspension_control" -p "Right_back_suspension_control_group";
+	rename -uid "C737E572-4F63-61D8-0EB7-67B0C1710F51";
+	setAttr -l on -k off ".v";
+	setAttr ".t" -type "double3" 0 -7.1054273576010019e-15 0 ;
+	setAttr -l on -k off ".tx";
+	setAttr -l on -k off ".ty";
+	setAttr -l on -k off ".tz";
+	setAttr -l on -k off ".rx";
+	setAttr -l on -k off ".ry";
+	setAttr -l on -k off ".sx";
+	setAttr -l on -k off ".sy";
+	setAttr -l on -k off ".sz";
+createNode nurbsCurve -n "Right_back_suspension_controlShape" -p "Right_back_suspension_control";
+	rename -uid "B261E1FE-4991-9DCE-82F9-5C9E6E357357";
+	setAttr -k off ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 4;
+	setAttr ".cc" -type "nurbsCurve" 
+		3 8 2 no 3
+		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
+		11
+		12.162133557046884 -6.8698313954723886 2.2109219760307357
+		7.2663164209379225 -10.62634773342868 2.2072469404487149
+		2.366927195321141 -7.8440291815487786 2.2109219760307286
+		1.7330087539901591 -7.5349629195479544 2.2197942967750528
+		8.9176111208771598 -5.4525622945512424 2.2286666175193619
+		7.4343967017512629 2.3393997811692513 2.2323416531013889
+		7.9388557154499377 2.1334449650650029 2.2286666175193766
+		12.967704368699058 -0.75198503271148454 2.2197942967750528
+		12.162133557046884 -6.8698313954723886 2.2109219760307357
+		7.2663164209379225 -10.62634773342868 2.2072469404487149
+		2.366927195321141 -7.8440291815487786 2.2109219760307286
+		;
+createNode transform -n "Right_dual_arm_control_group" -p "Right_back_suspension_control";
 	rename -uid "63B26413-4C15-7728-A2DB-B28F09096993";
 	setAttr ".t" -type "double3" 37.999999999999979 6.1999999999999993 -0.75000000000001066 ;
 	setAttr ".s" -type "double3" 1.0000000000000004 1 1 ;
@@ -18477,8 +18738,9 @@ createNode mesh -n "right_dual_joint_axelShape" -p "right_dual_joint_axel";
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
 createNode parentConstraint -n "right_dual_joint_axel_parentConstraint1" -p "right_dual_joint_axel";
-	rename -uid "76EA125C-4E9E-05F8-845F-868C39DA1C28";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "right_hipW0" -dv 1 -min 0 -at "double";
+	rename -uid "B361EA02-46CF-3997-F4CE-3B9634A6F106";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "right_back_suspensionW0" -dv 1 -min 
+		0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -18491,12 +18753,11 @@ createNode parentConstraint -n "right_dual_joint_axel_parentConstraint1" -p "rig
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".tg[0].tot" -type "double3" 22.469699999999985 37.867899999999977 -29.5 ;
-	setAttr ".tg[0].tor" -type "double3" -180 -89.999999999999986 0 ;
-	setAttr ".lr" -type "double3" 7.0167092985348791e-15 -4.2964952914991063e-31 7.0167092985348775e-15 ;
-	setAttr ".rst" -type "double3" -7.1054273576010019e-15 0 0 ;
-	setAttr ".rsrr" -type "double3" -1.3115816084749031e-45 -3.8166656177562195e-14 
-		2.996258951878346e-30 ;
+	setAttr ".tg[0].tot" -type "double3" 22.469700000000003 37.867899999999963 -29.500000000000021 ;
+	setAttr ".tg[0].tor" -type "double3" -180 -89.999999999999972 0 ;
+	setAttr ".lr" -type "double3" 7.0167092985348752e-15 -1.2722218725854067e-14 -7.016709298534876e-15 ;
+	setAttr ".rst" -type "double3" 0 -2.1316282072803006e-14 3.5527136788005009e-14 ;
+	setAttr ".rsrr" -type "double3" 7.0167092985348752e-15 -1.2722218725854067e-14 -7.016709298534876e-15 ;
 	setAttr -k on ".w0";
 createNode transform -n "Right_dual_arm" -p "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Right_Suspension_Bar_Geo|Suspension_Arm";
 	rename -uid "9DD1EDA6-4F17-3662-6A9E-B9AC97E3E762";
@@ -19422,8 +19683,9 @@ createNode mesh -n "left_dual_joint_axelShape" -p "left_dual_joint_axel";
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
 createNode parentConstraint -n "left_dual_joint_axel_parentConstraint1" -p "left_dual_joint_axel";
-	rename -uid "5D4F95F2-4BF5-DCC2-FDD7-DEACC900CED9";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "left_hipW0" -dv 1 -min 0 -at "double";
+	rename -uid "A51FAB9C-4941-C7AC-480E-F89ADAFCB319";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "left_back_suspensionW0" -dv 1 -min 
+		0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -19436,9 +19698,9 @@ createNode parentConstraint -n "left_dual_joint_axel_parentConstraint1" -p "left
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".tg[0].tot" -type "double3" -22.469707489013693 -37.86792373657223 29.499999999999961 ;
+	setAttr ".tg[0].tot" -type "double3" -22.469707489013693 -37.867923736572237 29.499999999999961 ;
 	setAttr ".tg[0].tor" -type "double3" 0 -89.999999999999986 0 ;
-	setAttr ".rst" -type "double3" -3.5527136788005009e-15 7.1054273576010019e-15 -7.1054273576010019e-15 ;
+	setAttr ".rst" -type "double3" 0 -2.1316282072803006e-14 -7.1054273576010019e-15 ;
 	setAttr -k on ".w0";
 createNode transform -n "Left_dual_arm" -p "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Bar_Geo|Suspension_Arm";
 	rename -uid "58507D02-4F1C-E6E7-484E-A781C75CD5C6";
@@ -23209,9 +23471,10 @@ createNode mesh -n "Left_Front_Suspension_ArmShape" -p "Left_Front_Suspension_Ar
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
-createNode parentConstraint -n "Suspension_Arm_parentConstraint1" -p "Left_Front_Suspension_Arm";
-	rename -uid "7EFD5A3C-4174-9BC7-15A6-298C08C7FC99";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "left_hipW0" -dv 1 -min 0 -at "double";
+createNode parentConstraint -n "Left_Front_Suspension_Arm_parentConstraint1" -p "Left_Front_Suspension_Arm";
+	rename -uid "A42F21E8-488C-E9EC-028F-81921E4F479F";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "left_front_suspensionW0" -dv 1 -min 
+		0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -23224,9 +23487,9 @@ createNode parentConstraint -n "Suspension_Arm_parentConstraint1" -p "Left_Front
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".tg[0].tot" -type "double3" -22.469707489013693 -37.86792373657223 29.499999999999961 ;
+	setAttr ".tg[0].tot" -type "double3" -22.469707489013697 -37.867923736572237 29.499999999999957 ;
 	setAttr ".tg[0].tor" -type "double3" 0 -89.999999999999986 0 ;
-	setAttr ".rst" -type "double3" -3.5527136788005009e-15 7.1054273576010019e-15 -7.1054273576010019e-15 ;
+	setAttr ".rst" -type "double3" 3.5527136788005009e-15 -2.1316282072803006e-14 -7.1054273576010019e-15 ;
 	setAttr -k on ".w0";
 createNode transform -n "Left_Front_Turning_Cube" -p "Rover_Geo_Fixed:Left_Suspension_Front_Arm_Geo";
 	rename -uid "4E0C9807-4A2F-B95F-FA9C-FD9960F5B612";
@@ -23260,7 +23523,7 @@ createNode parentConstraint -n "Left_Front_Turning_Cube_parentConstraint1" -p "L
 	setAttr ".erp" yes;
 	setAttr ".tg[0].tot" -type "double3" 30.837266505341411 -67.187242823238648 -15.338626861572294 ;
 	setAttr ".tg[0].tor" -type "double3" 90 0 1.2722218725854064e-14 ;
-	setAttr ".lr" -type "double3" 0 -1.2722218725854061e-14 0 ;
+	setAttr ".lr" -type "double3" -8.9959671327898853e-15 -1.2722218725854061e-14 -4.1369703141660212e-31 ;
 	setAttr ".rst" -type "double3" 3.5527136788005009e-15 -1.7763568394002505e-15 0 ;
 	setAttr ".rsrr" -type "double3" 0 -1.2722218725854061e-14 0 ;
 	setAttr -k on ".w0";
@@ -24146,8 +24409,9 @@ createNode mesh -n "Right_Front_Suspension_ArmShape" -p "Right_Front_Suspension_
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
 createNode parentConstraint -n "Right_Front_Suspension_Arm_parentConstraint1" -p "Right_Front_Suspension_Arm";
-	rename -uid "8CC38A9A-4116-C811-0DE1-869C8CC0E57E";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "right_hipW0" -dv 1 -min 0 -at "double";
+	rename -uid "02B8535F-4C0B-0BE4-AA30-86A2F4DC9000";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "right_front_suspensionW0" -dv 1 -min 
+		0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -24160,12 +24424,11 @@ createNode parentConstraint -n "Right_Front_Suspension_Arm_parentConstraint1" -p
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".tg[0].tot" -type "double3" 22.469699999999985 37.867899999999977 -29.5 ;
-	setAttr ".tg[0].tor" -type "double3" -180 -89.999999999999986 0 ;
-	setAttr ".lr" -type "double3" 7.0167092985348791e-15 -4.2964952914991063e-31 7.0167092985348775e-15 ;
-	setAttr ".rst" -type "double3" -7.1054273576010019e-15 0 0 ;
-	setAttr ".rsrr" -type "double3" -1.3115816084749031e-45 -3.8166656177562195e-14 
-		2.996258951878346e-30 ;
+	setAttr ".tg[0].tot" -type "double3" 22.469700000000007 37.867899999999992 -29.500000000000014 ;
+	setAttr ".tg[0].tor" -type "double3" -180 -89.999999999999972 0 ;
+	setAttr ".lr" -type "double3" 7.0167092985348752e-15 -1.2722218725854067e-14 -7.016709298534876e-15 ;
+	setAttr ".rst" -type "double3" -3.5527136788005009e-15 -3.5527136788005009e-14 3.907985046680551e-14 ;
+	setAttr ".rsrr" -type "double3" 7.0167092985348752e-15 -1.2722218725854067e-14 -7.016709298534876e-15 ;
 	setAttr -k on ".w0";
 createNode transform -n "Right_Front_Turning_Cube" -p "Rover_Geo_Fixed:Right_Suspension_Front_Arm_Geo";
 	rename -uid "E9235002-4D23-3890-0F26-CC859B60E7D3";
@@ -24386,8 +24649,9 @@ createNode mesh -n "Rover_Geo_Fixed:Left_Suspension_Hip_GeoShape" -p "Rover_Geo_
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
 createNode parentConstraint -n "Left_Suspension_Hip_Geo_parentConstraint1" -p "Rover_Geo_Fixed:Left_Suspension_Hip_Geo";
-	rename -uid "38AC939E-4694-DA1E-E3B6-AD9FF44C99F9";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "left_hipW0" -dv 1 -min 0 -at "double";
+	rename -uid "E024F3EA-4F9B-B5D5-BA7F-7F9F5A5226A0";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "left_back_suspensionW0" -dv 1 -min 
+		0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -24400,9 +24664,8 @@ createNode parentConstraint -n "Left_Suspension_Hip_Geo_parentConstraint1" -p "R
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".tg[0].tot" -type "double3" -22.469707489013693 -37.86792373657223 29.499999999999961 ;
+	setAttr ".tg[0].tot" -type "double3" -22.469707489013704 -37.867923736572216 29.499999999999954 ;
 	setAttr ".tg[0].tor" -type "double3" 0 -89.999999999999986 0 ;
-	setAttr ".rst" -type "double3" -3.5527136788005009e-15 7.1054273576010019e-15 -7.1054273576010019e-15 ;
 	setAttr -k on ".w0";
 createNode transform -n "Rover_Geo_Fixed:Right_Suspension_Hip_Geo" -p "Rover_Geo_Fixed:RoverGeo";
 	rename -uid "03CE96A8-4754-FE00-B7DA-2A8648D2EAE6";
@@ -24588,8 +24851,9 @@ createNode mesh -n "Rover_Geo_Fixed:Right_Suspension_Hip_GeoShape" -p "Rover_Geo
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 	setAttr ".ai_translator" -type "string" "polymesh";
 createNode parentConstraint -n "Right_Suspension_Hip_Geo_parentConstraint1" -p "Rover_Geo_Fixed:Right_Suspension_Hip_Geo";
-	rename -uid "127F5369-48D4-C3A5-EE38-DEA944DFE9F8";
-	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "right_hipW0" -dv 1 -min 0 -at "double";
+	rename -uid "40038C7D-4FE1-99E8-C55D-11902F417BAC";
+	addAttr -dcb 0 -ci true -k true -sn "w0" -ln "right_back_suspensionW0" -dv 1 -min 
+		0 -at "double";
 	setAttr -k on ".nds";
 	setAttr -k off ".v";
 	setAttr -k off ".tx";
@@ -24602,12 +24866,11 @@ createNode parentConstraint -n "Right_Suspension_Hip_Geo_parentConstraint1" -p "
 	setAttr -k off ".sy";
 	setAttr -k off ".sz";
 	setAttr ".erp" yes;
-	setAttr ".tg[0].tot" -type "double3" 22.469699999999985 37.867899999999977 -29.5 ;
-	setAttr ".tg[0].tor" -type "double3" -180 -89.999999999999986 0 ;
-	setAttr ".lr" -type "double3" 7.0167092985348791e-15 -4.2964952914991063e-31 7.0167092985348775e-15 ;
-	setAttr ".rst" -type "double3" -7.1054273576010019e-15 0 0 ;
-	setAttr ".rsrr" -type "double3" -1.3115816084749031e-45 -3.8166656177562195e-14 
-		2.996258951878346e-30 ;
+	setAttr ".tg[0].tot" -type "double3" 22.469699999999971 37.867899999999963 -29.500000000000014 ;
+	setAttr ".tg[0].tor" -type "double3" -180 -89.999999999999972 0 ;
+	setAttr ".lr" -type "double3" 7.0167092985348752e-15 -1.2722218725854067e-14 -7.016709298534876e-15 ;
+	setAttr ".rst" -type "double3" -3.5527136788005009e-15 -7.1054273576010019e-15 3.5527136788005009e-15 ;
+	setAttr ".rsrr" -type "double3" 7.0167092985348752e-15 -1.2722218725854067e-14 -7.016709298534876e-15 ;
 	setAttr -k on ".w0";
 createNode transform -n "Rover_Geo_Fixed:Dish_Geo" -p "Rover_Geo_Fixed:RoverGeo";
 	rename -uid "4E53D4BC-4513-FCC8-0FDA-F9AB10C74B8F";
@@ -34934,22 +35197,22 @@ createNode mesh -n "Neck_GeoShapeTag" -p "Rover_Geo_Fixed:Neck_Geo";
 	setAttr ".cdvm[0]"  0 1 1;
 	setAttr ".ai_translator" -type "string" "polymesh";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "4725A6D0-40F3-EFA2-FDF2-62BB24948438";
+	rename -uid "922BCD0C-48DA-F0D1-42CD-D1B8340B031C";
 	setAttr -s 2 ".lnk";
 	setAttr -s 2 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "2592791B-4A24-7B30-D9C0-BCA7389611F3";
+	rename -uid "ACAC16D0-464D-EC2F-C824-CA8CF507AF13";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "6AABC58A-4305-0657-0455-328C40E0397B";
+	rename -uid "2D8AFDF6-4E30-A75E-42B2-658B22DAB489";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "CA561758-4C23-12E1-D1FB-24A44447C7C1";
+	rename -uid "C6DD8A6F-4EDF-DD20-1DE5-51938511587D";
 	setAttr ".cdl" 3;
 	setAttr -s 4 ".dli[1:3]"  1 2 3;
 	setAttr -s 4 ".dli";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "6008D54C-48C6-EDE2-B095-DFB884F1FB19";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "57A1C0C5-4B63-CD08-7B42-0CB980152BDB";
+	rename -uid "375EC0A6-40F7-1DEB-4557-69BF75F98959";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "A3ECFC9E-407E-B1B7-939E-0892F4A6679F";
 	setAttr ".g" yes;
@@ -35006,7 +35269,6 @@ createNode script -n "sceneConfigurationScriptNode";
 	setAttr ".st" 6;
 createNode displayLayer -n "Rover_Geo";
 	rename -uid "BFFE23B1-4128-F8F0-E4F5-CF9F5D4998CD";
-	setAttr ".dt" 2;
 	setAttr ".do" 1;
 createNode polySeparate -n "polySeparate1";
 	rename -uid "F5980CD7-4991-3BC8-83CB-7790C3262EA5";
@@ -35104,8 +35366,6 @@ createNode groupParts -n "groupParts10";
 	rename -uid "592F9CC0-4610-057C-9FFA-71B05711E287";
 	setAttr ".ihi" 0;
 	setAttr ".ic" -type "componentList" 1 "f[0:263]";
-createNode pairBlend -n "pairBlend5";
-	rename -uid "4EAA5E8A-4718-58AD-C145-71ABAEDF30A5";
 createNode polySeparate -n "polySeparate5";
 	rename -uid "4F24C35D-4162-FFCB-1147-BC8CA7F08315";
 	setAttr ".ic" 8;
@@ -35150,8 +35410,6 @@ createNode pairBlend -n "pairBlend7";
 	rename -uid "054F3FC4-4492-4E48-8EC5-32B0ECFCA04B";
 createNode pairBlend -n "pairBlend8";
 	rename -uid "09DB8A7A-4EF2-A9D2-98BF-7AB80ED0A269";
-createNode pairBlend -n "pairBlend9";
-	rename -uid "8AD1E24C-4A75-C94B-1991-E1AF8DFA9ED5";
 createNode pairBlend -n "pairBlend10";
 	rename -uid "A166425A-454B-4AF9-C583-F58AE24848DE";
 createNode pairBlend -n "pairBlend11";
@@ -36461,8 +36719,13 @@ createNode displayLayer -n "Controls_layer";
 	setAttr ".do" 2;
 createNode displayLayer -n "Skeleton_Layer";
 	rename -uid "ABEB7B58-4637-04DA-1BF2-2EA1929BF448";
+	setAttr ".dt" 2;
 	setAttr ".v" no;
 	setAttr ".do" 3;
+createNode pairBlend -n "pairBlend23";
+	rename -uid "CB63EFC4-45C0-CA3B-C8EA-978F55D93CB8";
+createNode pairBlend -n "pairBlend24";
+	rename -uid "E0D31C1E-4022-C883-4862-85815698DADA";
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -36508,6 +36771,7 @@ select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
 select -ne :ikSystem;
+	setAttr -s 4 ".sol";
 connectAttr "Skeleton_Layer.di" "Skeleton.do";
 connectAttr "Skeleton_Layer.di" "root.do";
 connectAttr "root.s" "COG.is";
@@ -36549,7 +36813,36 @@ connectAttr "left_hip_parentConstraint1.crx" "left_hip.rx";
 connectAttr "left_hip_parentConstraint1.cry" "left_hip.ry";
 connectAttr "left_hip_parentConstraint1.crz" "left_hip.rz";
 connectAttr "Skeleton_Layer.di" "left_hip.do";
-connectAttr "left_hip.s" "left_front_wheel_turn.is";
+connectAttr "left_hip.ro" "left_hip_parentConstraint1.cro";
+connectAttr "left_hip.pim" "left_hip_parentConstraint1.cpim";
+connectAttr "left_hip.rp" "left_hip_parentConstraint1.crp";
+connectAttr "left_hip.rpt" "left_hip_parentConstraint1.crt";
+connectAttr "left_hip.jo" "left_hip_parentConstraint1.cjo";
+connectAttr "Left_hip_control.t" "left_hip_parentConstraint1.tg[0].tt";
+connectAttr "Left_hip_control.rp" "left_hip_parentConstraint1.tg[0].trp";
+connectAttr "Left_hip_control.rpt" "left_hip_parentConstraint1.tg[0].trt";
+connectAttr "Left_hip_control.r" "left_hip_parentConstraint1.tg[0].tr";
+connectAttr "Left_hip_control.ro" "left_hip_parentConstraint1.tg[0].tro";
+connectAttr "Left_hip_control.s" "left_hip_parentConstraint1.tg[0].ts";
+connectAttr "Left_hip_control.pm" "left_hip_parentConstraint1.tg[0].tpm";
+connectAttr "left_hip_parentConstraint1.w0" "left_hip_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Skeleton_Layer.di" "left_hip_parentConstraint1.do";
+connectAttr "left_hip.s" "left_front_suspension.is";
+connectAttr "left_front_suspension_parentConstraint1.ctx" "left_front_suspension.tx"
+		;
+connectAttr "left_front_suspension_parentConstraint1.cty" "left_front_suspension.ty"
+		;
+connectAttr "left_front_suspension_parentConstraint1.ctz" "left_front_suspension.tz"
+		;
+connectAttr "left_front_suspension_parentConstraint1.crx" "left_front_suspension.rx"
+		;
+connectAttr "left_front_suspension_parentConstraint1.cry" "left_front_suspension.ry"
+		;
+connectAttr "left_front_suspension_parentConstraint1.crz" "left_front_suspension.rz"
+		;
+connectAttr "Skeleton_Layer.di" "left_front_suspension.do";
+connectAttr "left_front_suspension.s" "left_front_wheel_turn.is";
 connectAttr "left_front_wheel_turn_parentConstraint1.ctx" "left_front_wheel_turn.tx"
 		;
 connectAttr "left_front_wheel_turn_parentConstraint1.cty" "left_front_wheel_turn.ty"
@@ -36611,7 +36904,47 @@ connectAttr "Left_front_wheel_turn_control.pm" "left_front_wheel_turn_parentCons
 connectAttr "left_front_wheel_turn_parentConstraint1.w0" "left_front_wheel_turn_parentConstraint1.tg[0].tw"
 		;
 connectAttr "Skeleton_Layer.di" "left_front_wheel_turn_parentConstraint1.do";
-connectAttr "left_hip.s" "left_dual_joint.is";
+connectAttr "left_front_suspension.ro" "left_front_suspension_parentConstraint1.cro"
+		;
+connectAttr "left_front_suspension.pim" "left_front_suspension_parentConstraint1.cpim"
+		;
+connectAttr "left_front_suspension.rp" "left_front_suspension_parentConstraint1.crp"
+		;
+connectAttr "left_front_suspension.rpt" "left_front_suspension_parentConstraint1.crt"
+		;
+connectAttr "left_front_suspension.jo" "left_front_suspension_parentConstraint1.cjo"
+		;
+connectAttr "Left_front_suspension_control.t" "left_front_suspension_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Left_front_suspension_control.rp" "left_front_suspension_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Left_front_suspension_control.rpt" "left_front_suspension_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Left_front_suspension_control.r" "left_front_suspension_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Left_front_suspension_control.ro" "left_front_suspension_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Left_front_suspension_control.s" "left_front_suspension_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Left_front_suspension_control.pm" "left_front_suspension_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "left_front_suspension_parentConstraint1.w0" "left_front_suspension_parentConstraint1.tg[0].tw"
+		;
+connectAttr "left_hip.s" "left_back_suspension.is";
+connectAttr "left_back_suspension_parentConstraint1.ctx" "left_back_suspension.tx"
+		;
+connectAttr "left_back_suspension_parentConstraint1.cty" "left_back_suspension.ty"
+		;
+connectAttr "left_back_suspension_parentConstraint1.ctz" "left_back_suspension.tz"
+		;
+connectAttr "left_back_suspension_parentConstraint1.crx" "left_back_suspension.rx"
+		;
+connectAttr "left_back_suspension_parentConstraint1.cry" "left_back_suspension.ry"
+		;
+connectAttr "left_back_suspension_parentConstraint1.crz" "left_back_suspension.rz"
+		;
+connectAttr "Skeleton_Layer.di" "left_back_suspension.do";
+connectAttr "left_back_suspension.s" "left_dual_joint.is";
 connectAttr "left_dual_joint_parentConstraint1.ctx" "left_dual_joint.tx";
 connectAttr "left_dual_joint_parentConstraint1.cty" "left_dual_joint.ty";
 connectAttr "left_dual_joint_parentConstraint1.ctz" "left_dual_joint.tz";
@@ -36723,21 +37056,32 @@ connectAttr "Left_dual_arm_control.pm" "left_dual_joint_parentConstraint1.tg[0].
 connectAttr "left_dual_joint_parentConstraint1.w0" "left_dual_joint_parentConstraint1.tg[0].tw"
 		;
 connectAttr "Skeleton_Layer.di" "left_dual_joint_parentConstraint1.do";
-connectAttr "left_hip.ro" "left_hip_parentConstraint1.cro";
-connectAttr "left_hip.pim" "left_hip_parentConstraint1.cpim";
-connectAttr "left_hip.rp" "left_hip_parentConstraint1.crp";
-connectAttr "left_hip.rpt" "left_hip_parentConstraint1.crt";
-connectAttr "left_hip.jo" "left_hip_parentConstraint1.cjo";
-connectAttr "Left_hip_control.t" "left_hip_parentConstraint1.tg[0].tt";
-connectAttr "Left_hip_control.rp" "left_hip_parentConstraint1.tg[0].trp";
-connectAttr "Left_hip_control.rpt" "left_hip_parentConstraint1.tg[0].trt";
-connectAttr "Left_hip_control.r" "left_hip_parentConstraint1.tg[0].tr";
-connectAttr "Left_hip_control.ro" "left_hip_parentConstraint1.tg[0].tro";
-connectAttr "Left_hip_control.s" "left_hip_parentConstraint1.tg[0].ts";
-connectAttr "Left_hip_control.pm" "left_hip_parentConstraint1.tg[0].tpm";
-connectAttr "left_hip_parentConstraint1.w0" "left_hip_parentConstraint1.tg[0].tw"
+connectAttr "left_back_suspension.ro" "left_back_suspension_parentConstraint1.cro"
 		;
-connectAttr "Skeleton_Layer.di" "left_hip_parentConstraint1.do";
+connectAttr "left_back_suspension.pim" "left_back_suspension_parentConstraint1.cpim"
+		;
+connectAttr "left_back_suspension.rp" "left_back_suspension_parentConstraint1.crp"
+		;
+connectAttr "left_back_suspension.rpt" "left_back_suspension_parentConstraint1.crt"
+		;
+connectAttr "left_back_suspension.jo" "left_back_suspension_parentConstraint1.cjo"
+		;
+connectAttr "Left_back_suspension_control.t" "left_back_suspension_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Left_back_suspension_control.rp" "left_back_suspension_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Left_back_suspension_control.rpt" "left_back_suspension_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Left_back_suspension_control.r" "left_back_suspension_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Left_back_suspension_control.ro" "left_back_suspension_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Left_back_suspension_control.s" "left_back_suspension_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Left_back_suspension_control.pm" "left_back_suspension_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "left_back_suspension_parentConstraint1.w0" "left_back_suspension_parentConstraint1.tg[0].tw"
+		;
 connectAttr "COG.s" "right_hip.is";
 connectAttr "right_hip_parentConstraint1.ctx" "right_hip.tx";
 connectAttr "right_hip_parentConstraint1.cty" "right_hip.ty";
@@ -36746,7 +37090,36 @@ connectAttr "right_hip_parentConstraint1.crx" "right_hip.rx";
 connectAttr "right_hip_parentConstraint1.cry" "right_hip.ry";
 connectAttr "right_hip_parentConstraint1.crz" "right_hip.rz";
 connectAttr "Skeleton_Layer.di" "right_hip.do";
-connectAttr "right_hip.s" "right_front_wheel_turn.is";
+connectAttr "right_hip.ro" "right_hip_parentConstraint1.cro";
+connectAttr "right_hip.pim" "right_hip_parentConstraint1.cpim";
+connectAttr "right_hip.rp" "right_hip_parentConstraint1.crp";
+connectAttr "right_hip.rpt" "right_hip_parentConstraint1.crt";
+connectAttr "right_hip.jo" "right_hip_parentConstraint1.cjo";
+connectAttr "Right_hip_control.t" "right_hip_parentConstraint1.tg[0].tt";
+connectAttr "Right_hip_control.rp" "right_hip_parentConstraint1.tg[0].trp";
+connectAttr "Right_hip_control.rpt" "right_hip_parentConstraint1.tg[0].trt";
+connectAttr "Right_hip_control.r" "right_hip_parentConstraint1.tg[0].tr";
+connectAttr "Right_hip_control.ro" "right_hip_parentConstraint1.tg[0].tro";
+connectAttr "Right_hip_control.s" "right_hip_parentConstraint1.tg[0].ts";
+connectAttr "Right_hip_control.pm" "right_hip_parentConstraint1.tg[0].tpm";
+connectAttr "right_hip_parentConstraint1.w0" "right_hip_parentConstraint1.tg[0].tw"
+		;
+connectAttr "Skeleton_Layer.di" "right_hip_parentConstraint1.do";
+connectAttr "right_hip.s" "right_front_suspension.is";
+connectAttr "right_front_suspension_parentConstraint1.ctx" "right_front_suspension.tx"
+		;
+connectAttr "right_front_suspension_parentConstraint1.cty" "right_front_suspension.ty"
+		;
+connectAttr "right_front_suspension_parentConstraint1.ctz" "right_front_suspension.tz"
+		;
+connectAttr "right_front_suspension_parentConstraint1.crx" "right_front_suspension.rx"
+		;
+connectAttr "right_front_suspension_parentConstraint1.cry" "right_front_suspension.ry"
+		;
+connectAttr "right_front_suspension_parentConstraint1.crz" "right_front_suspension.rz"
+		;
+connectAttr "Skeleton_Layer.di" "right_front_suspension.do";
+connectAttr "right_front_suspension.s" "right_front_wheel_turn.is";
 connectAttr "right_front_wheel_turn_parentConstraint1.ctx" "right_front_wheel_turn.tx"
 		;
 connectAttr "right_front_wheel_turn_parentConstraint1.cty" "right_front_wheel_turn.ty"
@@ -36808,7 +37181,47 @@ connectAttr "Right_front_wheel_turn_control.pm" "right_front_wheel_turn_parentCo
 connectAttr "right_front_wheel_turn_parentConstraint1.w0" "right_front_wheel_turn_parentConstraint1.tg[0].tw"
 		;
 connectAttr "Skeleton_Layer.di" "right_front_wheel_turn_parentConstraint1.do";
-connectAttr "right_hip.s" "right_dual_joint.is";
+connectAttr "right_front_suspension.ro" "right_front_suspension_parentConstraint1.cro"
+		;
+connectAttr "right_front_suspension.pim" "right_front_suspension_parentConstraint1.cpim"
+		;
+connectAttr "right_front_suspension.rp" "right_front_suspension_parentConstraint1.crp"
+		;
+connectAttr "right_front_suspension.rpt" "right_front_suspension_parentConstraint1.crt"
+		;
+connectAttr "right_front_suspension.jo" "right_front_suspension_parentConstraint1.cjo"
+		;
+connectAttr "Right_front_suspension_control.t" "right_front_suspension_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Right_front_suspension_control.rp" "right_front_suspension_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Right_front_suspension_control.rpt" "right_front_suspension_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Right_front_suspension_control.r" "right_front_suspension_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Right_front_suspension_control.ro" "right_front_suspension_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Right_front_suspension_control.s" "right_front_suspension_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Right_front_suspension_control.pm" "right_front_suspension_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "right_front_suspension_parentConstraint1.w0" "right_front_suspension_parentConstraint1.tg[0].tw"
+		;
+connectAttr "right_hip.s" "right_back_suspension.is";
+connectAttr "right_back_suspension_parentConstraint1.ctx" "right_back_suspension.tx"
+		;
+connectAttr "right_back_suspension_parentConstraint1.cty" "right_back_suspension.ty"
+		;
+connectAttr "right_back_suspension_parentConstraint1.ctz" "right_back_suspension.tz"
+		;
+connectAttr "right_back_suspension_parentConstraint1.crx" "right_back_suspension.rx"
+		;
+connectAttr "right_back_suspension_parentConstraint1.cry" "right_back_suspension.ry"
+		;
+connectAttr "right_back_suspension_parentConstraint1.crz" "right_back_suspension.rz"
+		;
+connectAttr "Skeleton_Layer.di" "right_back_suspension.do";
+connectAttr "right_back_suspension.s" "right_dual_joint.is";
 connectAttr "right_dual_joint_parentConstraint1.ctx" "right_dual_joint.tx";
 connectAttr "right_dual_joint_parentConstraint1.cty" "right_dual_joint.ty";
 connectAttr "right_dual_joint_parentConstraint1.ctz" "right_dual_joint.tz";
@@ -36921,21 +37334,32 @@ connectAttr "Right_dual_arm_control.pm" "right_dual_joint_parentConstraint1.tg[0
 connectAttr "right_dual_joint_parentConstraint1.w0" "right_dual_joint_parentConstraint1.tg[0].tw"
 		;
 connectAttr "Skeleton_Layer.di" "right_dual_joint_parentConstraint1.do";
-connectAttr "right_hip.ro" "right_hip_parentConstraint1.cro";
-connectAttr "right_hip.pim" "right_hip_parentConstraint1.cpim";
-connectAttr "right_hip.rp" "right_hip_parentConstraint1.crp";
-connectAttr "right_hip.rpt" "right_hip_parentConstraint1.crt";
-connectAttr "right_hip.jo" "right_hip_parentConstraint1.cjo";
-connectAttr "Right_hip_control.t" "right_hip_parentConstraint1.tg[0].tt";
-connectAttr "Right_hip_control.rp" "right_hip_parentConstraint1.tg[0].trp";
-connectAttr "Right_hip_control.rpt" "right_hip_parentConstraint1.tg[0].trt";
-connectAttr "Right_hip_control.r" "right_hip_parentConstraint1.tg[0].tr";
-connectAttr "Right_hip_control.ro" "right_hip_parentConstraint1.tg[0].tro";
-connectAttr "Right_hip_control.s" "right_hip_parentConstraint1.tg[0].ts";
-connectAttr "Right_hip_control.pm" "right_hip_parentConstraint1.tg[0].tpm";
-connectAttr "right_hip_parentConstraint1.w0" "right_hip_parentConstraint1.tg[0].tw"
+connectAttr "right_back_suspension.ro" "right_back_suspension_parentConstraint1.cro"
 		;
-connectAttr "Skeleton_Layer.di" "right_hip_parentConstraint1.do";
+connectAttr "right_back_suspension.pim" "right_back_suspension_parentConstraint1.cpim"
+		;
+connectAttr "right_back_suspension.rp" "right_back_suspension_parentConstraint1.crp"
+		;
+connectAttr "right_back_suspension.rpt" "right_back_suspension_parentConstraint1.crt"
+		;
+connectAttr "right_back_suspension.jo" "right_back_suspension_parentConstraint1.cjo"
+		;
+connectAttr "Right_back_suspension_control.t" "right_back_suspension_parentConstraint1.tg[0].tt"
+		;
+connectAttr "Right_back_suspension_control.rp" "right_back_suspension_parentConstraint1.tg[0].trp"
+		;
+connectAttr "Right_back_suspension_control.rpt" "right_back_suspension_parentConstraint1.tg[0].trt"
+		;
+connectAttr "Right_back_suspension_control.r" "right_back_suspension_parentConstraint1.tg[0].tr"
+		;
+connectAttr "Right_back_suspension_control.ro" "right_back_suspension_parentConstraint1.tg[0].tro"
+		;
+connectAttr "Right_back_suspension_control.s" "right_back_suspension_parentConstraint1.tg[0].ts"
+		;
+connectAttr "Right_back_suspension_control.pm" "right_back_suspension_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "right_back_suspension_parentConstraint1.w0" "right_back_suspension_parentConstraint1.tg[0].tw"
+		;
 connectAttr "COG.s" "lower_arm_base.is";
 connectAttr "lower_arm_base_parentConstraint1.ctx" "lower_arm_base.tx";
 connectAttr "lower_arm_base_parentConstraint1.cty" "lower_arm_base.ty";
@@ -37806,16 +38230,26 @@ connectAttr "right_dual_joint_axel.rp" "right_dual_joint_axel_parentConstraint1.
 		;
 connectAttr "right_dual_joint_axel.rpt" "right_dual_joint_axel_parentConstraint1.crt"
 		;
-connectAttr "right_hip.t" "right_dual_joint_axel_parentConstraint1.tg[0].tt";
-connectAttr "right_hip.rp" "right_dual_joint_axel_parentConstraint1.tg[0].trp";
-connectAttr "right_hip.rpt" "right_dual_joint_axel_parentConstraint1.tg[0].trt";
-connectAttr "right_hip.r" "right_dual_joint_axel_parentConstraint1.tg[0].tr";
-connectAttr "right_hip.ro" "right_dual_joint_axel_parentConstraint1.tg[0].tro";
-connectAttr "right_hip.s" "right_dual_joint_axel_parentConstraint1.tg[0].ts";
-connectAttr "right_hip.pm" "right_dual_joint_axel_parentConstraint1.tg[0].tpm";
-connectAttr "right_hip.jo" "right_dual_joint_axel_parentConstraint1.tg[0].tjo";
-connectAttr "right_hip.ssc" "right_dual_joint_axel_parentConstraint1.tg[0].tsc";
-connectAttr "right_hip.is" "right_dual_joint_axel_parentConstraint1.tg[0].tis";
+connectAttr "right_back_suspension.t" "right_dual_joint_axel_parentConstraint1.tg[0].tt"
+		;
+connectAttr "right_back_suspension.rp" "right_dual_joint_axel_parentConstraint1.tg[0].trp"
+		;
+connectAttr "right_back_suspension.rpt" "right_dual_joint_axel_parentConstraint1.tg[0].trt"
+		;
+connectAttr "right_back_suspension.r" "right_dual_joint_axel_parentConstraint1.tg[0].tr"
+		;
+connectAttr "right_back_suspension.ro" "right_dual_joint_axel_parentConstraint1.tg[0].tro"
+		;
+connectAttr "right_back_suspension.s" "right_dual_joint_axel_parentConstraint1.tg[0].ts"
+		;
+connectAttr "right_back_suspension.pm" "right_dual_joint_axel_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "right_back_suspension.jo" "right_dual_joint_axel_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "right_back_suspension.ssc" "right_dual_joint_axel_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "right_back_suspension.is" "right_dual_joint_axel_parentConstraint1.tg[0].tis"
+		;
 connectAttr "right_dual_joint_axel_parentConstraint1.w0" "right_dual_joint_axel_parentConstraint1.tg[0].tw"
 		;
 connectAttr "Right_dual_arm_parentConstraint1.ctx" "Right_dual_arm.tx";
@@ -37949,16 +38383,26 @@ connectAttr "left_dual_joint_axel.rp" "left_dual_joint_axel_parentConstraint1.cr
 		;
 connectAttr "left_dual_joint_axel.rpt" "left_dual_joint_axel_parentConstraint1.crt"
 		;
-connectAttr "left_hip.t" "left_dual_joint_axel_parentConstraint1.tg[0].tt";
-connectAttr "left_hip.rp" "left_dual_joint_axel_parentConstraint1.tg[0].trp";
-connectAttr "left_hip.rpt" "left_dual_joint_axel_parentConstraint1.tg[0].trt";
-connectAttr "left_hip.r" "left_dual_joint_axel_parentConstraint1.tg[0].tr";
-connectAttr "left_hip.ro" "left_dual_joint_axel_parentConstraint1.tg[0].tro";
-connectAttr "left_hip.s" "left_dual_joint_axel_parentConstraint1.tg[0].ts";
-connectAttr "left_hip.pm" "left_dual_joint_axel_parentConstraint1.tg[0].tpm";
-connectAttr "left_hip.jo" "left_dual_joint_axel_parentConstraint1.tg[0].tjo";
-connectAttr "left_hip.ssc" "left_dual_joint_axel_parentConstraint1.tg[0].tsc";
-connectAttr "left_hip.is" "left_dual_joint_axel_parentConstraint1.tg[0].tis";
+connectAttr "left_back_suspension.t" "left_dual_joint_axel_parentConstraint1.tg[0].tt"
+		;
+connectAttr "left_back_suspension.rp" "left_dual_joint_axel_parentConstraint1.tg[0].trp"
+		;
+connectAttr "left_back_suspension.rpt" "left_dual_joint_axel_parentConstraint1.tg[0].trt"
+		;
+connectAttr "left_back_suspension.r" "left_dual_joint_axel_parentConstraint1.tg[0].tr"
+		;
+connectAttr "left_back_suspension.ro" "left_dual_joint_axel_parentConstraint1.tg[0].tro"
+		;
+connectAttr "left_back_suspension.s" "left_dual_joint_axel_parentConstraint1.tg[0].ts"
+		;
+connectAttr "left_back_suspension.pm" "left_dual_joint_axel_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "left_back_suspension.jo" "left_dual_joint_axel_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "left_back_suspension.ssc" "left_dual_joint_axel_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "left_back_suspension.is" "left_dual_joint_axel_parentConstraint1.tg[0].tis"
+		;
 connectAttr "left_dual_joint_axel_parentConstraint1.w0" "left_dual_joint_axel_parentConstraint1.tg[0].tw"
 		;
 connectAttr "Left_dual_arm_parentConstraint1.ctx" "Left_dual_arm.tx";
@@ -38104,41 +38548,51 @@ connectAttr ":initialShadingGroup.mwc" "Left_Suspension_Front_Arm_GeoShapeDeform
 		;
 connectAttr "groupId2.id" "Left_Suspension_Front_Arm_GeoShapeDeformed.ciog.cog[0].cgid"
 		;
-connectAttr "Suspension_Arm_parentConstraint1.ctx" "Left_Front_Suspension_Arm.tx"
+connectAttr "Left_Front_Suspension_Arm_parentConstraint1.ctx" "Left_Front_Suspension_Arm.tx"
 		;
-connectAttr "Suspension_Arm_parentConstraint1.cty" "Left_Front_Suspension_Arm.ty"
+connectAttr "Left_Front_Suspension_Arm_parentConstraint1.cty" "Left_Front_Suspension_Arm.ty"
 		;
-connectAttr "Suspension_Arm_parentConstraint1.ctz" "Left_Front_Suspension_Arm.tz"
+connectAttr "Left_Front_Suspension_Arm_parentConstraint1.ctz" "Left_Front_Suspension_Arm.tz"
 		;
-connectAttr "Suspension_Arm_parentConstraint1.crx" "Left_Front_Suspension_Arm.rx"
+connectAttr "Left_Front_Suspension_Arm_parentConstraint1.crx" "Left_Front_Suspension_Arm.rx"
 		;
-connectAttr "Suspension_Arm_parentConstraint1.cry" "Left_Front_Suspension_Arm.ry"
+connectAttr "Left_Front_Suspension_Arm_parentConstraint1.cry" "Left_Front_Suspension_Arm.ry"
 		;
-connectAttr "Suspension_Arm_parentConstraint1.crz" "Left_Front_Suspension_Arm.rz"
+connectAttr "Left_Front_Suspension_Arm_parentConstraint1.crz" "Left_Front_Suspension_Arm.rz"
 		;
 connectAttr "groupParts3.og" "Left_Front_Suspension_ArmShape.i";
 connectAttr "groupId4.id" "Left_Front_Suspension_ArmShape.iog.og[0].gid";
 connectAttr ":initialShadingGroup.mwc" "Left_Front_Suspension_ArmShape.iog.og[0].gco"
 		;
-connectAttr "Left_Front_Suspension_Arm.ro" "Suspension_Arm_parentConstraint1.cro"
+connectAttr "Left_Front_Suspension_Arm.ro" "Left_Front_Suspension_Arm_parentConstraint1.cro"
 		;
-connectAttr "Left_Front_Suspension_Arm.pim" "Suspension_Arm_parentConstraint1.cpim"
+connectAttr "Left_Front_Suspension_Arm.pim" "Left_Front_Suspension_Arm_parentConstraint1.cpim"
 		;
-connectAttr "Left_Front_Suspension_Arm.rp" "Suspension_Arm_parentConstraint1.crp"
+connectAttr "Left_Front_Suspension_Arm.rp" "Left_Front_Suspension_Arm_parentConstraint1.crp"
 		;
-connectAttr "Left_Front_Suspension_Arm.rpt" "Suspension_Arm_parentConstraint1.crt"
+connectAttr "Left_Front_Suspension_Arm.rpt" "Left_Front_Suspension_Arm_parentConstraint1.crt"
 		;
-connectAttr "left_hip.t" "Suspension_Arm_parentConstraint1.tg[0].tt";
-connectAttr "left_hip.rp" "Suspension_Arm_parentConstraint1.tg[0].trp";
-connectAttr "left_hip.rpt" "Suspension_Arm_parentConstraint1.tg[0].trt";
-connectAttr "left_hip.r" "Suspension_Arm_parentConstraint1.tg[0].tr";
-connectAttr "left_hip.ro" "Suspension_Arm_parentConstraint1.tg[0].tro";
-connectAttr "left_hip.s" "Suspension_Arm_parentConstraint1.tg[0].ts";
-connectAttr "left_hip.pm" "Suspension_Arm_parentConstraint1.tg[0].tpm";
-connectAttr "left_hip.jo" "Suspension_Arm_parentConstraint1.tg[0].tjo";
-connectAttr "left_hip.ssc" "Suspension_Arm_parentConstraint1.tg[0].tsc";
-connectAttr "left_hip.is" "Suspension_Arm_parentConstraint1.tg[0].tis";
-connectAttr "Suspension_Arm_parentConstraint1.w0" "Suspension_Arm_parentConstraint1.tg[0].tw"
+connectAttr "left_front_suspension.t" "Left_Front_Suspension_Arm_parentConstraint1.tg[0].tt"
+		;
+connectAttr "left_front_suspension.rp" "Left_Front_Suspension_Arm_parentConstraint1.tg[0].trp"
+		;
+connectAttr "left_front_suspension.rpt" "Left_Front_Suspension_Arm_parentConstraint1.tg[0].trt"
+		;
+connectAttr "left_front_suspension.r" "Left_Front_Suspension_Arm_parentConstraint1.tg[0].tr"
+		;
+connectAttr "left_front_suspension.ro" "Left_Front_Suspension_Arm_parentConstraint1.tg[0].tro"
+		;
+connectAttr "left_front_suspension.s" "Left_Front_Suspension_Arm_parentConstraint1.tg[0].ts"
+		;
+connectAttr "left_front_suspension.pm" "Left_Front_Suspension_Arm_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "left_front_suspension.jo" "Left_Front_Suspension_Arm_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "left_front_suspension.ssc" "Left_Front_Suspension_Arm_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "left_front_suspension.is" "Left_Front_Suspension_Arm_parentConstraint1.tg[0].tis"
+		;
+connectAttr "Left_Front_Suspension_Arm_parentConstraint1.w0" "Left_Front_Suspension_Arm_parentConstraint1.tg[0].tw"
 		;
 connectAttr "Left_Front_Turning_Cube_parentConstraint1.ctx" "Left_Front_Turning_Cube.tx"
 		;
@@ -38236,25 +38690,25 @@ connectAttr "Right_Front_Suspension_Arm.rp" "Right_Front_Suspension_Arm_parentCo
 		;
 connectAttr "Right_Front_Suspension_Arm.rpt" "Right_Front_Suspension_Arm_parentConstraint1.crt"
 		;
-connectAttr "right_hip.t" "Right_Front_Suspension_Arm_parentConstraint1.tg[0].tt"
+connectAttr "right_front_suspension.t" "Right_Front_Suspension_Arm_parentConstraint1.tg[0].tt"
 		;
-connectAttr "right_hip.rp" "Right_Front_Suspension_Arm_parentConstraint1.tg[0].trp"
+connectAttr "right_front_suspension.rp" "Right_Front_Suspension_Arm_parentConstraint1.tg[0].trp"
 		;
-connectAttr "right_hip.rpt" "Right_Front_Suspension_Arm_parentConstraint1.tg[0].trt"
+connectAttr "right_front_suspension.rpt" "Right_Front_Suspension_Arm_parentConstraint1.tg[0].trt"
 		;
-connectAttr "right_hip.r" "Right_Front_Suspension_Arm_parentConstraint1.tg[0].tr"
+connectAttr "right_front_suspension.r" "Right_Front_Suspension_Arm_parentConstraint1.tg[0].tr"
 		;
-connectAttr "right_hip.ro" "Right_Front_Suspension_Arm_parentConstraint1.tg[0].tro"
+connectAttr "right_front_suspension.ro" "Right_Front_Suspension_Arm_parentConstraint1.tg[0].tro"
 		;
-connectAttr "right_hip.s" "Right_Front_Suspension_Arm_parentConstraint1.tg[0].ts"
+connectAttr "right_front_suspension.s" "Right_Front_Suspension_Arm_parentConstraint1.tg[0].ts"
 		;
-connectAttr "right_hip.pm" "Right_Front_Suspension_Arm_parentConstraint1.tg[0].tpm"
+connectAttr "right_front_suspension.pm" "Right_Front_Suspension_Arm_parentConstraint1.tg[0].tpm"
 		;
-connectAttr "right_hip.jo" "Right_Front_Suspension_Arm_parentConstraint1.tg[0].tjo"
+connectAttr "right_front_suspension.jo" "Right_Front_Suspension_Arm_parentConstraint1.tg[0].tjo"
 		;
-connectAttr "right_hip.ssc" "Right_Front_Suspension_Arm_parentConstraint1.tg[0].tsc"
+connectAttr "right_front_suspension.ssc" "Right_Front_Suspension_Arm_parentConstraint1.tg[0].tsc"
 		;
-connectAttr "right_hip.is" "Right_Front_Suspension_Arm_parentConstraint1.tg[0].tis"
+connectAttr "right_front_suspension.is" "Right_Front_Suspension_Arm_parentConstraint1.tg[0].tis"
 		;
 connectAttr "Right_Front_Suspension_Arm_parentConstraint1.w0" "Right_Front_Suspension_Arm_parentConstraint1.tg[0].tw"
 		;
@@ -38304,14 +38758,14 @@ connectAttr "right_front_wheel_turn.is" "Right_Front_Turning_Cube_parentConstrai
 		;
 connectAttr "Right_Front_Turning_Cube_parentConstraint1.w0" "Right_Front_Turning_Cube_parentConstraint1.tg[0].tw"
 		;
-connectAttr "pairBlend5.otx" "Rover_Geo_Fixed:Left_Suspension_Hip_Geo.tx";
-connectAttr "pairBlend5.oty" "Rover_Geo_Fixed:Left_Suspension_Hip_Geo.ty";
-connectAttr "pairBlend5.otz" "Rover_Geo_Fixed:Left_Suspension_Hip_Geo.tz";
+connectAttr "pairBlend24.otx" "Rover_Geo_Fixed:Left_Suspension_Hip_Geo.tx";
+connectAttr "pairBlend24.oty" "Rover_Geo_Fixed:Left_Suspension_Hip_Geo.ty";
+connectAttr "pairBlend24.otz" "Rover_Geo_Fixed:Left_Suspension_Hip_Geo.tz";
 connectAttr "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_visibility.o" "Rover_Geo_Fixed:Left_Suspension_Hip_Geo.v"
 		;
-connectAttr "pairBlend5.orx" "Rover_Geo_Fixed:Left_Suspension_Hip_Geo.rx";
-connectAttr "pairBlend5.ory" "Rover_Geo_Fixed:Left_Suspension_Hip_Geo.ry";
-connectAttr "pairBlend5.orz" "Rover_Geo_Fixed:Left_Suspension_Hip_Geo.rz";
+connectAttr "pairBlend24.orx" "Rover_Geo_Fixed:Left_Suspension_Hip_Geo.rx";
+connectAttr "pairBlend24.ory" "Rover_Geo_Fixed:Left_Suspension_Hip_Geo.ry";
+connectAttr "pairBlend24.orz" "Rover_Geo_Fixed:Left_Suspension_Hip_Geo.rz";
 connectAttr "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_scaleX.o" "Rover_Geo_Fixed:Left_Suspension_Hip_Geo.sx"
 		;
 connectAttr "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_scaleY.o" "Rover_Geo_Fixed:Left_Suspension_Hip_Geo.sy"
@@ -38330,28 +38784,36 @@ connectAttr "Rover_Geo_Fixed:Left_Suspension_Hip_Geo.rp" "Left_Suspension_Hip_Ge
 		;
 connectAttr "Rover_Geo_Fixed:Left_Suspension_Hip_Geo.rpt" "Left_Suspension_Hip_Geo_parentConstraint1.crt"
 		;
-connectAttr "left_hip.t" "Left_Suspension_Hip_Geo_parentConstraint1.tg[0].tt";
-connectAttr "left_hip.rp" "Left_Suspension_Hip_Geo_parentConstraint1.tg[0].trp";
-connectAttr "left_hip.rpt" "Left_Suspension_Hip_Geo_parentConstraint1.tg[0].trt"
+connectAttr "left_back_suspension.t" "Left_Suspension_Hip_Geo_parentConstraint1.tg[0].tt"
 		;
-connectAttr "left_hip.r" "Left_Suspension_Hip_Geo_parentConstraint1.tg[0].tr";
-connectAttr "left_hip.ro" "Left_Suspension_Hip_Geo_parentConstraint1.tg[0].tro";
-connectAttr "left_hip.s" "Left_Suspension_Hip_Geo_parentConstraint1.tg[0].ts";
-connectAttr "left_hip.pm" "Left_Suspension_Hip_Geo_parentConstraint1.tg[0].tpm";
-connectAttr "left_hip.jo" "Left_Suspension_Hip_Geo_parentConstraint1.tg[0].tjo";
-connectAttr "left_hip.ssc" "Left_Suspension_Hip_Geo_parentConstraint1.tg[0].tsc"
+connectAttr "left_back_suspension.rp" "Left_Suspension_Hip_Geo_parentConstraint1.tg[0].trp"
 		;
-connectAttr "left_hip.is" "Left_Suspension_Hip_Geo_parentConstraint1.tg[0].tis";
+connectAttr "left_back_suspension.rpt" "Left_Suspension_Hip_Geo_parentConstraint1.tg[0].trt"
+		;
+connectAttr "left_back_suspension.r" "Left_Suspension_Hip_Geo_parentConstraint1.tg[0].tr"
+		;
+connectAttr "left_back_suspension.ro" "Left_Suspension_Hip_Geo_parentConstraint1.tg[0].tro"
+		;
+connectAttr "left_back_suspension.s" "Left_Suspension_Hip_Geo_parentConstraint1.tg[0].ts"
+		;
+connectAttr "left_back_suspension.pm" "Left_Suspension_Hip_Geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "left_back_suspension.jo" "Left_Suspension_Hip_Geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "left_back_suspension.ssc" "Left_Suspension_Hip_Geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "left_back_suspension.is" "Left_Suspension_Hip_Geo_parentConstraint1.tg[0].tis"
+		;
 connectAttr "Left_Suspension_Hip_Geo_parentConstraint1.w0" "Left_Suspension_Hip_Geo_parentConstraint1.tg[0].tw"
 		;
-connectAttr "pairBlend9.otx" "Rover_Geo_Fixed:Right_Suspension_Hip_Geo.tx";
-connectAttr "pairBlend9.oty" "Rover_Geo_Fixed:Right_Suspension_Hip_Geo.ty";
-connectAttr "pairBlend9.otz" "Rover_Geo_Fixed:Right_Suspension_Hip_Geo.tz";
+connectAttr "pairBlend23.otx" "Rover_Geo_Fixed:Right_Suspension_Hip_Geo.tx";
+connectAttr "pairBlend23.oty" "Rover_Geo_Fixed:Right_Suspension_Hip_Geo.ty";
+connectAttr "pairBlend23.otz" "Rover_Geo_Fixed:Right_Suspension_Hip_Geo.tz";
 connectAttr "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_visibility.o" "Rover_Geo_Fixed:Right_Suspension_Hip_Geo.v"
 		;
-connectAttr "pairBlend9.orx" "Rover_Geo_Fixed:Right_Suspension_Hip_Geo.rx";
-connectAttr "pairBlend9.ory" "Rover_Geo_Fixed:Right_Suspension_Hip_Geo.ry";
-connectAttr "pairBlend9.orz" "Rover_Geo_Fixed:Right_Suspension_Hip_Geo.rz";
+connectAttr "pairBlend23.orx" "Rover_Geo_Fixed:Right_Suspension_Hip_Geo.rx";
+connectAttr "pairBlend23.ory" "Rover_Geo_Fixed:Right_Suspension_Hip_Geo.ry";
+connectAttr "pairBlend23.orz" "Rover_Geo_Fixed:Right_Suspension_Hip_Geo.rz";
 connectAttr "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_scaleX.o" "Rover_Geo_Fixed:Right_Suspension_Hip_Geo.sx"
 		;
 connectAttr "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_scaleY.o" "Rover_Geo_Fixed:Right_Suspension_Hip_Geo.sy"
@@ -38370,22 +38832,25 @@ connectAttr "Rover_Geo_Fixed:Right_Suspension_Hip_Geo.rp" "Right_Suspension_Hip_
 		;
 connectAttr "Rover_Geo_Fixed:Right_Suspension_Hip_Geo.rpt" "Right_Suspension_Hip_Geo_parentConstraint1.crt"
 		;
-connectAttr "right_hip.t" "Right_Suspension_Hip_Geo_parentConstraint1.tg[0].tt";
-connectAttr "right_hip.rp" "Right_Suspension_Hip_Geo_parentConstraint1.tg[0].trp"
+connectAttr "right_back_suspension.t" "Right_Suspension_Hip_Geo_parentConstraint1.tg[0].tt"
 		;
-connectAttr "right_hip.rpt" "Right_Suspension_Hip_Geo_parentConstraint1.tg[0].trt"
+connectAttr "right_back_suspension.rp" "Right_Suspension_Hip_Geo_parentConstraint1.tg[0].trp"
 		;
-connectAttr "right_hip.r" "Right_Suspension_Hip_Geo_parentConstraint1.tg[0].tr";
-connectAttr "right_hip.ro" "Right_Suspension_Hip_Geo_parentConstraint1.tg[0].tro"
+connectAttr "right_back_suspension.rpt" "Right_Suspension_Hip_Geo_parentConstraint1.tg[0].trt"
 		;
-connectAttr "right_hip.s" "Right_Suspension_Hip_Geo_parentConstraint1.tg[0].ts";
-connectAttr "right_hip.pm" "Right_Suspension_Hip_Geo_parentConstraint1.tg[0].tpm"
+connectAttr "right_back_suspension.r" "Right_Suspension_Hip_Geo_parentConstraint1.tg[0].tr"
 		;
-connectAttr "right_hip.jo" "Right_Suspension_Hip_Geo_parentConstraint1.tg[0].tjo"
+connectAttr "right_back_suspension.ro" "Right_Suspension_Hip_Geo_parentConstraint1.tg[0].tro"
 		;
-connectAttr "right_hip.ssc" "Right_Suspension_Hip_Geo_parentConstraint1.tg[0].tsc"
+connectAttr "right_back_suspension.s" "Right_Suspension_Hip_Geo_parentConstraint1.tg[0].ts"
 		;
-connectAttr "right_hip.is" "Right_Suspension_Hip_Geo_parentConstraint1.tg[0].tis"
+connectAttr "right_back_suspension.pm" "Right_Suspension_Hip_Geo_parentConstraint1.tg[0].tpm"
+		;
+connectAttr "right_back_suspension.jo" "Right_Suspension_Hip_Geo_parentConstraint1.tg[0].tjo"
+		;
+connectAttr "right_back_suspension.ssc" "Right_Suspension_Hip_Geo_parentConstraint1.tg[0].tsc"
+		;
+connectAttr "right_back_suspension.is" "Right_Suspension_Hip_Geo_parentConstraint1.tg[0].tis"
 		;
 connectAttr "Right_Suspension_Hip_Geo_parentConstraint1.w0" "Right_Suspension_Hip_Geo_parentConstraint1.tg[0].tw"
 		;
@@ -38661,27 +39126,6 @@ connectAttr "polySeparate4.out[0]" "groupParts9.ig";
 connectAttr "groupId11.id" "groupParts9.gi";
 connectAttr "polySeparate4.out[1]" "groupParts10.ig";
 connectAttr "groupId12.id" "groupParts10.gi";
-connectAttr "Rover_Geo_Fixed:Left_Suspension_Hip_Geo.blendParent1" "pairBlend5.w"
-		;
-connectAttr "Rover_Geo_Fixed:Left_Suspension_Hip_Geo.ro" "pairBlend5.ro";
-connectAttr "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_translateX.o" "pairBlend5.itx1"
-		;
-connectAttr "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_translateY.o" "pairBlend5.ity1"
-		;
-connectAttr "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_translateZ.o" "pairBlend5.itz1"
-		;
-connectAttr "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_rotateX.o" "pairBlend5.irx1"
-		;
-connectAttr "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_rotateY.o" "pairBlend5.iry1"
-		;
-connectAttr "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_rotateZ.o" "pairBlend5.irz1"
-		;
-connectAttr "Left_Suspension_Hip_Geo_parentConstraint1.ctx" "pairBlend5.itx2";
-connectAttr "Left_Suspension_Hip_Geo_parentConstraint1.cty" "pairBlend5.ity2";
-connectAttr "Left_Suspension_Hip_Geo_parentConstraint1.ctz" "pairBlend5.itz2";
-connectAttr "Left_Suspension_Hip_Geo_parentConstraint1.crx" "pairBlend5.irx2";
-connectAttr "Left_Suspension_Hip_Geo_parentConstraint1.cry" "pairBlend5.iry2";
-connectAttr "Left_Suspension_Hip_Geo_parentConstraint1.crz" "pairBlend5.irz2";
 connectAttr "|Rover|Rover_Geo_Fixed:RoverGeo|Rover_Geo_Fixed:Left_Suspension_Bar_Geo|Suspension_Arm|transform5|Suspension_ArmShape.o" "polySeparate5.ip"
 		;
 connectAttr "polySeparate5.out[0]" "groupParts11.ig";
@@ -38736,27 +39180,6 @@ connectAttr "Left_Wheel_3_Geo_parentConstraint1.ctz" "pairBlend8.itz2";
 connectAttr "Left_Wheel_3_Geo_parentConstraint1.crx" "pairBlend8.irx2";
 connectAttr "Left_Wheel_3_Geo_parentConstraint1.cry" "pairBlend8.iry2";
 connectAttr "Left_Wheel_3_Geo_parentConstraint1.crz" "pairBlend8.irz2";
-connectAttr "Rover_Geo_Fixed:Right_Suspension_Hip_Geo.blendParent1" "pairBlend9.w"
-		;
-connectAttr "Rover_Geo_Fixed:Right_Suspension_Hip_Geo.ro" "pairBlend9.ro";
-connectAttr "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_translateX.o" "pairBlend9.itx1"
-		;
-connectAttr "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_translateY.o" "pairBlend9.ity1"
-		;
-connectAttr "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_translateZ.o" "pairBlend9.itz1"
-		;
-connectAttr "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_rotateX.o" "pairBlend9.irx1"
-		;
-connectAttr "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_rotateY.o" "pairBlend9.iry1"
-		;
-connectAttr "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_rotateZ.o" "pairBlend9.irz1"
-		;
-connectAttr "Right_Suspension_Hip_Geo_parentConstraint1.ctx" "pairBlend9.itx2";
-connectAttr "Right_Suspension_Hip_Geo_parentConstraint1.cty" "pairBlend9.ity2";
-connectAttr "Right_Suspension_Hip_Geo_parentConstraint1.ctz" "pairBlend9.itz2";
-connectAttr "Right_Suspension_Hip_Geo_parentConstraint1.crx" "pairBlend9.irx2";
-connectAttr "Right_Suspension_Hip_Geo_parentConstraint1.cry" "pairBlend9.iry2";
-connectAttr "Right_Suspension_Hip_Geo_parentConstraint1.crz" "pairBlend9.irz2";
 connectAttr "Rover_Geo_Fixed:Right_Wheel_1_Geo.blendParent1" "pairBlend10.w";
 connectAttr "Rover_Geo_Fixed:Right_Wheel_1_Geo.ro" "pairBlend10.ro";
 connectAttr "Rover_Geo_Fixed:Right_Wheel_1_Geo_translateX.o" "pairBlend10.itx1";
@@ -39000,6 +39423,48 @@ connectAttr "Rover_Geo_Fixed:renderLayerManager.rlmi[0]" "Rover_Geo_Fixed:defaul
 		;
 connectAttr "layerManager.dli[2]" "Controls_layer.id";
 connectAttr "layerManager.dli[3]" "Skeleton_Layer.id";
+connectAttr "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_translateX.o" "pairBlend23.itx1"
+		;
+connectAttr "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_translateY.o" "pairBlend23.ity1"
+		;
+connectAttr "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_translateZ.o" "pairBlend23.itz1"
+		;
+connectAttr "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_rotateX.o" "pairBlend23.irx1"
+		;
+connectAttr "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_rotateY.o" "pairBlend23.iry1"
+		;
+connectAttr "Rover_Geo_Fixed:Right_Suspension_Hip_Geo_rotateZ.o" "pairBlend23.irz1"
+		;
+connectAttr "Rover_Geo_Fixed:Right_Suspension_Hip_Geo.blendParent1" "pairBlend23.w"
+		;
+connectAttr "Rover_Geo_Fixed:Right_Suspension_Hip_Geo.ro" "pairBlend23.ro";
+connectAttr "Right_Suspension_Hip_Geo_parentConstraint1.ctx" "pairBlend23.itx2";
+connectAttr "Right_Suspension_Hip_Geo_parentConstraint1.cty" "pairBlend23.ity2";
+connectAttr "Right_Suspension_Hip_Geo_parentConstraint1.ctz" "pairBlend23.itz2";
+connectAttr "Right_Suspension_Hip_Geo_parentConstraint1.crx" "pairBlend23.irx2";
+connectAttr "Right_Suspension_Hip_Geo_parentConstraint1.cry" "pairBlend23.iry2";
+connectAttr "Right_Suspension_Hip_Geo_parentConstraint1.crz" "pairBlend23.irz2";
+connectAttr "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_translateX.o" "pairBlend24.itx1"
+		;
+connectAttr "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_translateY.o" "pairBlend24.ity1"
+		;
+connectAttr "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_translateZ.o" "pairBlend24.itz1"
+		;
+connectAttr "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_rotateX.o" "pairBlend24.irx1"
+		;
+connectAttr "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_rotateY.o" "pairBlend24.iry1"
+		;
+connectAttr "Rover_Geo_Fixed:Left_Suspension_Hip_Geo_rotateZ.o" "pairBlend24.irz1"
+		;
+connectAttr "Rover_Geo_Fixed:Left_Suspension_Hip_Geo.blendParent1" "pairBlend24.w"
+		;
+connectAttr "Rover_Geo_Fixed:Left_Suspension_Hip_Geo.ro" "pairBlend24.ro";
+connectAttr "Left_Suspension_Hip_Geo_parentConstraint1.ctx" "pairBlend24.itx2";
+connectAttr "Left_Suspension_Hip_Geo_parentConstraint1.cty" "pairBlend24.ity2";
+connectAttr "Left_Suspension_Hip_Geo_parentConstraint1.ctz" "pairBlend24.itz2";
+connectAttr "Left_Suspension_Hip_Geo_parentConstraint1.crx" "pairBlend24.irx2";
+connectAttr "Left_Suspension_Hip_Geo_parentConstraint1.cry" "pairBlend24.iry2";
+connectAttr "Left_Suspension_Hip_Geo_parentConstraint1.crz" "pairBlend24.irz2";
 connectAttr "multiplyDivide1.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "pasted__multiplyDivide1.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
