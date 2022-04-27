@@ -1,6 +1,6 @@
 //Maya ASCII 2022 scene
 //Name: SpiderBot.ma
-//Last modified: Tue, Mar 29, 2022 02:46:33 PM
+//Last modified: Tue, Mar 29, 2022 03:07:50 PM
 //Codeset: 1252
 requires maya "2022";
 requires "stereoCamera" "10.0";
@@ -13,17 +13,17 @@ fileInfo "version" "2022";
 fileInfo "cutIdentifier" "202106180615-26a94e7f8c";
 fileInfo "osv" "Windows 10 Home v2009 (Build: 19044)";
 fileInfo "license" "student";
-fileInfo "UUID" "02247EC7-4778-1C2F-7091-4AB5C004313C";
+fileInfo "UUID" "2C09787F-4E47-9657-DF82-E8BEF04D18BC";
 createNode transform -s -n "persp";
 	rename -uid "2C7FB34D-47D8-3F54-99F3-53B1CD23A427";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 3.8082714849575385 5.312417477119646 17.740905462687351 ;
-	setAttr ".r" -type "double3" 345.86164577895431 6469.3999999994012 2.0223575005604288e-16 ;
+	setAttr ".t" -type "double3" 3.355379433973849 35.99093660769006 31.622020542677859 ;
+	setAttr ".r" -type "double3" 314.66164550991095 6483.7999999996091 1.9922266493718641e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "113807D5-483A-E7F6-4060-27B347736CC2";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 17.481281715955205;
+	setAttr ".coi" 42.232203432971424;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -18762,7 +18762,7 @@ createNode poseInterpolatorManager -n "poseInterpolatorManager";
 	rename -uid "A0A87ACB-40AB-9409-EE3F-EC9CA0D92A74";
 createNode displayLayerManager -n "layerManager";
 	rename -uid "84D19814-481F-C939-69A6-409E599FE05B";
-	setAttr ".cdl" 3;
+	setAttr ".cdl" 2;
 	setAttr -s 4 ".dli[1:3]"  1 2 3;
 	setAttr -s 4 ".dli";
 createNode displayLayer -n "defaultLayer";
@@ -18971,6 +18971,8 @@ createNode groupId -n "groupId165";
 	setAttr ".ihi" 0;
 createNode displayLayer -n "Skeleton";
 	rename -uid "0A22C77B-4F7E-5959-5EA4-D683031D4352";
+	setAttr ".dt" 2;
+	setAttr ".v" no;
 	setAttr ".do" 2;
 createNode ikRPsolver -n "ikRPsolver";
 	rename -uid "820AB80B-442B-A833-BFBD-B79EC499FFC4";
